@@ -19,7 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/postregister', [LoginController::class, 'postRegister'])->name('postregister');
 
@@ -27,6 +26,12 @@ Route::get('/login', [LoginController::class, 'loginPage'])->name('login');
 Route::post('/postlogin', [LoginController::class, 'postLogin'])->name('postlogin');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::group(['middleware' => ['auth','checkroles:admin,user']], function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('index');
+// Route::get('/about',[])
+
+Route::group(['middleware' => ['auth', 'checkroles:user']], function () {
+    // Route::
+});
+
+Route::group(['middleware' => ['auth', 'checkroles:admin']], function () {
+    Route::get('/admin', [HomeController::class, 'index'])->name('index');
 });

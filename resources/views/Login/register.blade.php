@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,87 +20,133 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 </head>
+
 <body class="hold-transition register-page">
-<div class="register-box">
-  <div class="register-logo">
-    <a href="{{url('/')}}"><b>Admin</b>LTE</a>
-  </div>
+  <div class="register-box">
+    <div class="register-logo">
+      <a href="{{url('/')}}"><b>Admin</b>LTE</a>
+    </div>
 
-  <div class="card">
-    <div class="card-body register-card-body">
-      <p class="login-box-msg">Register a new membership</p>
+    <div class="card">
+      <div class="card-body register-card-body">
+        <p class="login-box-msg">Register a new membership</p>
 
-      <form action="{{route('postregister')}}" method="post">
-        {{ csrf_field() }}
-        <div class="input-group mb-3">
-          <input type="text" class="form-control "name="name" placeholder="Full name">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
+        <form action="{{route('postregister')}}" method="post" enctype="multipart/form-data">
+          {{ csrf_field() }}
+          <div class="input-group mb-3">
+            <input type="text" class="form-control " name="name" placeholder="Full name" value="{{old('name')}}">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" name="noTelepon" placeholder="Phone number">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-phone"></span>
+          <p class="errorMsg" style="font-size:12px; color:red;">@error('name')
+            {{ $message }}
+            @enderror
+          </p>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="noTelepon" placeholder="Phone number" value="{{old('noTelepon')}}">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-phone"></span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" name="alamat" placeholder="Address">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-home"></span>
+          <p class="errorMsg" style="font-size:12px; color:red;">@error('noTelepon')
+            {{ $message }}
+            @enderror
+          </p>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="alamat" placeholder="Address" value="{{old('alamat')}}">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-home"></span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="email" class="form-control" name="email" placeholder="Email">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
+          <p class="errorMsg" style="font-size:12px; color:red;">@error('alamat')
+            {{ $message }}
+            @enderror
+          </p>
+          <div class="input-group mb-3">
+            <input type="date" class="form-control" name="tanggalLahir" placeholder="Birth Date" value="{{old('tanggalLahir')}}">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-calendar-alt"></span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" name="password" placeholder="Password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+          <p class="errorMsg" style="font-size:12px; color:red;">@error('tanggalLahir')
+            {{ $message }}
+            @enderror
+          </p>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="email" placeholder="Email" value="{{old('email')}}">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="input-group mb-3">
+          <p class="errorMsg" style="font-size:12px; color:red;">@error('email')
+            {{ $message }}
+            @enderror
+          </p>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" name="password" placeholder="Password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <p class="errorMsg" style="font-size:12px; color:red;">@error('password')
+            {{ $message }}
+            @enderror
+          </p>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text">Photos</span>
+              <span class="input-group-text">Photos</span>
             </div>
             <div class="custom-file">
-              <input type="file" class="custom-file-input" name="foto" >
-            <label class="custom-file-label" for="inputGroupFile01">Choose file...</label>
-             </div>
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
+              <input type="file" class="custom-file-input" name="foto">
+              <label class="custom-file-label" for="inputGroupFile01">Choose file...</label>
             </div>
           </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
+          <p class="errorMsg" style="font-size:12px; color:red;">@error('foto')
+            {{ $message }}
+            @enderror
+          </p>
+          <div class="row">
+            <div class="col-8">
+              <div class="icheck-primary">
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+              <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </div>
+            <!-- /.col -->
           </div>
-          <!-- /.col -->
-        </div>
-      </form>
+        </form>
 
 
-      <a href="{{route('login')}}" class="text-center">I already have a membership</a>
-    </div>
-    <!-- /.form-box -->
-  </div><!-- /.card -->
-</div>
-<!-- /.register-box -->
-@include('Template.script')
+        <a href="{{route('login')}}" class="text-center">I already have a membership</a>
+      </div>
+      <!-- /.form-box -->
+    </div><!-- /.card -->
+  </div>
+  <!-- /.register-box -->
+  @include('Template.script')
 </body>
+
 </html>
