@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,10 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('welcome');
+Route::get('/', [LoginController::class, 'index'])->name('welcome');
 
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/postregister', [LoginController::class, 'postRegister'])->name('postregister');
@@ -29,7 +31,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 // Route::get('/about',[])
 
 Route::group(['middleware' => ['auth', 'checkroles:user']], function () {
-    // Route::
+    Route::get('/myProfile', [UserController::class, 'index'])->name('myProfile');
 });
 
 Route::group(['middleware' => ['auth', 'checkroles:admin']], function () {

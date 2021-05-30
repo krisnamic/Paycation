@@ -14,8 +14,20 @@ use App\Models\User;
 
 class LoginController extends Controller
 {
-    public function loginPage()
+    public function index(Request $request)
     {
+        if ($request->session()->get('user_id')) {
+            $user_id = $request->session()->get('user_id');
+            $user[0] = User::where('id', $user_id)->get();
+            return view('welcome', ['user' => $user]);
+        }
+        return view('welcome');
+    }
+    public function loginPage(Request $request)
+    {
+        if ($request->session()->get('user_id') || $request->session()->get('admin_is_loggedin')) {
+            return back();
+        }
         return view('Login.login');
     }
 
@@ -47,12 +59,11 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate(); //membuat session yang baru
             if ($role == 'admin') {
+                Session::put('admin_is_loggedin', 'loggedin');
                 return redirect()->intended('/admin');
             } else {
                 Session::put('user_id', $user_id);
-                $user = User::where('id', $user_id)->get();
-                // return redirect()->intended('/');
-                return view('welcome', $user);
+                return redirect('/');
             }
         } else { //Login Fail
             Session::flash('error', 'Email or password is incorrect.');
@@ -68,8 +79,11 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
         return redirect('/');
     }
-    public function register()
+    public function register(Request $request)
     {
+        if ($request->session()->get('user_id') || $request->session()->get('admin_is_loggedin')) {
+            return back();
+        }
         return view('Login.register');
     }
 

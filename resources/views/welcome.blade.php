@@ -41,10 +41,13 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        dropdown
+                        <img src="" alt="user_image">
+                        @if(Session::has('user_id'))
+                        {{$user[0][0]->name}}
+                        @endif
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">View My Profile</a>
+                        <a class="dropdown-item" href="{{route('myProfile')}}">View My Profile</a>
                         <a href="{{ url('/logout') }}" class="dropdown-item">Logout</a>
                     </div>
                 </li>
