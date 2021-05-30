@@ -41,7 +41,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="" alt="user_image">
+                        <img src="{{asset('img/userProfile/default.png')}}" alt="user_image" width="35px" style="border-radius:50%">
                         @if(Session::has('user_id'))
                         {{$user[0][0]->name}}
                         @endif
