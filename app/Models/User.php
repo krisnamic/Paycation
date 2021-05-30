@@ -22,6 +22,7 @@ class User extends Authenticatable
         'password',
         'noTelepon',
         'alamat',
+        'tanggalLahir',
         'foto',
         'role',
     ];

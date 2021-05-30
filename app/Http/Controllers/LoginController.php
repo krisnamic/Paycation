@@ -5,34 +5,129 @@ namespace App\Http\Controllers;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
+use App\Models\User;
 
 class LoginController extends Controller
 {
     public function loginPage()
     {
         return view('Login.login');
-    }   
+    }
 
     public function postLogin(Request $request)
     {
-        if(Auth::attempt($request->only('email','password'))){
-            return redirect('/home');
+        //cek rule terlebih dahulu
+        $rules = [
+            'email' => 'required|email',
+            'password' => 'required',
+            // 'captcha' => 'required|captcha',
+        ];
+        //pesan error untuk setiap rule
+        $messages = [
+            'email.required'        => 'Please enter your email.',
+            'email.email'           => 'Email is not valid.',
+            'password.required'     => 'Please enter your password.',
+        ];
+        //validasi rule
+        $validator = Validator::make($request->all(), $rules, $messages);
+        //jika terdapat validasi yang salah
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput($request->all);
         }
-        return redirect('/');
-    }   
+        //mengambil role dan id user/admin yang login
+        $role = DB::table('users')->where('email', $request->email)->value('role');
+        $user_id = DB::table('users')->where('email', $request->email)->value('id');
+        $credentials = $request->only('email', 'password');
+        //melakukan authentikasi terhadap email dan password yang dimasukkan user/admin
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate(); //membuat session yang baru
+            if ($role == 'admin') {
+                return redirect()->intended('/admin');
+            } else {
+                Session::put('user_id', $user_id);
+                $user = User::where('id', $user_id)->get();
+                // return redirect()->intended('/');
+                return view('welcome', $user);
+            }
+        } else { //Login Fail
+            Session::flash('error', 'Email or password is incorrect.');
+            return redirect()->route('login');
+        }
+    }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
+        Session::flush();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect('/');
-    }   
+    }
     public function register()
     {
         return view('Login.register');
-    }   
+    }
 
     public function postRegister(Request $request)
     {
-        dd($request->all());
+
+        // dd($request->all());
+        $rules = [
+            'name'                  => 'required',
+            'email'                 => 'required|email|unique:users,email',
+            'password'              => 'required|min:8|confirmed',
+            'alamat'                => 'required',
+            'noTelepon'             => 'required|numeric',
+            'tanggalLahir'          => 'required',
+            //foto opsional, klo g diisi, pake foto default
+            'foto'                  => 'mimes:jpg,jpeg,png'
+        ];
+
+        $messages = [
+            'name.required'         => 'Please enter your full name.',
+            'email.required'        => 'Please enter your email.',
+            'email.email'           => 'Email is not valid.',
+            'email.unique'          => 'Email has already been registered.',
+            'password.required'     => 'Please enter your password.',
+            'password.confirmed'    => 'Password and Password confirmation did not match.',
+            'alamat'                => 'Please enter your address.',
+            'noTelepon.required'    => 'Please enter your phone number.',
+            'noTelepon.numeric'     => 'Phone Number must be numerical.',
+            'tanggalLahir'          => 'Please enter your birth date',
+            'foto'                  => 'Photo must be an image type'
+        ];
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput($request->all);
+        }
+
+        $user = new User;
+        $user->name = ucwords(strtolower($request->name));
+        $user->email = strtolower($request->email);
+        $user->password = Hash::make($request->password);
+        $user->email_verified_at = now();
+        $user->noTelepon = $request->noTelepon;
+        $user->tanggalLahir = $request->tanggalLahir;
+        $user->foto = $request->foto->getClientOriginalName();
+        $user->alamat = $request->alamat;
+        $user->role = 'user';
+        $user->remember_token =  Str::random(60);
+        $user->created_at = now();
+        $user->updated_at = now();
+
+        $save = $user->save();
+        if ($save) {
+            Session::flash('success', 'Register successful! You may login to access your data.');
+            return redirect()->route('login');
+        } else {
+            Session::flash('errors', 'Register failed! Please try again.');
+            return redirect()->route('register');
+        }
     }
 }
