@@ -14,7 +14,7 @@
     @include('Template/userNavbar')
     <!-- end of navbar -->
     <div class="container">
-        <h1>User Profile Page</h1>
+        <h1>User Edit Profile Page</h1>
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">

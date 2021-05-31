@@ -23,7 +23,7 @@
                     @endif
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <form action="" method="GET">
+                    <form action="{{route('user.index')}}" method="GET">
                         <button type="submit" name="viewProfile">View My Profile</button>
                     </form>
                     <a href="{{ url('/logout') }}" class="dropdown-item">Logout</a>
