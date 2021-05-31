@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -62,8 +65,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user[0] = User::where('id', $id)->get();
-        return view('user.editProfile', ['user' => $user]);
+        if ($id == session('user_id')) {
+            $user[0] = User::where('id', $id)->get();
+            return view('user.editProfile', ['user' => $user]);
+        } else {
+            return back();
+        }
     }
 
     /**
@@ -75,7 +82,65 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if ($request->newPassword !== null) {
+            $rules = [
+                'newPassword'           => 'min:8',
+                'noTelepon'             => 'numeric',
+                //foto opsional, klo g diisi, pake foto default
+                'foto'                  => 'image|mimes:jpg,jpeg,png'
+            ];
+            $messages = [
+                'newPassword.required'     => 'Please enter your password.',
+                'noTelepon.numeric'     => 'Phone Number must be numerical.',
+                'foto.image'                  => 'Photo must be an image type',
+                'foto.mimes'            => 'file type allowed only jpg, jpeg and png only'
+            ];
+        } else {
+            $rules = [
+                'noTelepon'             => 'numeric',
+                //foto opsional, klo g diisi, pake foto default
+                'foto'                  => 'image|mimes:jpg,jpeg,png'
+            ];
+            $messages = [
+                'noTelepon.numeric'     => 'Phone Number must be numerical.',
+                'foto.image'                  => 'Photo must be an image type',
+                'foto.mimes'            => 'file type allowed only jpg, jpeg and png only'
+            ];
+        }
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput($request->all);
+        }
+        $user = User::find($id);
+        if ($request->foto != '') {
+            $path = public_path() . '/img/userProfile/';
+            if ($user->foto != ''  && $user->foto != null) {
+                $file_old = $path . $user->foto;
+                if ($user->foto !== 'default.png') {
+                    unlink($file_old);
+                }
+            }
+            //upload new file
+            $file = $request->foto;
+            $filename = time() . rand(1, 99999) . '.' . $request->foto->getClientOriginalExtension();
+            $file->move($path, $filename);
+
+            //for update in table
+            $user->foto = $filename;
+        }
+        $user->update([
+            'name'  => $request->name,
+            'noTelepon' => $request->noTelepon,
+            'alamat' => $request->alamat,
+            'tanggalLahir' => $request->tanggalLahir,
+        ]);
+        if ($request->newPassword !== null) {
+            $user->password = Hash::make($request->newPassword);
+            $save = $user->save();
+            return redirect('logout');
+        }
+        return back();
     }
 
     /**

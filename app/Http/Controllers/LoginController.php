@@ -73,7 +73,7 @@ class LoginController extends Controller
     }
     public function refreshCaptcha()
     {
-        return response()->json(['captcha'=> captcha_img()]);
+        return response()->json(['captcha' => captcha_img()]);
     }
 
     public function logout(Request $request)
@@ -102,7 +102,7 @@ class LoginController extends Controller
             'noTelepon'             => 'required|numeric',
             'tanggalLahir'          => 'required',
             //foto opsional, klo g diisi, pake foto default
-            'foto'                  => 'mimes:jpg,jpeg,png'
+            'foto'                  => 'image|mimes:jpg,jpeg,png'
         ];
 
         $messages = [
