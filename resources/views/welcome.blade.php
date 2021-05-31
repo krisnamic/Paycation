@@ -31,10 +31,11 @@
                 if (scroll >= window.innerHeight) { 
                     sticky.addClass('fixed'); 
                     text.css('margin-top', '3.5rem');
-                    sticky.css('width', window.innerWidth);
+                    sticky.css('width', '100%');
                 } else { 
                     sticky.removeClass('fixed');
                     text.css('margin-top', '0');
+                    sticky.css('width', '');
                 }
             });
         </script>
