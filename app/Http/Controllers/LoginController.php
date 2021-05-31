@@ -38,7 +38,7 @@ class LoginController extends Controller
         $rules = [
             'email' => 'required|email',
             'password' => 'required',
-            // 'captcha' => 'required|captcha',
+            'captcha' => 'required|captcha',
         ];
         //pesan error untuk setiap rule
         $messages = [
@@ -70,6 +70,10 @@ class LoginController extends Controller
             Session::flash('error', 'Email or password is incorrect.');
             return redirect()->route('login');
         }
+    }
+    public function refreshCaptcha()
+    {
+        return response()->json(['captcha'=> captcha_img()]);
     }
 
     public function logout(Request $request)
