@@ -28,7 +28,7 @@
                 var sticky = $('.menu'), scroll = $(window).scrollTop(); 
                 var text = $('.test');
                 
-                if (scroll >= 668) { 
+                if (scroll >= window.innerHeight) { 
                     sticky.addClass('fixed'); 
                     text.css('margin-top', '3.5rem');
                 } else { 
