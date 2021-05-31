@@ -18,6 +18,8 @@
   <link rel="stylesheet" href="{{asset('AdminLTE/dist/css/adminlte.min.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css"href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body class="hold-transition login-page">
@@ -63,13 +65,39 @@
             <div class="col-8">
               <div class="icheck-primary">
 
+        
               </div>
             </div>
-            <!-- /.col -->
-            <div class="col-4">
-              <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-            </div>
-            <!-- /.col -->
+
+             <!-- captcha -->
+              <div class="input-group mb-3" style="margin-top: 10px !important;">
+                <div class="captcha">
+                  <span>{!! captcha_img() !!}</span>
+                  <button type="button" class="btn btn-danger" class="refresh-captcha" id="refresh-captcha">
+                    &#x21bb;
+                  </button>
+                </div>
+              </div>
+
+              <div class="input-group mb-3" style="margin-top: 10px !important;">
+                <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-recycle"></span>
+                  </div>
+                </div>
+              </div>
+              <p class="errorMsg" style="font-size:12px; color:red;">@error('captcha')
+                {{ $message }}
+                @enderror
+              </p>
+
+              @if(Session::has('error'))
+              <p class="errorMsg" class="font-size:12px; color:red;">{{ Session::get('error') }}</p>
+              @endif
+              <div class="col-4">
+                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+              </div>
           </div>
         </form>
 
@@ -89,6 +117,17 @@
   <!-- AdminLTE App -->
   <script src="{{asset('AdminLTE/dist/js/adminlte.min.js')}}"></script>
 
+  <script type="text/javascript">
+    $('#refresh-captcha').click(function() {
+      $.ajax({
+        type: 'GET',
+        url: 'refresh-captcha',
+        success: function(data) {
+          $(".captcha span").html(data.captcha);
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

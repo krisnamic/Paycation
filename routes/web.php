@@ -20,6 +20,8 @@ use App\Http\Controllers\UserController;
 //     return view('welcome');
 // })->name('welcome');
 Route::get('/', [LoginController::class, 'index'])->name('welcome');
+Route::get('/refresh-captcha', [LoginController::class, 'refreshCaptcha'])->name('refreshcaptcha');
+
 
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/postregister', [LoginController::class, 'postRegister'])->name('postregister');
