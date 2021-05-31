@@ -12,17 +12,26 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Illuminate\Http\UploadedFile;
 use App\Models\User;
+use App\Models\Hotel;
 
 class LoginController extends Controller
 {
     public function index(Request $request)
     {
+        $hotel = Hotel::all(); //retrieving models
+        // dd($hotel);
+        // return view('welcome', ['barang' => $barang]);
         if ($request->session()->get('user_id')) {
             $user_id = $request->session()->get('user_id');
             $user[0] = User::where('id', $user_id)->get();
-            return view('welcome', ['user' => $user]);
+            return view('welcome', [
+                'user' => $user,
+                'hotel' => $hotel,
+            ]);
         }
-        return view('welcome');
+        return view('welcome', [
+            'hotel' => $hotel,
+        ]);
     }
     public function loginPage(Request $request)
     {

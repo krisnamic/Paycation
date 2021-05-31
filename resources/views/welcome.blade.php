@@ -15,6 +15,10 @@
         body {
             font-family: 'Nunito', sans-serif;
         }
+
+        .checked {
+            color: gold;
+        }
     </style>
 </head>
 
@@ -24,6 +28,35 @@
     <!-- navbar -->
     @include('Template/userNavbar')
     <!-- end of navbar -->
+
+    <!-- content -->
+    <div class="row row-cols-4">
+        @foreach($hotel as $h)
+        <div class="container mt-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{{asset('img/hotel/'.$h->gambarHotel)}}" class="card-img-top" alt="hotel_image">
+                <div class="card-body">
+                    <p>{{$h->id}}</p>
+                    <p>{{$h->namaHotel}}</p>
+                    <p>{{$h->lokasi}}</p>
+                    <p>Rating :
+                        @php ($lol = 5)
+                        @for($i = 0; $i < $h->bintang; $i++)
+                            <span class="fas fa-star checked"></span>
+                            @php ($lol -= 1)
+                            @endfor
+                            @while($lol > 0)
+                            <span class="fas fa-star"></span>
+                            @php ($lol -= 1)
+                            @endwhile
+                    </p>
+                    <p>Price : {{$h->hargaKamar}}</p>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+    <!-- end of content -->
 
     @include('Template/script')
 </body>
