@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
+use Illuminate\Http\UploadedFile;
 use App\Models\User;
 
 class LoginController extends Controller
@@ -89,8 +90,6 @@ class LoginController extends Controller
 
     public function postRegister(Request $request)
     {
-
-        // dd($request->all());
         $rules = [
             'name'                  => 'required',
             'email'                 => 'required|email|unique:users,email',
@@ -116,7 +115,6 @@ class LoginController extends Controller
             'foto'                  => 'Photo must be an image type'
         ];
         $validator = Validator::make($request->all(), $rules, $messages);
-
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput($request->all);
         }
@@ -128,13 +126,20 @@ class LoginController extends Controller
         $user->email_verified_at = now();
         $user->noTelepon = $request->noTelepon;
         $user->tanggalLahir = $request->tanggalLahir;
-        $user->foto = $request->foto->getClientOriginalName();
+        if ($request->foto == null) {
+            $user->foto = 'default.png';
+        } else {
+            $image = $request->file('foto');
+            $name = time() . rand(1, 99999) . '.' . $request->foto->getClientOriginalExtension();
+            $Path = public_path('/img/userProfile');
+            $image->move($Path, $name);
+            $user->foto = $name;
+        }
         $user->alamat = $request->alamat;
         $user->role = 'user';
         $user->remember_token =  Str::random(60);
         $user->created_at = now();
         $user->updated_at = now();
-
         $save = $user->save();
         if ($save) {
             Session::flash('success', 'Register successful! You may login to access your data.');

@@ -31,7 +31,8 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 // Route::get('/about',[])
 
 Route::group(['middleware' => ['auth', 'checkroles:user']], function () {
-    Route::get('/myProfile', [UserController::class, 'index'])->name('myProfile');
+    // Route::get('/myProfile', [UserController::class, 'index'])->name('myProfile');
+    Route::resource('barang', UserController::class);
 });
 
 Route::group(['middleware' => ['auth', 'checkroles:admin']], function () {
