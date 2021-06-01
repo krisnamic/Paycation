@@ -22,32 +22,35 @@
             </div>
         </div>
         <header class="menu">Navbar</header>
-        <section class="test"><div class="row row-cols-4">
-            @foreach($hotel as $h)
-            <div class="container mt-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="{{asset('img/hotel/'.$h->gambarHotel)}}" class="card-img-top" alt="hotel_image">
-                    <div class="card-body">
-                        <p>{{$h->id}}</p>
-                        <p>{{$h->namaHotel}}</p>
-                        <p>{{$h->lokasi}}</p>
-                        <p>Rating :
-                            @php ($lol = 5)
-                            @for($i = 0; $i < $h->bintang; $i++)
-                                <span class="fas fa-star checked"></span>
-                                @php ($lol -= 1)
-                                @endfor
-                                @while($lol > 0)
-                                <span class="fas fa-star"></span>
-                                @php ($lol -= 1)
-                                @endwhile
-                        </p>
-                        <p>Price : {{$h->hargaKamar}}</p>
+        <section class="test">
+            <div class="d-flex flex-column container">
+                <div class="row row-cols-4" style="display: flex;">
+                    @foreach($hotel as $h)
+                    <div class="col d-flex">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{asset('img/hotel/'.$h->gambarHotel)}}" class="card-img-top" alt="hotel_image">
+                            <div class="card-body">
+                                <p>{{$h->id}}</p>
+                                <p>{{$h->namaHotel}}</p>
+                                <p>{{$h->lokasi}}</p>
+                                <p>Rating :
+                                    @php ($lol = 5)
+                                    @for($i = 0; $i < $h->bintang; $i++)
+                                        <span class="fas fa-star checked"></span>
+                                        @php ($lol -= 1)
+                                        @endfor
+                                        @while($lol > 0)
+                                        <span class="fas fa-star unchecked"></span>
+                                        @php ($lol -= 1)
+                                        @endwhile
+                                </p>
+                                <p>Price : {{$h->hargaKamar}}</p>
+                            </div>
+                        </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
-            @endforeach
-        </div>
         </section>
         @include('Template/footer')
         
@@ -58,11 +61,11 @@
                 
                 if (scroll >= window.innerHeight) { 
                     sticky.addClass('fixed'); 
-                    text.css('margin-top', '3.5rem');
+                    text.css('margin-top', '6rem');
                     sticky.css('width', '100%');
                 } else { 
                     sticky.removeClass('fixed');
-                    text.css('margin-top', '0');
+                    text.css('margin-top', '2rem');
                     sticky.css('width', '');
                 }
             });

@@ -8,6 +8,7 @@ header {
     padding: 20px 40px;
     background: black;
     color: white;
+    z-index: 4;
     
     -webkit-transition: all 0.5s ease;
     -moz-transition: position 10s;
@@ -87,4 +88,12 @@ header {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+.checked {
+    color: gold;
+}
+
+.unchecked {
+    color: #cecece;
 }
