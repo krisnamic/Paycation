@@ -6,7 +6,7 @@
 
 header {
     padding: 20px 40px;
-    background: black;
+    background: #2A2E33;
     color: white;
     z-index: 4;
     
@@ -75,6 +75,7 @@ header {
     position: absolute;
     left: 50%;
     top: 50%;
+    width: clamp(200px, 50%, 600px);
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
