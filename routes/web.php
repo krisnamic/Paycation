@@ -20,6 +20,8 @@ use App\Http\Controllers\UserController;
 //     return view('welcome');
 // })->name('welcome');
 Route::get('/', [LoginController::class, 'index'])->name('welcome');
+Route::get('/refresh-captcha', [LoginController::class, 'refreshCaptcha'])->name('refreshcaptcha');
+
 
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/postregister', [LoginController::class, 'postRegister'])->name('postregister');
@@ -32,7 +34,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth', 'checkroles:user']], function () {
     // Route::get('/myProfile', [UserController::class, 'index'])->name('myProfile');
-    Route::resource('barang', UserController::class);
+    Route::resource('user', UserController::class);
 });
 
 Route::group(['middleware' => ['auth', 'checkroles:admin']], function () {

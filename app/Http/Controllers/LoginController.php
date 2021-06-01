@@ -12,17 +12,26 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Illuminate\Http\UploadedFile;
 use App\Models\User;
+use App\Models\Hotel;
 
 class LoginController extends Controller
 {
     public function index(Request $request)
     {
+        $hotel = Hotel::all(); //retrieving models
+        // dd($hotel);
+        // return view('welcome', ['barang' => $barang]);
         if ($request->session()->get('user_id')) {
             $user_id = $request->session()->get('user_id');
             $user[0] = User::where('id', $user_id)->get();
-            return view('welcome', ['user' => $user]);
+            return view('welcome', [
+                'user' => $user,
+                'hotel' => $hotel,
+            ]);
         }
-        return view('welcome');
+        return view('welcome', [
+            'hotel' => $hotel,
+        ]);
     }
     public function loginPage(Request $request)
     {
@@ -38,7 +47,7 @@ class LoginController extends Controller
         $rules = [
             'email' => 'required|email',
             'password' => 'required',
-            // 'captcha' => 'required|captcha',
+            'captcha' => 'required|captcha',
         ];
         //pesan error untuk setiap rule
         $messages = [
@@ -71,6 +80,10 @@ class LoginController extends Controller
             return redirect()->route('login');
         }
     }
+    public function refreshCaptcha()
+    {
+        return response()->json(['captcha' => captcha_img()]);
+    }
 
     public function logout(Request $request)
     {
@@ -98,7 +111,7 @@ class LoginController extends Controller
             'noTelepon'             => 'required|numeric',
             'tanggalLahir'          => 'required',
             //foto opsional, klo g diisi, pake foto default
-            'foto'                  => 'mimes:jpg,jpeg,png'
+            'foto'                  => 'image|mimes:jpg,jpeg,png'
         ];
 
         $messages = [
