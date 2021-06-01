@@ -1,6 +1,6 @@
 @if (Route::has('login'))
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-primary">
+    <a class="navbar-brand" href="{{route('welcome')}}"><img src="{{asset('img/paycation/paycation-2.svg')}}" alt="logo" type="image/svg+xml" width="130px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
