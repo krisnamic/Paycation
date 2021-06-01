@@ -19,7 +19,7 @@
                 <div class="parallax__layer parallax__layer--back"></div>
             </div>
         </div>
-        <header class="menu">Navbar</header>
+        <header class="menu"><img src="{{ asset('img/paycation/paycation-2.svg')}}" style="width: 100px;"></header>
         <section class="test">
             <div class="d-flex flex-column container">
                 <div class="row row-cols-4" style="display: flex;">

@@ -6,9 +6,10 @@
 
 header {
     padding: 20px 40px;
-    background: #2A2E33;
-    color: white;
+    background: white;
+    color: #2A2E33;
     z-index: 4;
+    border-bottom: 1px solid #cecece;
     
     -webkit-transition: all 0.5s ease;
     -moz-transition: position 10s;
