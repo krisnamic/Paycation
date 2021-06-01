@@ -18,9 +18,13 @@ class CreateHotelTable extends Migration
             $table->string('namaHotel');
             $table->string('deskripsiHotel', 1000);
             $table->integer('hargaKamar');
-            $table->string('gambarHotel');
+            $table->string('gambarHotel1');
+            $table->string('gambarHotel2');
+            $table->string('gambarHotel3');
+            $table->string('gambarHotel4');
+            $table->string('gambarHotel5');
             $table->integer('stokKamar');
-            $table->integer('bintang');
+            $table->float('bintang');
             $table->string('lokasi');
             $table->timestamps();
         });

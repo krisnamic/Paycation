@@ -34,24 +34,33 @@
         @foreach($hotel as $h)
         <div class="container mt-3">
             <div class="card" style="width: 18rem;">
-                <img src="{{asset('img/hotel/'.$h->gambarHotel)}}" class="card-img-top" alt="hotel_image">
-                <div class="card-body">
-                    <p>{{$h->id}}</p>
-                    <p>{{$h->namaHotel}}</p>
-                    <p>{{$h->lokasi}}</p>
-                    <p>Rating :
-                        @php ($lol = 5)
-                        @for($i = 0; $i < $h->bintang; $i++)
-                            <span class="fas fa-star checked"></span>
-                            @php ($lol -= 1)
-                            @endfor
-                            @while($lol > 0)
-                            <span class="fas fa-star"></span>
-                            @php ($lol -= 1)
-                            @endwhile
-                    </p>
-                    <p>Price : {{$h->hargaKamar}}</p>
-                </div>
+                <a href="/{{$h->id}}" style="color: black;">
+                    <img src="{{asset('img/hotel/'.$h->gambarHotel1)}}" class="card-img-top" alt="hotel_image">
+                    <div class="card-body">
+                        <p>{{$h->id}}</p>
+                        <p>{{$h->namaHotel}}</p>
+                        <p>{{$h->lokasi}}</p>
+                        <p>Rating :
+                            @php $rating = $h->bintang; @endphp
+
+                            @foreach(range(1,5) as $i)
+                            <span class="fa-stack" style="width:1em">
+                                <i class="fas fa-star fa-stack-1x" style="color: #CECECE;"></i>
+
+                                @if($rating >0)
+                                @if($rating >0.5)
+                                <i class="fas fa-star checked fa-stack-1x"></i>
+                                @else
+                                <i class="fas fa-star-half checked fa-stack-1x"></i>
+                                @endif
+                                @endif
+                                @php $rating--; @endphp
+                            </span>
+                            @endforeach
+                        </p>
+                        <p>Price : {{$h->hargaKamar}}</p>
+                    </div>
+                </a>
             </div>
         </div>
         @endforeach
