@@ -22,7 +22,33 @@
             </div>
         </div>
         <header class="menu">Navbar</header>
-        <section class="test" style="font-size: 6em;">Sugar plum muffin cookie pastry oat cake icing candy canes chocolate. Gummi bears chupa chups fruitcake dessert jelly. Muffin cookie ice cream soufflé pastry lollipop gingerbread sweet. Unerdwear.com bonbon candy marzipan bonbon gummies chocolate cakegummi bears powder. Unerdwear.com tart halvah chocolate cake dragée liquorice. Sugar plum chocolate bar pastry liquorice dragée jelly powder. Jelly tootsie roll applicake caramels. Marzipan candy tootsie roll donut. Gummies ice cream macaroon applicake.</section>
+        <section class="test"><div class="row row-cols-4">
+            @foreach($hotel as $h)
+            <div class="container mt-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{asset('img/hotel/'.$h->gambarHotel)}}" class="card-img-top" alt="hotel_image">
+                    <div class="card-body">
+                        <p>{{$h->id}}</p>
+                        <p>{{$h->namaHotel}}</p>
+                        <p>{{$h->lokasi}}</p>
+                        <p>Rating :
+                            @php ($lol = 5)
+                            @for($i = 0; $i < $h->bintang; $i++)
+                                <span class="fas fa-star checked"></span>
+                                @php ($lol -= 1)
+                                @endfor
+                                @while($lol > 0)
+                                <span class="fas fa-star"></span>
+                                @php ($lol -= 1)
+                                @endwhile
+                        </p>
+                        <p>Price : {{$h->hargaKamar}}</p>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        </section>
         @include('Template/footer')
         
         <script>
