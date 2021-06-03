@@ -34,6 +34,14 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Route::get('/about',[])
 
+Route::group(['middleware' => ['auth', 'checkrole:admin']], function () {
+    Route::get('/barang', [BarangCRUDController::class, 'index'])->name('barang');
+    Route::post('/barang/ubahStatus', [BarangCRUDController::class, 'ubahStatusPemesanan']);
+    Route::get('/barang/viewOrder', [BarangCRUDController::class, 'viewOrder']);
+    Route::resource('barang', BarangCRUDController::class);
+    Route::post('delete-barang', [BarangCRUDController::class, 'destroy']);
+});
+
 Route::group(['middleware' => ['auth', 'checkroles:user']], function () {
     // Route::get('/myProfile', [UserController::class, 'index'])->name('myProfile');
     Route::resource('user', UserController::class);

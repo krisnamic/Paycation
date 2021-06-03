@@ -6,7 +6,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
 
-@include('Template/head')
+@include('Template/adminHead')
 
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -19,22 +19,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <img src="{{asset('img/paycation/paycation-1-light.svg')}}" alt="AdminLTE Logo">
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
+      @auth
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        <img src="{{asset('img/userProfile/admin.png')}}" alt="admin_image" width="40px" height="40px" style="border-radius:50%">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">Admin</a>
         </div>
       </div>
+      @endauth
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -86,90 +86,129 @@ scratch. This page gets rid of all links and provides the needed markup only.
     @include('Template/header')
     <!-- /.content-header -->
 
-    <!-- Main content -->
     <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+            <div class="container-fluid">
+                <div class="card card-primary card-outline">
+                <div class="card-header">
+                <h5 class="m-0">Manage Products</h5>
+                </div>
+                <div class="card-body">
+                <div>
+                    <div class="d-flex flex-row-reverse" style="margin-right: 1.3em;">
+                        <a class="btn btn-primary" href="{{ route('barang.create') }}"><i class="fas fa-plus"></i> <i class="fas fa-gamepad"></i> &nbsp;Add Console</a>
+                    </div>
+                       
+                    
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
 
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
+                    <div class="card-body">
+                        <table class="table table-bordered" id="datatable-crud">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Room Price</th>
+                                    <th>Room Stock</th>
+                                    <th>Stars</th>
+                                    <th>Location</th>
+                                    <th>Image 1</th>
+                                    <th>Image 2</th>
+                                    <th>Image 3</th>
+                                    <th>Image 4</th>
+                                    <th>Image 5</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
 
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
             </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up the bulk of the card's
-                  content.
-                </p>
-                <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a>
-              </div>
-            </div><!-- /.card -->
-          </div>
-          <!-- /.col-md-6 -->
-          <div class="col-lg-6">
-            <div class="card">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
             </div>
-
-            <div class="card card-primary card-outline">
-              <div class="card-header">
-                <h5 class="m-0">Featured</h5>
-              </div>
-              <div class="card-body">
-                <h6 class="card-title">Special title treatment</h6>
-
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
             </div>
-          </div>
-          <!-- /.col-md-6 -->
-        </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
+            </div>
   </div>
-  <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-    <div class="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  @include('Template/footer')
-</div>
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
 
 @include('Template/script')
+<script src="{{ asset('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('AdminLTE/dist/js/adminlte.min.js') }}"></script>
+        <script type="text/javascript">
+        $(document).ready( function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $('#datatable-crud').DataTable({
+                processing: true,
+                // serverSide: true,
+                ajax: "{{ url('barang') }}",
+                columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'namaHotel', name: 'namaHotel' },
+                    { data: 'deskripsiHotel', name: 'deskripsiHotel' },
+                    { data: 'hargaKamar', name: 'hargaKamar' },
+                    { data: 'stokKamar', name: 'stokKamar' },
+                    { data: 'bintang', name: 'bintang' },
+                    { data: 'lokasi', name: 'lokasi' },
+                    {   data: 'gambarHotel1', 
+                        name: 'gambarHotel1',
+                        render: function (data, type, full, meta) {
+                            return "<img src=\"img/hotel/" + data + "\" height=\"60\"/>";
+                        }
+                    },
+                    {   data: 'gambarHotel2', 
+                        name: 'gambarHotel2',
+                        render: function (data, type, full, meta) {
+                            return "<img src=\"img/hotel/" + data + "\" height=\"60\"/>";
+                        }
+                    },
+                    {   data: 'gambarHotel3', 
+                        name: 'gambarHotel3',
+                        render: function (data, type, full, meta) {
+                            return "<img src=\"img/hotel/" + data + "\" height=\"60\"/>";
+                        }
+                    },
+                    {   data: 'gambarHotel4', 
+                        name: 'gambarHotel4',
+                        render: function (data, type, full, meta) {
+                            return "<img src=\"img/hotel/" + data + "\" height=\"60\"/>";
+                        }
+                    },
+                    {   data: 'gambarHotel5', 
+                        name: 'gambarHotel5',
+                        render: function (data, type, full, meta) {
+                            return "<img src=\"img/hotel/" + data + "\" height=\"60\"/>";
+                        }
+                    },
+                    { data: 'action', orderable: false, targets: 0 }
+                ]
+            });
+            $('body').on('click', '.delete', function () {
+                if (confirm("Delete Hotel Record?") == true) {
+                    var id = $(this).data('id');
+                    // ajax
+                    $.ajax({
+                        type:"POST",
+                        url: "{{ url('delete-barang') }}",
+                        data: { id: id},
+                        dataType: 'json',
+                        success: function(res){
+                            var oTable = $('#datatable-crud').dataTable();
+                            oTable.fnDraw(false);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
