@@ -26,10 +26,11 @@
     @include('Template/head')
 
     <!-- navbar -->
-    @include('Template/userNavbar')
+    @include('Template/navbar')
     <!-- end of navbar -->
 
     <!-- content -->
+    @include('User/search')
     <div class="row row-cols-4">
         @foreach($hotel as $h)
         <div class="container mt-3">
@@ -66,7 +67,7 @@
         @endforeach
     </div>
     <!-- end of content -->
-
+        
     @include('Template/script')
 </body>
 

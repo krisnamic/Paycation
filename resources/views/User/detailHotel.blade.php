@@ -11,7 +11,7 @@
     @include('Template/head')
 
     <!-- navbar -->
-    @include('Template/userNavbar')
+    @include('template/navbar')
     <!-- end of navbar -->
 
     <!-- Content -->

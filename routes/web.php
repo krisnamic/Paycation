@@ -22,6 +22,10 @@ use App\Http\Controllers\UserController;
 // })->name('welcome');
 Route::get('/', [LoginController::class, 'index'])->name('welcome');
 
+//searching
+Route::get('/redirect', [HotelController::class, 'redirect'])->name('back');
+Route::get('/searching', [HotelController::class, 'search'])->name('searching');
+
 Route::get('/refresh-captcha', [LoginController::class, 'refreshCaptcha'])->name('refreshcaptcha');
 
 
