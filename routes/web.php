@@ -5,6 +5,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\CheckRole;
+use PHPUnit\TextUI\XmlConfiguration\Group;
+use App\Http\Controllers\BarangCRUDController;
 
 /*
 |--------------------------------------------------------------------------

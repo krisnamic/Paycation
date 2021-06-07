@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Barang;
+use App\Models\Hotel;
 use Illuminate\Http\Request;
 use Datatables;
 use Illuminate\Support\Facades\DB;
