@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Hotel;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 
 class HotelController extends Controller
 {
@@ -27,4 +28,17 @@ class HotelController extends Controller
             ]);
         }
     }
+
+    public function search(Request $request){
+        $search_text = $_GET['query'];
+        $hotel = Hotel::where('namaHotel','LIKE', '%'.$search_text. '%')
+                        // ->with('hargaKamar')  
+                        ->get();
+        // dd($hotel);
+        return view('welcome', [
+                'hotel' => $hotel
+        ]);
+    }
+
+
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HotelCRUDController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,11 @@ use App\Http\Controllers\UserController;
 //     return view('welcome');
 // })->name('welcome');
 Route::get('/', [LoginController::class, 'index'])->name('welcome');
+
+
+//searching
+Route::get('/redirect', [HotelController::class, 'redirect'])->name('back');
+Route::get('/searching', [HotelController::class, 'search'])->name('searching');
 
 Route::get('/refresh-captcha', [LoginController::class, 'refreshCaptcha'])->name('refreshcaptcha');
 
@@ -40,7 +46,9 @@ Route::group(['middleware' => ['auth', 'checkroles:user']], function () {
 });
 
 Route::group(['middleware' => ['auth', 'checkroles:admin']], function () {
-    Route::get('/admin', [HomeController::class, 'index'])->name('index');
+    Route::get('/hotel', [HotelCRUDController::class, 'index'])->name('hotel');
+    Route::resource('hotels', HotelCRUDController::class);
+    Route::post('delete-hotel', [HotelCRUDController::class,'destroy']);
 });
 
 Route::get('/{id}', [HotelController::class, 'detailHotel'])->name('detailHotel');
