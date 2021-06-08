@@ -19,8 +19,62 @@
                 <div class="parallax__layer parallax__layer--back"></div>
             </div>
         </div>
-        <header class="menu"><img src="{{ asset('img/paycation/paycation-2.svg')}}" style="width: 100px;"></header>
-        <section class="test">
+        <header class="menu">
+            <img src="{{ asset('img/paycation/paycation-2.svg')}}" style="width: 100px;">
+        </header>
+        <section class="test">  
+            <div class="d-flex flex-column container">
+                <div class="row">
+                    <div class="col-4" style="background-color: red;">
+                        <!-- <div class="card-location"> -->
+                            <figure class="card__thumbnail">
+                            <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 400px;">
+                            <span class="card__title">Tangerang</span>
+                            </figure>
+                        <!-- </div> -->
+                    </div>
+                    <div class="col-8">
+                        <div class="row">
+                            <div class="col-6" style="background-color: green;">
+                            <!-- <div class="card-location"> -->
+                                <figure class="card__thumbnail">
+                                <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 200px;">
+                                <span class="card__title">Tangerang</span>
+                                </figure>
+                            <!-- </div> -->
+                            </div>
+                            <div class="col-6" style="background-color: blue;">
+                            <!-- <div class="card-location"> -->
+                                <figure class="card__thumbnail">
+                                <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 200px;">
+                                <span class="card__title">Tangerang</span>
+                                </figure>
+                            <!-- </div> -->
+                            </div>
+                        <div class="col-12" style="background-color: yellow;">
+                        <!-- <div class="card-location"> -->
+                            <figure class="card__thumbnail">
+                            <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 200px;">
+                            <span class="card__title">Tangerang</span>
+                            </figure>
+                        <!-- </div> -->
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="d-flex flex-column container">  
+                <div class="card-location">
+                    <figure class="card__thumbnail">
+                    <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+                    <span class="card__title">Tangerang</span>
+                    </figure>
+                </div>
+            </div> -->
+        </section>
+        <section>
+            <h2 class="text-center my-4">List of Paycation Hotels</h2>
             <div class="d-flex flex-column container">
                 <div class="row row-cols-4" style="display: flex;">
                     @foreach($hotel as $h)
