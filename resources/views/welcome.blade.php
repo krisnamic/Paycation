@@ -24,42 +24,30 @@
         </header>
         <section class="test">  
             <div class="d-flex flex-column container">
-                <div class="row">
-                    <div class="col-4" style="background-color: red;">
-                        <!-- <div class="card-location"> -->
-                            <figure class="card__thumbnail">
-                            <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 400px;">
-                            <span class="card__title">Tangerang</span>
-                            </figure>
-                        <!-- </div> -->
+                <div class="row d-flex justify-content-between">
+                    <div class="card-location">
+                        <figure class="card__thumbnail">
+                        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 400px;">
+                        <span class="card__title">Tangerang</span>
+                        </figure>
                     </div>
-                    <div class="col-8">
-                        <div class="row">
-                            <div class="col-6" style="background-color: green;">
-                            <!-- <div class="card-location"> -->
-                                <figure class="card__thumbnail">
-                                <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 200px;">
-                                <span class="card__title">Tangerang</span>
-                                </figure>
-                            <!-- </div> -->
-                            </div>
-                            <div class="col-6" style="background-color: blue;">
-                            <!-- <div class="card-location"> -->
-                                <figure class="card__thumbnail">
-                                <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 200px;">
-                                <span class="card__title">Tangerang</span>
-                                </figure>
-                            <!-- </div> -->
-                            </div>
-                        <div class="col-12" style="background-color: yellow;">
-                        <!-- <div class="card-location"> -->
-                            <figure class="card__thumbnail">
-                            <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 200px;">
-                            <span class="card__title">Tangerang</span>
-                            </figure>
-                        <!-- </div> -->
-                        </div>
-                        </div>
+                    <div class="card-location">
+                        <figure class="card__thumbnail">
+                        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 400px;">
+                        <span class="card__title">Tangerang</span>
+                        </figure>
+                    </div>
+                    <div class="card-location">
+                        <figure class="card__thumbnail">
+                        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 400px;">
+                        <span class="card__title">Tangerang</span>
+                        </figure>
+                    </div>
+                    <div class="card-location">
+                        <figure class="card__thumbnail">
+                        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 400px;">
+                        <span class="card__title">Tangerang</span>
+                        </figure>
                     </div>
                 </div>
             </div>
