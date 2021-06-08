@@ -63,7 +63,7 @@
                 <p class="card-text">Rp. {{$h->hargaKamar}}</p>
                 <p class="card-text">Stok kamar : {{$h->stokKamar}}</p>
                 <p class="card-text"> {{$h->deskripsiHotel}}</p>
-                <form action="">
+                <form action="{{url('bookingform/'.$h->id)}}" method="GET">
                     {{csrf_field()}}
                     <input type="hidden" value="{{$h->id}}" name="id_hotel">
                     @if(Session::has('user_id'))

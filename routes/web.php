@@ -35,8 +35,9 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 // Route::get('/about',[])
 
 Route::group(['middleware' => ['auth', 'checkroles:user']], function () {
-    // Route::get('/myProfile', [UserController::class, 'index'])->name('myProfile');
     Route::resource('user', UserController::class);
+    Route::get('/bookingform/{id}', [HotelController::class, 'bookingform'])->name('bookingform');
+    Route::post('booking', [HotelController::class, 'booking'])->name('booking');
 });
 
 Route::group(['middleware' => ['auth', 'checkroles:admin']], function () {
