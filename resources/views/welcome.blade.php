@@ -105,8 +105,8 @@
                 <rect x="-6" width="1452" height="232" fill="url(#paint0_linear)"/>
                 <defs>
                     <linearGradient id="paint0_linear" x1="720" y1="0" x2="720" y2="232" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#F5FFFE"/>
-                        <stop offset="0.47708" stop-color="#F5FFFE"/>
+                        <stop stop-color="#FFFFFF"/>
+                        <stop offset="0.47708" stop-color="#FFFFFF"/>
                         <stop offset="1" stop-color="white" stop-opacity="0"/>
                     </linearGradient>
                 </defs>
