@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box; 
+}
+
+/* Font */
+@font-face {
+    font-family: 'Titillium Web';
+    src: url('../font/TitilliumWeb-Regular.ttf');
+  }
+
+@font-face {
+    font-family: 'Yellowtail';
+    src: url('../font/Yellowtail-Regular.ttf');
+}
+
+body {
+    font-family: 'Titillium Web', sans-serif !important;
+}
+
+.cursive-text {
+    font-family: 'Yellowtail', cursive;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 1em;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(53, 174, 255, 0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    border-radius: 10px;
+}
+
+/* Navbar */
+.navbar {
+    margin: 0;
+    padding: 0 3em;
+}
+
+/* Search Bar */
+.search-bar, .search-bar form input, .search-bar form button {
+    height: 3em;
+    margin: 0;
+    padding: 0;
+}
+
+.search-bar input {
+    width: 100%;
+}
+
+.search-bar form button {
+    width: 10em;
+}
+
+/* Container */
+.container {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* City */
+.bottom-image {
+    object-position: 0 10em !important;
+    width: 100%;
+    height: 100%;
+}
+
+.city {
+    position: absolute;
+    z-index: -99999;
+}
+
+/* Footer */
+.main-footer {
+    margin: 0 3em !important;
+}
+

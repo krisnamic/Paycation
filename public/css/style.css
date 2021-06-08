@@ -138,18 +138,35 @@ header {
     display: flex;
     justify-content: center; /* horizontal center */
     align-items: center; /* vertical center */
-
-    width: 100%; /* Thumbnail dimensions. */
-    height: 100%; /*** Change the height to make the image smaller ***/
+    
+    margin: 0;
+    padding: 0;
+    max-width: 100%; /* Thumbnail dimensions. */
+    max-height: 100%; /*** Change the height to make the image smaller ***/
     /* background-color: rgba(0,0,0,.2);  /* for debugging */
 }
 
 /* Sets the image dimensions */
 .card__thumbnail > img{ /* Tip: use 1:1 ratio images */
-    height: 100%; /* or width when img.width > img.height */ 
+    height: 100%; /* or width when img.width > img.height */
+    object-fit: cover !important;
 }  
 
 /* Styles the title inside the img container */
 .card__thumbnail > .card__title{ /* Just for styling */
     position: absolute; left: 0; bottom: 0; 
+}
+
+#footer-transition {
+    background-color: #343A40;
+}
+
+#beach {
+    z-index: 998;
+    position: relative;
+}
+
+#transition {
+    z-index: 999;
+    position: absolute;
 }
