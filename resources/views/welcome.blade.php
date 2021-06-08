@@ -75,6 +75,7 @@
                             </div>
                             <div class="col-md-8">
                             <div class="card-body">
+                                <img src="{{asset('img/hotel/'.$h->gambarHotel)}}" class="card-img-top" alt="hotel_image">
                                 <h5 class="card-title">{{$h->namaHotel}}</h5>
                                 <p class="card-text">Rating :
                                     @php ($lol = 5)
