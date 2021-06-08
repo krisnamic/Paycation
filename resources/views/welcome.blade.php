@@ -24,42 +24,30 @@
         </header>
         <section class="test">  
             <div class="d-flex flex-column container">
-                <div class="row">
-                    <div class="col-4" style="background-color: red;">
-                        <!-- <div class="card-location"> -->
-                            <figure class="card__thumbnail">
-                            <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 400px;">
-                            <span class="card__title">Tangerang</span>
-                            </figure>
-                        <!-- </div> -->
+                <div class="row d-flex justify-content-between">
+                    <div class="card-location">
+                        <figure class="card__thumbnail">
+                        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 400px;">
+                        <span class="card__title">Tangerang</span>
+                        </figure>
                     </div>
-                    <div class="col-8">
-                        <div class="row">
-                            <div class="col-6" style="background-color: green;">
-                            <!-- <div class="card-location"> -->
-                                <figure class="card__thumbnail">
-                                <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 200px;">
-                                <span class="card__title">Tangerang</span>
-                                </figure>
-                            <!-- </div> -->
-                            </div>
-                            <div class="col-6" style="background-color: blue;">
-                            <!-- <div class="card-location"> -->
-                                <figure class="card__thumbnail">
-                                <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 200px;">
-                                <span class="card__title">Tangerang</span>
-                                </figure>
-                            <!-- </div> -->
-                            </div>
-                        <div class="col-12" style="background-color: yellow;">
-                        <!-- <div class="card-location"> -->
-                            <figure class="card__thumbnail">
-                            <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 200px;">
-                            <span class="card__title">Tangerang</span>
-                            </figure>
-                        <!-- </div> -->
-                        </div>
-                        </div>
+                    <div class="card-location">
+                        <figure class="card__thumbnail">
+                        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 400px;">
+                        <span class="card__title">Tangerang</span>
+                        </figure>
+                    </div>
+                    <div class="card-location">
+                        <figure class="card__thumbnail">
+                        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 400px;">
+                        <span class="card__title">Tangerang</span>
+                        </figure>
+                    </div>
+                    <div class="card-location">
+                        <figure class="card__thumbnail">
+                        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 400px;">
+                        <span class="card__title">Tangerang</span>
+                        </figure>
                     </div>
                 </div>
             </div>
@@ -76,16 +64,17 @@
         <section>
             <h2 class="text-center my-4">List of Paycation Hotels</h2>
             <div class="d-flex flex-column container">
-                <div class="row row-cols-4" style="display: flex;">
+                <div class="row row-cols-1" style="display: flex;">
                     @foreach($hotel as $h)
-                    <div class="col d-flex">
-                        <div class="card" style="width: 18rem;">
+                    <div class="card mb-3" style="width: 100%;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4 gambar-hotel">
                             <img src="{{asset('img/hotel/'.$h->gambarHotel)}}" class="card-img-top" alt="hotel_image">
+                            </div>
+                            <div class="col-md-8">
                             <div class="card-body">
-                                <p>{{$h->id}}</p>
-                                <p>{{$h->namaHotel}}</p>
-                                <p>{{$h->lokasi}}</p>
-                                <p>Rating :
+                                <h5 class="card-title">{{$h->namaHotel}}</h5>
+                                <p class="card-text">Rating :
                                     @php ($lol = 5)
                                     @for($i = 0; $i < $h->bintang; $i++)
                                         <span class="fas fa-star checked"></span>
@@ -96,7 +85,10 @@
                                         @php ($lol -= 1)
                                         @endwhile
                                 </p>
-                                <p>Price : {{$h->hargaKamar}}</p>
+                                <p class="card-text py-0 my-0">Price : {{$h->hargaKamar}}</p>
+                                <p class="card-text">{{$h->deskripsiHotel}}</p>
+                                <p class="card-text text-muted small">{{$h->lokasi}}</p>
+                            </div>
                             </div>
                         </div>
                     </div>
