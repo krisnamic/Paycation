@@ -64,16 +64,17 @@
         <section>
             <h2 class="text-center my-4">List of Paycation Hotels</h2>
             <div class="d-flex flex-column container">
-                <div class="row row-cols-4" style="display: flex;">
+                <div class="row row-cols-1" style="display: flex;">
                     @foreach($hotel as $h)
-                    <div class="col d-flex">
-                        <div class="card" style="width: 18rem;">
+                    <div class="card mb-3" style="width: 100%;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
                             <img src="{{asset('img/hotel/'.$h->gambarHotel)}}" class="card-img-top" alt="hotel_image">
+                            </div>
+                            <div class="col-md-8">
                             <div class="card-body">
-                                <p>{{$h->id}}</p>
-                                <p>{{$h->namaHotel}}</p>
-                                <p>{{$h->lokasi}}</p>
-                                <p>Rating :
+                                <h5 class="card-title">{{$h->namaHotel}}</h5>
+                                <p class="card-text">Rating :
                                     @php ($lol = 5)
                                     @for($i = 0; $i < $h->bintang; $i++)
                                         <span class="fas fa-star checked"></span>
@@ -84,7 +85,10 @@
                                         @php ($lol -= 1)
                                         @endwhile
                                 </p>
-                                <p>Price : {{$h->hargaKamar}}</p>
+                                <p class="card-text">Price : {{$h->hargaKamar}}</p>
+                                <p class="card-text">{{$h->deskripsiHotel}}</p>
+                                <p class="card-text">{{$h->lokasi}}</p>
+                            </div>
                             </div>
                         </div>
                     </div>
