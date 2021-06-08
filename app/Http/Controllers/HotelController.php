@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Pesanan;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Redis;
 
 class HotelController extends Controller
 {
@@ -63,6 +64,17 @@ class HotelController extends Controller
             'checkOut'          =>  $request->checkOut,
             'jamBooking'        =>  Carbon::now()->format('H:i:m'),
             'tanggalBooking'    =>  date('Y-m-d'),
+        ]);
+    }
+    public function search(Request $request)
+    {
+        $search_text = $_GET['query'];
+        $hotel = Hotel::where('namaHotel', 'LIKE', '%' . $search_text . '%')
+            // ->with('hargaKamar')  
+            ->get();
+        // dd($hotel);
+        return view('welcome', [
+            'hotel' => $hotel
         ]);
     }
 }

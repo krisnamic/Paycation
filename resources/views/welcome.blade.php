@@ -19,6 +19,12 @@
         .checked {
             color: gold;
         }
+
+        /* .main-footer {
+            background-color: #169eda !important;
+            color: white !important;
+            margin-left: 0 !important;
+        } */
     </style>
 </head>
 
@@ -26,10 +32,11 @@
     @include('Template/head')
 
     <!-- navbar -->
-    @include('Template/userNavbar')
+    @include('Template/navbar')
     <!-- end of navbar -->
 
     <!-- content -->
+    @include('User/search')
     <div class="row row-cols-4">
         @foreach($hotel as $h)
         <div class="container mt-3">
@@ -65,8 +72,28 @@
         </div>
         @endforeach
     </div>
-    <!-- end of content -->
 
+    <!-- <div style="width: 100%; height: 75vh;"> -->
+
+        <!-- <img style="position: absolute; z-index: 99998" src="{{asset('img/home/city.svg')}}" alt=""> -->
+        
+        <!-- <svg style="position: absolute; z-index: 99999" viewBox="0 0 1440 232" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="-6" width="1452" height="232" fill="url(#paint0_linear)"/>
+        <defs>
+        <linearGradient id="paint0_linear" x1="720" y1="0" x2="720" y2="232" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#FFFFFF"/>
+        <stop offset="0.47708" stop-color="#FFFFFF"/>
+        <stop offset="1" stop-color="white" stop-opacity="0"/>
+        </linearGradient>
+        </defs>
+        </svg> -->
+
+        
+    <!-- </div> -->
+
+    @include('Template/footer')
+    <!-- end of content -->
+        
     @include('Template/script')
 </body>
 
