@@ -71,8 +71,8 @@
                     <div class="card mb-3" style="width: 100%;">
                         <div class="row no-gutters">
                             <div class="col-md-4 gambar-hotel">
-                                <img style="position: absolute; z-index: 998;" src="{{asset('img/hotel/'.$h->gambarHotel1)}}" class="card-img-top" alt="hotel_image">                                   
-                                <img style="position: absolute; z-index: 999; width: 15%; margin: 0.5em 1em;" class="shadoww" src="{{asset('img/Logo/'.$h->logoHotel.'-h-light.svg')}}" alt="hotel_image">
+                                <img style="position: absolute;" src="{{asset('img/hotel/'.$h->gambarHotel1)}}" class="card-img-top" alt="hotel_image">                                   
+                                <img style="position: absolute; width: 15%; margin: 0.5em 1em;" class="shadoww" src="{{asset('img/Logo/'.$h->logoHotel.'-h-light.svg')}}" alt="hotel_image">
                             </div>
                             <div class="col-md-8">
                             <div class="card-body">
