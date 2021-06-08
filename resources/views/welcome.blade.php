@@ -22,7 +22,7 @@
         <header class="menu">
             <img src="{{ asset('img/paycation/paycation-2.svg')}}" style="width: 100px;">
         </header>
-        <section class="test">  
+        <section class="test cr">  
             <div class="d-flex flex-column container">
                 <div class="row d-flex justify-content-between">
                     <div class="card-location">
@@ -61,7 +61,7 @@
                 </div>
             </div> -->
         </section>
-        <section>
+        <section class="cr">
             <h2 class="text-center my-4">List of Paycation Hotels</h2>
             <div class="d-flex flex-column container">
                 <div class="row row-cols-1" style="display: flex;">
