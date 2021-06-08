@@ -190,3 +190,7 @@ header {
     border-radius: 10px;
     display: flex;
 }
+
+.gambar-hotel:hover {
+    transform: scale(1.1);
+}
