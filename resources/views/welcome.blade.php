@@ -67,10 +67,11 @@
             @include('User/search')<br/>
                 <div class="row row-cols-1" style="display: flex;">
                     @foreach($hotel as $h)
+                    <a href="/{{$h->id}}" style="color: black;">
                     <div class="card mb-3" style="width: 100%;">
                         <div class="row no-gutters">
                             <div class="col-md-4 gambar-hotel">
-                            <img src="{{asset('img/hotel/'.$h->gambarHotel)}}" class="card-img-top" alt="hotel_image">
+                            <img src="{{asset('img/hotel/'.$h->gambarHotel1)}}" class="card-img-top" alt="hotel_image">
                             </div>
                             <div class="col-md-8">
                             <div class="card-body">
@@ -93,6 +94,7 @@
                             </div>
                         </div>
                     </div>
+                    </a>
                     @endforeach
                 </div>
             </div>
