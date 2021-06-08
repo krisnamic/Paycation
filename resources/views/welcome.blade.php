@@ -68,7 +68,7 @@
                     @foreach($hotel as $h)
                     <div class="card mb-3" style="width: 100%;">
                         <div class="row no-gutters">
-                            <div class="col-md-4">
+                            <div class="col-md-4 gambar-hotel">
                             <img src="{{asset('img/hotel/'.$h->gambarHotel)}}" class="card-img-top" alt="hotel_image">
                             </div>
                             <div class="col-md-8">
@@ -85,9 +85,9 @@
                                         @php ($lol -= 1)
                                         @endwhile
                                 </p>
-                                <p class="card-text">Price : {{$h->hargaKamar}}</p>
+                                <p class="card-text py-0 my-0">Price : {{$h->hargaKamar}}</p>
                                 <p class="card-text">{{$h->deskripsiHotel}}</p>
-                                <p class="card-text">{{$h->lokasi}}</p>
+                                <p class="card-text text-muted small">{{$h->lokasi}}</p>
                             </div>
                             </div>
                         </div>

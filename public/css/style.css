@@ -153,3 +153,7 @@ header {
 .card__thumbnail > .card__title{ /* Just for styling */
     position: absolute; left: 0; bottom: 0; 
 }
+
+.gambar-hotel {
+    border-radius: 10px;
+}
