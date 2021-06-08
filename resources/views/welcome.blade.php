@@ -64,6 +64,7 @@
         <section>
             <h2 class="text-center my-4">List of Paycation Hotels</h2>
             <div class="d-flex flex-column container">
+            @include('User/search')<br/>
                 <div class="row row-cols-1" style="display: flex;">
                     @foreach($hotel as $h)
                     <div class="card mb-3" style="width: 100%;">
