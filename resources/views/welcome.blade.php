@@ -71,26 +71,36 @@
                     <div class="card mb-3" style="width: 100%;">
                         <div class="row no-gutters">
                             <div class="col-md-4 gambar-hotel">
-                            <img src="{{asset('img/hotel/'.$h->gambarHotel1)}}" class="card-img-top" alt="hotel_image">
+                                <img style="position: absolute; z-index: 998;" src="{{asset('img/hotel/'.$h->gambarHotel1)}}" class="card-img-top" alt="hotel_image">                                   
+                                <img style="position: absolute; z-index: 999; width: 15%; margin: 0.5em 1em;" src="{{asset('img/Logo/'.$h->logoHotel.'-h-light.svg')}}" alt="hotel_image">
                             </div>
                             <div class="col-md-8">
                             <div class="card-body">
-                                <img src="{{asset('img/hotel/'.$h->gambarHotel)}}" class="card-img-top" alt="hotel_image">
-                                <h5 class="card-title">{{$h->namaHotel}}</h5>
-                                <p class="card-text">Rating :
-                                    @php ($lol = 5)
-                                    @for($i = 0; $i < $h->bintang; $i++)
-                                        <span class="fas fa-star checked"></span>
-                                        @php ($lol -= 1)
-                                        @endfor
-                                        @while($lol > 0)
-                                        <span class="fas fa-star unchecked"></span>
-                                        @php ($lol -= 1)
-                                        @endwhile
-                                </p>
-                                <p class="card-text py-0 my-0">Price : {{$h->hargaKamar}}</p>
-                                <p class="card-text">{{$h->deskripsiHotel}}</p>
-                                <p class="card-text text-muted small">{{$h->lokasi}}</p>
+                                <div class="home-logo-desc d-flex flex-row align-items-center">
+                                    <div class="home-logo">
+                                        <img src="{{asset('img/Logo/'.$h->logoHotel.'-v.svg')}}" alt="hotel_image">
+                                    </div>
+                                    <div class="home-desc">
+                                        <h5 class="card-title">{{$h->namaHotel}}</h5>
+                                        <p class="card-text">Rating :
+                                            @php ($lol = 5)
+                                            @for($i = 0; $i < $h->bintang; $i++)
+                                                <span class="fas fa-star checked"></span>
+                                                @php ($lol -= 1)
+                                                @endfor
+                                                @while($lol > 0)
+                                                <span class="fas fa-star unchecked"></span>
+                                                @php ($lol -= 1)
+                                                @endwhile
+                                        </p>
+                                        <p class="card-text py-0 my-0">Price : {{$h->hargaKamar}}</p>
+                                    </div>
+                                </div>
+                                <div class="home-desc2">
+                                    <p class="card-text">{{$h->deskripsiHotel}}</p>
+                                    <p class="card-text text-muted small">{{$h->lokasi}}</p>
+                                </div>
+                                
                             </div>
                             </div>
                         </div>

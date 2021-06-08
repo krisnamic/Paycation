@@ -161,6 +161,21 @@ header {
     background-color: #343A40;
 }
 
+/* */
+
+.home-logo-desc {
+    justify-content: left;
+}
+
+.home-logo-desc, .home-logo, .home-desc, .home-desc2 {
+    margin: 1em;
+}
+
+.home-logo {
+    width: 50%;
+}
+
+/* Footer Transition - Beach */
 #beach {
     z-index: 998;
     position: relative;
@@ -173,4 +188,5 @@ header {
 
 .gambar-hotel {
     border-radius: 10px;
+    display: flex;
 }
