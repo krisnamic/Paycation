@@ -174,3 +174,7 @@ header {
 .gambar-hotel {
     border-radius: 10px;
 }
+
+.gambar-hotel:hover {
+    transform: scale(1.1);
+}

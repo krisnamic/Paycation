@@ -71,11 +71,11 @@
                     <div class="card mb-3" style="width: 100%;">
                         <div class="row no-gutters">
                             <div class="col-md-4 gambar-hotel">
-                            <img src="{{asset('img/hotel/'.$h->gambarHotel1)}}" class="card-img-top" alt="hotel_image">
+                                <img src="{{asset('img/hotel/'.$h->gambarHotel1)}}" class="card-img-top" alt="hotel_image">
                             </div>
                             <div class="col-md-8">
                             <div class="card-body">
-                                <img src="{{asset('img/hotel/'.$h->gambarHotel)}}" class="card-img-top" alt="hotel_image">
+                                <img src="{{asset('img/hotel/'.$h->gambarHote1)}}" class="card-img-top" alt="hotel_image">
                                 <h5 class="card-title">{{$h->namaHotel}}</h5>
                                 <p class="card-text">Rating :
                                     @php ($lol = 5)
