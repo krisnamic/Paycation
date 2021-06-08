@@ -22,7 +22,7 @@
         <header class="menu">
             <img src="{{ asset('img/paycation/paycation-2.svg')}}" style="width: 100px;">
         </header>
-        <section class="test cr">  
+        <section class="test">  
             <div class="d-flex flex-column container">
                 <div class="row d-flex justify-content-between">
                     <div class="card-location">
@@ -61,7 +61,7 @@
                 </div>
             </div> -->
         </section>
-        <section class="cr">
+        <section>
             <h2 class="text-center my-4">List of Paycation Hotels</h2>
             <div class="d-flex flex-column container">
                 <div class="row row-cols-1" style="display: flex;">
@@ -105,7 +105,7 @@
                 <rect x="-6" width="1452" height="232" fill="url(#paint0_linear)"/>
                 <defs>
                     <linearGradient id="paint0_linear" x1="720" y1="0" x2="720" y2="232" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#F5FFFE"/>
+                        <stop stop-color="#FFFFFF"/>
                         <stop offset="0.47708" stop-color="#F5FFFE"/>
                         <stop offset="1" stop-color="white" stop-opacity="0"/>
                     </linearGradient>
