@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link href="https://fonts.googleap0is.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
         @include('Template/head')
     </head>
     <body class="antialiased">
@@ -64,9 +65,17 @@
         <section>
             <h2 class="text-center my-4">List of Paycation Hotels</h2>
             <div class="d-flex flex-column container">
-            @include('User/search')<br/>
+            <div id="hacker-list">
+            <input class="search" />
+            Sort by: 
+            <input type="checkbox" class='sort' data-sort='name'/>Name<br/>
+            <input type="checkbox" class='sort' data-sort='bintang'/>Bintang<br/>
+            <input type="checkbox" class='filter-5'/>Bintang 5<br/>
+            <input type="checkbox" class='sort' data-sort='city'/>City<br/>
                 <div class="row row-cols-1" style="display: flex;">
+                    <ul class="list" style="list-style-type: none; padding: 0;">
                     @foreach($hotel as $h)
+                    <li>
                     <a href="/{{$h->id}}" style="color: black;">
                     <div class="card mb-3" style="width: 100%;">
                         <div class="row no-gutters">
@@ -106,7 +115,10 @@
                         </div>
                     </div>
                     </a>
+                    </li>
                     @endforeach
+                    </ul>
+                </div>
                 </div>
             </div>
         </section>
@@ -132,6 +144,25 @@
 
         @include('Template/footer')
         
+        <script>
+            var options = {
+                valueNames: ['name', 'city', 'bintang']
+            };
+
+            var hackerList = new List('hacker-list', options);
+
+            $('.filter-5').on('click',function(){
+            if($(this).hasClass( 'selected' )){
+                hackerList.filter();
+                $(this).removeClass('selected');
+            } else {
+                hackerList.filter(function(item) {
+                return (item.values().bintang == 5);
+                });
+                $(this).addClass('selected');
+            }
+            });
+        </script>
         <script>
             $(window).scroll(function() {
                 var sticky = $('.menu'), scroll = $(window).scrollTop(); 
