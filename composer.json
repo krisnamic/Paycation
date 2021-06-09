@@ -12,7 +12,8 @@
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
         "mews/captcha": "^3.2",
-        "yajra/laravel-datatables-oracle": "^9.18"
+        "moment/moment": "^2.29",
+        "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

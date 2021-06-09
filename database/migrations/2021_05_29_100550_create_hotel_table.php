@@ -23,6 +23,11 @@ class CreateHotelTable extends Migration
             $table->string('gambarHotel3')->nullable();
             $table->string('gambarHotel4')->nullable();
             $table->string('gambarHotel5')->nullable();
+            $table->string('gambarHotel2');
+            $table->string('gambarHotel3');
+            $table->string('gambarHotel4');
+            $table->string('gambarHotel5');
+            $table->string('logoHotel');
             $table->integer('stokKamar');
             $table->float('bintang');
             $table->string('lokasi');

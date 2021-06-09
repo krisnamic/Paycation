@@ -22,6 +22,7 @@ use App\Http\Controllers\HotelCRUDController;
 //     return view('welcome');
 // })->name('welcome');
 Route::get('/', [LoginController::class, 'index'])->name('welcome');
+Route::get('/aboutUs', [HomeController::class, 'aboutUs'])->name('aboutUs');
 
 
 //searching
@@ -41,14 +42,19 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 // Route::get('/about',[])
 
 Route::group(['middleware' => ['auth', 'checkroles:user']], function () {
-    // Route::get('/myProfile', [UserController::class, 'index'])->name('myProfile');
     Route::resource('user', UserController::class);
+    Route::get('/bookingform/{id}', [HotelController::class, 'bookingform'])->name('bookingform');
+    Route::post('/booking', [HotelController::class, 'booking'])->name('booking');
+    Route::post('/generatePDF', [HotelController::class, 'generatePDF'])->name('generatePDF');
+    Route::get('/viewBookingDetail', [HotelController::class, 'viewBookingDetail'])->name('viewBookingDetail');
 });
 
 Route::group(['middleware' => ['auth', 'checkroles:admin']], function () {
     Route::get('/hotel', [HotelCRUDController::class, 'index'])->name('hotel');
     Route::resource('hotels', HotelCRUDController::class);
-    Route::post('delete-hotel', [HotelCRUDController::class,'destroy']);
+    Route::post('delete-hotel', [HotelCRUDController::class, 'destroy']);
 });
 
 Route::get('/{id}', [HotelController::class, 'detailHotel'])->name('detailHotel');
+
+
