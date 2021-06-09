@@ -11,6 +11,7 @@
             height: 250px;
         }
     </style>
+    <title>Paycation | View Profile</title>
 </head>
 
 <body>

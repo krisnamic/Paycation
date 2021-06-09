@@ -15,7 +15,7 @@
     <!-- end of navbar -->
 
     <!-- Content -->
-    
+    @include('Template/backBtn')
     <div class="d-flex flex-column justify-content-center container">
         @foreach($hotel as $h)
 
@@ -105,7 +105,7 @@
                     <div class="text-right">
                         <img src="{{asset('img/Logo/'.$h->logoHotel.'-h-dark.svg')}}" alt="" style="width: 60%; height: auto;">
                     </div>
-                </div><br>
+                </div><hr>
                 <p class="card-text"> {{$h->deskripsiHotel}}</p>
                 <form action="{{url('bookingform/'.$h->id)}}" method="GET">
                     {{csrf_field()}}
