@@ -67,193 +67,208 @@
             <div class="d-flex flex-column container">
             <div id="hotel-list">
 
-            <h5>Search:</h5>
-            <input class="search" />
+            <div class="row">
+                <div class="col-3 mt-3">
+                    <div style="background-color: #9ce0ff; padding: 1rem; border-radius: 10px;">
+                    <div>
+                        <h6>Search:</h6>
+                        <input class="form-control search" style="font-size: 17px;"/>
+                    </div>
 
-            <div>
-                <h5>Sort by:</h5> 
-                <button type="checkbox" class='sort' data-sort='nama' data-default-order='asc'>Name</button>
-                <button type="checkbox" class='sort' data-sort='bintang' data-default-order='asc'>Star</button>
-                <button type="checkbox" class='sort' data-sort='lokasi' data-default-order='asc'>Location</button>
-            </div>
-
-            <h5>Filter by:</h5>
-            <select name="filterOpt" id="filterOpt" class="custom-select filterOpt">
-                <option selected disabled hidden></option>
-                <option value="star">Star</option>
-                <option value="price">Price</option>
-                <option value="location">Location</option>
-            </select>
-
-            <div class="starPage">
-                <p>Star:</p>
-                <ul style="list-style-type: none;">
-                    <li><input type="checkbox" class='filter-5star'/>                 
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                    </li>
-                    <li><input type="checkbox" class='filter-45star'/>  
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star fa-stack-1x" style="color: #CECECE;"></i>
-                            <i class="fas fa-star-half checked fa-stack-1x"></i>  
-                        </span>           
-                    </li>
-                    <li><input type="checkbox" class='filter-4star'/>                 
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star unchecked"></i>
-                        </span> 
-                    </li>
-                    <li><input type="checkbox" class='filter-35star'/>                 
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star fa-stack-1x" style="color: #CECECE;"></i>
-                            <i class="fas fa-star-half checked fa-stack-1x"></i>  
-                        </span>    
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star unchecked"></i>
-                        </span> 
-                    </li>
-                    <li><input type="checkbox" class='filter-3star'/>                 
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star checked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star unchecked"></i>
-                        </span>
-                        <span class="fa-stack" style="width:1em;">     
-                            <i class="fas fa-star unchecked"></i>
-                        </span>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="pricePage">
-                <p>Price:</p>
-                <ul style="list-style-type: none;">
-                    <li><input type="checkbox" class='filter-1500'/> < Rp. 1.500.000</li>
-                    <li><input type="checkbox" class='filter-1750'/> Rp. 1.500.000 - Rp. 2.000.000</li>
-                    <li><input type="checkbox" class='filter-2250'/> Rp. 2.000.000 - Rp. 2.500.000</li>
-                    <li><input type="checkbox" class='filter-2750'/> Rp. 2.500.000 - Rp. 3.000.000</li>
-                    <li><input type="checkbox" class='filter-3000'/> > Rp. 3.000.000</li>
-                </ul>
-            </div>
-            
-            <div class="locationPage">
-                <p>Location:</p>
-                <ul style="list-style-type: none;">
-                    <li><input type="checkbox" class='filter-tangerang'/> Tangerang</li>
-                    <li><input type="checkbox" class='filter-bandung'/> Bandung</li>
-                    <li><input type="checkbox" class='filter-jakarta'/> Jakarta Timur</li>
-                    <li><input type="checkbox" class='filter-bali'/> Bali</li>
-                </ul>
-            </div>
-            
-            <br/><br/>
-                <div class="row row-cols-1" style="display: flex;">
-                    <ul class="list" style="list-style-type: none; padding: 0;">
-                    @foreach($hotel as $h)
-                    <li>
-                    <a href="/{{$h->id}}" style="color: black;">
-                    <div class="card mb-3" style="width: 100%;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4 gambar-hotel">
-                                <img style="position: absolute;" src="{{asset('img/hotel/'.$h->gambarHotel1)}}" class="card-img-top" alt="hotel_image">                                   
-                                <img style="position: absolute; width: 15%; margin: 0.5em 1em;" class="shadoww" src="{{asset('img/Logo/'.$h->logoHotel.'-h-light.svg')}}" alt="hotel_image">
-                            </div>
-                            <div class="col-md-8">
-                            <div class="card-body">
-                                <div class="home-logo-desc d-flex flex-row align-items-center">
-                                    <div class="home-logo">
-                                        <img src="{{asset('img/Logo/'.$h->logoHotel.'-v.svg')}}" alt="hotel_image">
-                                    </div>
-                                    <div class="home-desc">
-                                        <h5 class="card-title nama">{{$h->namaHotel}}</h5>
-                                        <p>Rating :
-                                        @php $rating = $h->bintang; @endphp
-                                        @foreach(range(1,5) as $i)
-                                        <span class="fa-stack" style="width:1em">
-                                            <i class="fas fa-star fa-stack-1x" style="color: #CECECE;"></i>
-                                            @if($rating >0)
-                                            @if($rating >0.5)
-                                            <i class="fas fa-star checked fa-stack-1x"></i>
-                                            @else
-                                            <i class="fas fa-star-half checked fa-stack-1x"></i>
-                                            @endif
-                                            @endif
-                                            @php $rating--; @endphp
-                                        </span>
-                                        @endforeach
-                                        </p>
-                                        <p class="bintang" hidden>{{$h->bintang}}</p>
-                                        <p class="harga" hidden>{{$h->hargaKamar}}</p>
-                                        <p class="card-text py-0 my-0">Price : {{$h->hargaKamar}}</p>
-                                    </div>
-                                </div>
-                                <div class="home-desc2">
-                                    <p class="card-text">{{$h->deskripsiHotel}}</p>
-                                    <p class="card-text text-muted small lokasi">{{$h->lokasi}}</p>
-                                </div>
-                                
-                            </div>
-                            </div>
+                    <div class="my-2">
+                        <h6>Sort by:</h6> 
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class='btn btn-primary sort' data-sort='nama' data-default-order='asc' style="font-size: 14px;">Name</button>
+                            <button type="button" class='btn btn-primary sort' data-sort='bintang' data-default-order='asc' style="font-size: 14px;">Star</button>
+                            <button type="button" class='btn btn-primary sort' data-sort='lokasi' data-default-order='asc' style="font-size: 14px;">Location</button>
                         </div>
                     </div>
-                    </a>
-                    </li>
-                    @endforeach
-                    </ul>
+
+                    <h6>Filter by:</h6>
+                    <select name="filterOpt" id="filterOpt" class="form-control filterOpt" style="font-size: 17px;">
+                        <option selected disabled hidden></option>
+                        <option value="star" style="font-size: 17px;">Star</option>
+                        <option value="price" style="font-size: 17px;">Price</option>
+                        <option value="location" style="font-size: 17px;">Location</option>
+                    </select>
+
+                    <div class="starPage">
+                        <ul style="list-style-type: none; padding: 0;">
+                            <li><input type="checkbox" class='filter-5star'/>                 
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                            </li>
+                            <li><input type="checkbox" class='filter-45star'/>  
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star fa-stack-1x" style="color: #CECECE;"></i>
+                                    <i class="fas fa-star-half checked fa-stack-1x"></i>  
+                                </span>           
+                            </li>
+                            <li><input type="checkbox" class='filter-4star'/>                 
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star unchecked"></i>
+                                </span> 
+                            </li>
+                            <li><input type="checkbox" class='filter-35star'/>                 
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star fa-stack-1x" style="color: #CECECE;"></i>
+                                    <i class="fas fa-star-half checked fa-stack-1x"></i>  
+                                </span>    
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star unchecked"></i>
+                                </span> 
+                            </li>
+                            <li><input type="checkbox" class='filter-3star'/>                 
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star checked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star unchecked"></i>
+                                </span>
+                                <span class="fa-stack" style="width:1em;">     
+                                    <i class="fas fa-star unchecked"></i>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pricePage">
+                        <ul style="list-style-type: none; padding: 0;">
+                            <li style="font-size: 17px;"><input type="checkbox" class='filter-1500'/> < Rp. 1.500.000</li>
+                            <li style="font-size: 17px;"><input type="checkbox" class='filter-1750'/> Rp. 1.500.000 - Rp. 2.000.000</li>
+                            <li style="font-size: 17px;"><input type="checkbox" class='filter-2250'/> Rp. 2.000.000 - Rp. 2.500.000</li>
+                            <li style="font-size: 17px;"><input type="checkbox" class='filter-2750'/> Rp. 2.500.000 - Rp. 3.000.000</li>
+                            <li style="font-size: 17px;"><input type="checkbox" class='filter-3000'/> > Rp. 3.000.000</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="locationPage">
+                        <ul style="list-style-type: none; padding: 0;">
+                            <li style="font-size: 17px;"><input type="checkbox" class='filter-tangerang'/> Tangerang</li>
+                            <li style="font-size: 17px;"><input type="checkbox" class='filter-bandung'/> Bandung</li>
+                            <li style="font-size: 17px;"><input type="checkbox" class='filter-jakarta'/> Jakarta Timur</li>
+                            <li style="font-size: 17px;"><input type="checkbox" class='filter-bali'/> Bali</li>
+                        </ul>
+                    </div>
                 </div>
+                </div>
+
+                <br/><br/>
+                <div class="col-9">
+                    <div class="row row-cols-1" style="display: flex;">
+                        <ul class="list" style="list-style-type: none; padding: 0;">
+                        @foreach($hotel as $h)
+                        <li>
+                        <a href="/{{$h->id}}" style="color: black;">
+                        <div class="card mb-3" style="width: 100%;">
+                            <div class="row no-gutters">
+                                <div class="col-md-6 gambar-hotel">
+                                    <img style="position: relative; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" src="{{asset('img/hotel/'.$h->gambarHotel1)}}" class="card-img-top" alt="hotel_image">                                   
+                                    <img style="position: absolute; width: 15%; margin: 0.5em 1em;" class="shadoww" src="{{asset('img/Logo/'.$h->logoHotel.'-h-light.svg')}}" alt="hotel_image">
+                                </div>
+                                <div class="col-md-6">
+                                <div class="card-body" style="padding: 0;">
+                                    <div class="home-logo-desc d-flex flex-row align-items-center" style="margin: 0;">
+                                        <div class="home-desc">
+                                            <div class="row">
+                                                <div class="col-8">
+                                                    <h5 class="card-title nama" style="font-size: 1.35em; text-shadow: 1px 0 0 black;">{{$h->namaHotel}}</h5><br/>
+                                                    <p class="mb-0 mt-2" style="font-size: 0.9em;">Rating :
+                                                    @php $rating = $h->bintang; @endphp
+                                                    @foreach(range(1,5) as $i)
+                                                    <span class="fa-stack" style="width:1em">
+                                                        <i class="fas fa-star fa-stack-1x" style="color: #CECECE;"></i>
+                                                        @if($rating >0)
+                                                        @if($rating >0.5)
+                                                        <i class="fas fa-star checked fa-stack-1x"></i>
+                                                        @else
+                                                        <i class="fas fa-star-half checked fa-stack-1x"></i>
+                                                        @endif
+                                                        @endif
+                                                        @php $rating--; @endphp
+                                                    </span>
+                                                    @endforeach
+                                                    </p>
+                                                    <p class="card-text py-0 mt-1 mb-0" style="font-size: 0.9em;">Price : {{$h->hargaKamar}}</p>
+                                                    <p class="card-text py-0 mt-1 mb-0" style="font-size: 0.9em;">Available Rooms : {{$h->stokKamar}}</p>
+                                                </div>
+                                                <div class="col-4 d-flex justify-content-end">
+                                                    <div class="home-logo">
+                                                        <img src="{{asset('img/Logo/'.$h->logoHotel.'-v.svg')}}" alt="hotel_image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p class="bintang" hidden>{{$h->bintang}}</p>
+                                            <p class="harga" hidden>{{$h->hargaKamar}}</p><hr/>
+                                                <p class="card-text pt-2 m-0" style="text-align: justify; text-justify: inter-word; font-size: 0.9em;">{{$h->deskripsiHotel}}</p>
+                                                <div class="d-flex justify-content-end">
+                                                    <p class="card-text text-muted small lokasi pt-3">{{$h->lokasi}}</p>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        </a>
+                        </li>
+                        @endforeach
+                        </ul>
+                    </div>
+                   </div>
+                    </div>
                 </div>
             </div>
         </section>
