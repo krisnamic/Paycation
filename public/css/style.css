@@ -306,3 +306,8 @@ nav {
 }
 
 /* End About Us */
+
+.card .register-card-body {
+    margin: auto !important;
+    width: 30em !important;
+}

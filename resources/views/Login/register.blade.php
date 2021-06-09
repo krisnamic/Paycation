@@ -21,15 +21,17 @@
   <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 </head>
 
+@include('Template/head')
+
 <body class="hold-transition register-page">
   <div class="register-box">
-    <div class="register-logo">
-      <a href="{{url('/')}}"><b>Admin</b>LTE</a>
+    <div class="login-logo">
+      <img src="{{asset('img/paycation/paycation-1.svg')}}" style="position: relative; width: 65%; height: auto; margin-left: 10%;">
     </div>
 
-    <div class="card">
-      <div class="card-body register-card-body">
-        <p class="login-box-msg">Register a new membership</p>
+    <div class="card" style="margin: 0 auto; float: none;">
+      <div class="card-body login-card-body">
+        <h4 class="login-box-msg">Register</h4>
 
         <form action="{{route('postregister')}}" method="post" enctype="multipart/form-data">
           {{ csrf_field() }}
@@ -73,7 +75,7 @@
             <input type="date" class="form-control" name="tanggalLahir" placeholder="Birth Date" value="{{old('tanggalLahir')}}">
             <div class="input-group-append">
               <div class="input-group-text">
-                <span class="fas fa-calendar-alt"></span>
+                <span class="fas fa-birthday-cake"></span>
               </div>
             </div>
           </div>
@@ -118,35 +120,45 @@
               <span class="input-group-text">Photos</span>
             </div>
             <div class="custom-file">
-              <input type="file" class="custom-file-input" name="foto">
-              <label class="custom-file-label" for="inputGroupFile01">Choose file...</label>
+            <label class="custom-file-label" for="inputGroupFile01" id="file">Choose file...</label>
+              <input type="file" class="custom-file-input" name="foto" id="inputGroupFile01">
             </div>
           </div>
           <p class="errorMsg" style="font-size:12px; color:red;">@error('foto')
             {{ $message }}
             @enderror
           </p>
-          <div class="row">
-            <div class="col-8">
-              <div class="icheck-primary">
+          <div class="d-flex flex-row justify-content-between mb-0">
+            <div class="d-flex flex-column">
+              <a href="{{route('login')}}" class="text-left" style="vertical-align: middle; line-height: 1.2;">
+                < Login to an account
+              </a>
+              <a href="/" class="text-left" style="vertical-align: middle;">
+                < Back to main page
+              </a>
+            </div>
+            <div>
+              <div class="ml-auto">
+                <button type="submit" id="login-btn" class="btn btn-primary btn-block">Register</button>
               </div>
             </div>
-            <!-- /.col -->
-            <div class="col-4">
-              <button type="submit" class="btn btn-primary btn-block">Register</button>
-            </div>
-            <!-- /.col -->
+          </div>
+          
           </div>
         </form>
-
-
-        <a href="{{route('login')}}" class="text-center">I already have a membership</a>
       </div>
       <!-- /.form-box -->
     </div><!-- /.card -->
   </div>
   <!-- /.register-box -->
   @include('Template.script')
+  <script type="text/javascript">
+    $('#inputGroupFile01').change(function() {
+      var i = $(this).prev('label').clone();
+      var file = $('#inputGroupFile01')[0].files[0].name;
+      $(this).prev('label').text(file);
+    });
+  </script>
 </body>
 
 </html>
