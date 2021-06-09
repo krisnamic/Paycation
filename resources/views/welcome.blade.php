@@ -20,9 +20,9 @@
                 <div class="parallax__layer parallax__layer--back"></div>
             </div>
         </div>
-        <header class="menu">
-            <img src="{{ asset('img/paycation/paycation-2.svg')}}" style="width: 100px;">
-        </header>
+        <div class="menu">
+            @include('Template/userNavbar')
+        </div>
         <section class="test">  
             <div class="d-flex flex-column container">
                 <div class="row d-flex justify-content-between">
