@@ -85,7 +85,7 @@
                         <tr>
                             <td align="left" style="width: 40%;">
                                 <!-- <img src="" alt=""> -->
-                                <img src="{{ public_path('img/paycation/paycation-1-light.png) }}" class="mr-3 mt-4 ml-3 mb-3" alt="...">
+                                <img src="{{ public_path('img/paycation/paycation-1-light.png') }}" class="mr-3 mt-4 ml-3 mb-3" alt="...">
 
                                 <pre style="color: white; font-size:medium;">
 Nama Pemesan  : {{$namaPemesan}}
