@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link href="https://fonts.googleap0is.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
         @include('Template/head')
     </head>
     <body class="antialiased">
@@ -64,9 +65,17 @@
         <section>
             <h2 class="text-center my-4">List of Paycation Hotels</h2>
             <div class="d-flex flex-column container">
-            @include('User/search')<br/>
+            <div id="hotel-list">
+            <input class="search" />
+            Sort by: 
+            <input type="checkbox" class='sort' data-sort='nama'/>Name<br/>
+            <input type="checkbox" class='sort' data-sort='bintang'/>Bintang<br/>
+            <input type="checkbox" class='filter-5star'/>Bintang 5<br/>
+            <input type="checkbox" class='sort' data-sort='lokasi'/>City<br/>
                 <div class="row row-cols-1" style="display: flex;">
+                    <ul class="list" style="list-style-type: none; padding: 0;">
                     @foreach($hotel as $h)
+                    <li>
                     <a href="/{{$h->id}}" style="color: black;">
                     <div class="card mb-3" style="width: 100%;">
                         <div class="row no-gutters">
@@ -81,7 +90,7 @@
                                         <img src="{{asset('img/Logo/'.$h->logoHotel.'-v.svg')}}" alt="hotel_image">
                                     </div>
                                     <div class="home-desc">
-                                        <h5 class="card-title">{{$h->namaHotel}}</h5>
+                                        <h5 class="card-title nama">{{$h->namaHotel}}</h5>
                                         <p class="card-text">Rating :
                                             @php ($lol = 5)
                                             @for($i = 0; $i < $h->bintang; $i++)
@@ -92,13 +101,13 @@
                                                 <span class="fas fa-star unchecked"></span>
                                                 @php ($lol -= 1)
                                                 @endwhile
-                                        </p>
+                                        </p><p class="bintang" hidden>{{$h->bintang}}</p>
                                         <p class="card-text py-0 my-0">Price : {{$h->hargaKamar}}</p>
                                     </div>
                                 </div>
                                 <div class="home-desc2">
                                     <p class="card-text">{{$h->deskripsiHotel}}</p>
-                                    <p class="card-text text-muted small">{{$h->lokasi}}</p>
+                                    <p class="card-text text-muted small lokasi">{{$h->lokasi}}</p>
                                 </div>
                                 
                             </div>
@@ -106,7 +115,10 @@
                         </div>
                     </div>
                     </a>
+                    </li>
                     @endforeach
+                    </ul>
+                </div>
                 </div>
             </div>
         </section>
@@ -132,6 +144,25 @@
 
         @include('Template/footer')
         
+        <script>
+            var options = {
+                valueNames: ['nama', 'lokasi', 'bintang']
+            };
+
+            var hotelList = new List('hotel-list', options);
+
+            $('.filter-5star').on('click',function(){
+            if($(this).hasClass( 'selected' )){
+                hotelList.filter();
+                $(this).removeClass('selected');
+            } else {
+                hotelList.filter(function(item) {
+                return (item.values().bintang == 5);
+                });
+                $(this).addClass('selected');
+            }
+            });
+        </script>
         <script>
             $(window).scroll(function() {
                 var sticky = $('.menu'), scroll = $(window).scrollTop(); 
