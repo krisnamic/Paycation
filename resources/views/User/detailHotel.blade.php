@@ -25,7 +25,7 @@
             <img src="{{asset('img/Logo/'.$h->logoHotel.'-v.svg')}}" alt="" class="detailLogo" style="position: relative; width: auto; height: auto; margin: 2em 1em;">
             <!-- hotel images -->
             <div class="hotelImg1 d-flex flex-column justify-content-center" style=" width: 55em; height: 100%;">
-                <div class="d-flex flex-row flex-grow-1" style="margin-bottom: 0.5em;"> 
+                <div class="d-flex flex-row flex-grow-1" style="margin-bottom: 0.5em;">
                     <div>
                         <img src="{{asset('img/hotel/'.$h->gambarHotel1)}}" alt="gambarHotel" style="width: 33.75em; margin-right: 0.5em;">
                     </div>
@@ -55,7 +55,7 @@
                 <img src="{{asset('img/hotel/'.$h->gambarHotel4)}}" alt="gambarHotel" style="width: 70vw;">
                 <img src="{{asset('img/hotel/'.$h->gambarHotel5)}}" alt="gambarHotel" style="width: 70vw;">
             </div>
-            
+
 
             <!-- <div class="row card-img-top">
                 <div class="col">
@@ -76,7 +76,7 @@
 
             <!-- description & order button -->
             <div class="card-body">
-                
+
                 <div class="d-flex flex-row justify-content-between align-items-baseline">
                     <div>
                         <h5 class="card-title" style="text-shadow: 1px 0 0 black;">{{$h->namaHotel}}</h5>
@@ -105,7 +105,8 @@
                     <div class="text-right">
                         <img src="{{asset('img/Logo/'.$h->logoHotel.'-h-dark.svg')}}" alt="" style="width: 60%; height: auto;">
                     </div>
-                </div><hr>
+                </div>
+                <hr>
                 <p class="card-text"> {{$h->deskripsiHotel}}</p>
                 <form action="{{url('bookingform/'.$h->id)}}" method="GET">
                     {{csrf_field()}}

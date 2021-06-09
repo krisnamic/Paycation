@@ -30,7 +30,7 @@
         @auth
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active mt-3 ml-2 mr-2">
-                <a href="{{route('viewBookingDetail')}}"><i class="fas fa-shopping-cart"></i></a>
+                <a href="{{route('viewBookingDetail')}}"><i class="fas fa-address-book" style="font-size: 20px;"></i> Booking History</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
