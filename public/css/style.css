@@ -1,7 +1,27 @@
 @import "compass/css3";
 
+@font-face {
+    font-family: "Titillium Web";
+    src: url(../font/TitilliumWeb-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'SmithAllison';
+    src: url('../font/SmithAllison.eot'); /* IE9 Compat Modes */
+    src: url('../font/SmithAllison.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../font/SmithAllison.woff') format('woff'), /* Modern Browsers */
+         url('../font/SmithAllison.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../font/SmithAllison.svg#SmithAllison') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+
 * {
     margin: 0;
+    font-family: "Titillium Web", sans-serif;
+    font-size: 16px;
 }
 
 header {
@@ -16,6 +36,24 @@ header {
     -ms-transition: position 10s;
     -o-transition: position 10s;
     transition: all 0.5s ease;
+}
+
+nav {
+    padding: 20px 40px;
+    background: white;
+    color: #2A2E33;
+    z-index: 4 !important;
+    border-bottom: 1px solid #cecece;
+    
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: position 10s;
+    -ms-transition: position 10s;
+    -o-transition: position 10s;
+    transition: all 0.5s ease;
+}
+
+.menu {
+    z-index: 4;
 }
 
 .fixed {
@@ -215,3 +253,56 @@ header {
     content: "⌄";
     padding-left: 3px
 }
+
+/* About Us */
+
+#main-h1 {
+    font-family: "SmithAllison", serif;
+    margin-top: 1em;
+}
+
+#subtext1 {
+    margin-top: 1em;
+    font-family: "SmithAllison", serif;
+    font-size: 10em;
+    line-height: 0.5;
+}
+
+#subtext2 {
+    line-height: 0;
+}
+
+.aboutus-main {
+    margin: 2em;
+}
+
+.aboutus-main .card {
+    padding: 2em 0;
+}
+
+.card {
+    margin: 1em;
+    border-radius: 2%;
+}
+
+.profile-img {
+    
+    width: 75%;
+    height: auto;
+}
+
+.aboutus-name {
+    margin-top: 1em;
+}
+
+.aboutus-nim {
+    font-size: 0.8em;
+}
+
+.aboutus-desc li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* End About Us */
