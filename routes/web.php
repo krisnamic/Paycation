@@ -46,6 +46,7 @@ Route::group(['middleware' => ['auth', 'checkroles:user']], function () {
     Route::post('/booking', [HotelController::class, 'booking'])->name('booking');
     Route::post('/generatePDF', [HotelController::class, 'generatePDF'])->name('generatePDF');
     Route::get('/viewBookingDetail', [HotelController::class, 'viewBookingDetail'])->name('viewBookingDetail');
+    Route::get('/invoice/{id}', [HotelController::class, 'viewDetailInvoice'])->name('detailInvoice');
 });
 
 Route::group(['middleware' => ['auth', 'checkroles:admin']], function () {

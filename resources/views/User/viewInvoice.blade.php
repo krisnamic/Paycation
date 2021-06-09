@@ -73,15 +73,15 @@
                         <tr>
                             <td align="left" style="width: 40%;">
                                 <h3></h3>
-                                <pre>
-                                {{$pesanan->namaPemesan}}
-                                {{$pesanan->emailTamu}}
-                                {{$pesanan->nomorTelepon}}
-                                <br /><br />
-                                Date: {{$pesanan->jamBooking}}
-                                Time: {{$pesanan->tanggalBooking}}
-                                Status: Paid
-                                </pre>
+<pre>
+{{$pesanan->namaPemesan}}
+{{$pesanan->emailTamu}}
+{{$pesanan->nomorTelepon}}
+<br /><br />
+Date: {{$pesanan->jamBooking}}
+Time: {{$pesanan->tanggalBooking}}
+Status: Paid
+</pre>
 
 
                             </td>

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\DB;
 use PDF;
 
 class HotelController extends Controller
@@ -134,14 +135,36 @@ class HotelController extends Controller
             $user[0] = User::where('id', $user_id)->get();
 
             $pesanan = Pesanan::where('ID_User', $user_id)->join('hotel', 'hotel.id', '=', 'pesanan.ID_Hotel')->get();
-            // dd($pesanan);
+            $pesanan2 = Pesanan::where('ID_User', $user_id)->get();
+            // dd($pesanan2);
             return view('user.detailBooking', [
                 'user' => $user,
                 'pesanan' => $pesanan,
+                'pesanan2' => $pesanan2,
             ]);
         } else {
             return redirect()->back();
         }
+    }
+
+    public function viewDetailInvoice(Request $request, $id)
+    {
+        // dd($request);
+        if ($request->session()->get('user_id')) {
+            $user_id =  $request->session()->get('user_id');
+            $user[0] = User::where('id', $user_id)->get();
+            $pesanan = Pesanan::where('id', $id)->get();
+            $hotel = Hotel::where('id', $pesanan[0]->ID_Hotel)->get();
+            // dd($hotel);
+            return view('user.detailInvoice', [
+                'user' => $user,
+                'pesanan' => $pesanan[0],
+                'hotel' => $hotel[0],
+            ]);
+        } else {
+            return redirect()->back();
+        }
+        // dd($id);
     }
 
     public function search(Request $request)

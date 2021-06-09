@@ -64,6 +64,10 @@
         .information table {
             padding: 10px;
         }
+
+        img {
+            width: 250px;
+        }
     </style>
 
 </head>
@@ -72,9 +76,7 @@
 
     <div class="information">
         <div class="container">
-            <h3>paycation</h3>
-            <img src="{{ public_path('img/hotel/aston-1.png') }}">
-            https://company.com
+            <img src="{{ public_path('img/paycation/paycation-1.png') }}">
             <br>
             <p>Date : {{$jamBooking}}</p>
             <p>Time : {{$tanggalBooking}}</p>
@@ -94,7 +96,7 @@
             <p>Check Out : {{$checkOut}}</p>
             <br /><br />
         </div>
-        <h3>Invoice specification </h3>
+        <h3>Invoice Specification </h3>
         <table width=" 100%">
             <thead>
                 <tr>
