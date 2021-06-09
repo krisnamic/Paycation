@@ -19,10 +19,10 @@
     <div class="d-flex flex-column justify-content-center container">
         @foreach($hotel as $h)
         <!-- card -->
-        <div class="card" style="width: 54rem; margin: 0 auto; float: none;">
-            <h1 class="text-center">Detail Hotel</h1>
+        <div class="card" style="width: 50.75rem; height: auto; margin: 2em auto; float: none;">
+            <img src="{{asset('img/Logo/'.$h->logoHotel.'-v.svg')}}" alt="" class="detailLogo" style="position: relative; width: auto; height: auto; margin: 2em 0;">
             <!-- hotel images -->
-            <div class="hotelImg1 d-flex flex-column" style=" width: 55em; height: 100%;">
+            <div class="hotelImg1 d-flex flex-column justify-content-center" style=" width: 55em; height: 100%;">
                 <div class="d-flex flex-row flex-grow-1" style="margin-bottom: 0.5em;"> 
                     <div>
                         <img src="{{asset('img/hotel/'.$h->gambarHotel1)}}" alt="gambarHotel" style="width: 33.75em; margin-right: 0.5em;">
@@ -46,7 +46,7 @@
                 </div>
             </div>
 
-            <div class="hotelImg2 d-flex flex-column">
+            <div class="hotelImg2 d-flex flex-column justify-content-center" style=" width: 55em; height: 100%;">
                 <img src="{{asset('img/hotel/'.$h->gambarHotel1)}}" alt="gambarHotel" style="width: 70vw;">
                 <img src="{{asset('img/hotel/'.$h->gambarHotel2)}}" alt="gambarHotel" style="width: 70vw;">
                 <img src="{{asset('img/hotel/'.$h->gambarHotel3)}}" alt="gambarHotel" style="width: 70vw;">
@@ -110,6 +110,7 @@
                 @elseif(Session::missing('user_id'))
                 <a href="/login" class="btn btn-primary">Book now</a>
                 @endif
+                <a href="javascript:history.back()" class="btn btn-default" role="button">Back to Catalogue</a>
             </div>
             <!-- end of description & order button -->
         </div>
