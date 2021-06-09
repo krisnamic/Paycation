@@ -67,12 +67,15 @@
             <div class="d-flex flex-column container">
             <div id="hotel-list">
 
+            <h5>Search:</h5>
             <input class="search" />
 
-            <h5>Sort by:</h5> 
-            <button type="checkbox" class='sort' data-sort='nama' data-default-order='asc'>Name</button><br/>
-            <button type="checkbox" class='sort' data-sort='bintang' data-default-order='asc'>Star</button><br/>
-            <button type="checkbox" class='sort' data-sort='lokasi' data-default-order='asc'>Location</button><br/>
+            <div>
+                <h5>Sort by:</h5> 
+                <button type="checkbox" class='sort' data-sort='nama' data-default-order='asc'>Name</button>
+                <button type="checkbox" class='sort' data-sort='bintang' data-default-order='asc'>Star</button>
+                <button type="checkbox" class='sort' data-sort='lokasi' data-default-order='asc'>Location</button>
+            </div>
 
             <h5>Filter by:</h5>
             <p>Star:</p>
@@ -277,14 +280,14 @@
                     return (item.values().bintang == 5);
                     });
                     $(this).addClass('selected');
+                    $('.filter-45star').prop("checked", false);
+                    $('.filter-45star').removeClass('selected');
                     $('.filter-4star').prop("checked", false);
                     $('.filter-4star').removeClass('selected');
+                    $('.filter-35star').prop("checked", false);
+                    $('.filter-35star').removeClass('selected');
                     $('.filter-3star').prop("checked", false);
                     $('.filter-3star').removeClass('selected');
-                    $('.filter-2star').prop("checked", false);
-                    $('.filter-2star').removeClass('selected');
-                    $('.filter-1star').prop("checked", false);
-                    $('.filter-1star').removeClass('selected');
                 }
             }); 
             $('.filter-45star').on('click',function(){
@@ -298,12 +301,12 @@
                     $(this).addClass('selected');
                     $('.filter-5star').prop("checked", false);
                     $('.filter-5star').removeClass('selected');
+                    $('.filter-4star').prop("checked", false);
+                    $('.filter-4star').removeClass('selected');
+                    $('.filter-35star').prop("checked", false);
+                    $('.filter-35star').removeClass('selected');
                     $('.filter-3star').prop("checked", false);
                     $('.filter-3star').removeClass('selected');
-                    $('.filter-2star').prop("checked", false);
-                    $('.filter-2star').removeClass('selected');
-                    $('.filter-1star').prop("checked", false);
-                    $('.filter-1star').removeClass('selected');
                 }
             }); 
             $('.filter-4star').on('click',function(){
@@ -317,12 +320,12 @@
                     $(this).addClass('selected');
                     $('.filter-5star').prop("checked", false);
                     $('.filter-5star').removeClass('selected');
+                    $('.filter-45star').prop("checked", false);
+                    $('.filter-45star').removeClass('selected');
+                    $('.filter-35star').prop("checked", false);
+                    $('.filter-35star').removeClass('selected');
                     $('.filter-3star').prop("checked", false);
                     $('.filter-3star').removeClass('selected');
-                    $('.filter-2star').prop("checked", false);
-                    $('.filter-2star').removeClass('selected');
-                    $('.filter-1star').prop("checked", false);
-                    $('.filter-1star').removeClass('selected');
                 }
             }); 
             $('.filter-35star').on('click',function(){
@@ -336,12 +339,12 @@
                     $(this).addClass('selected');
                     $('.filter-5star').prop("checked", false);
                     $('.filter-5star').removeClass('selected');
+                    $('.filter-45star').prop("checked", false);
+                    $('.filter-45star').removeClass('selected');
                     $('.filter-4star').prop("checked", false);
                     $('.filter-4star').removeClass('selected');
-                    $('.filter-2star').prop("checked", false);
-                    $('.filter-2star').removeClass('selected');
-                    $('.filter-1star').prop("checked", false);
-                    $('.filter-1star').removeClass('selected');
+                    $('.filter-3star').prop("checked", false);
+                    $('.filter-3star').removeClass('selected');
                 }
             }); 
             $('.filter-3star').on('click',function(){
@@ -355,12 +358,12 @@
                     $(this).addClass('selected');
                     $('.filter-5star').prop("checked", false);
                     $('.filter-5star').removeClass('selected');
+                    $('.filter-45star').prop("checked", false);
+                    $('.filter-45star').removeClass('selected');
                     $('.filter-4star').prop("checked", false);
                     $('.filter-4star').removeClass('selected');
-                    $('.filter-2star').prop("checked", false);
-                    $('.filter-2star').removeClass('selected');
-                    $('.filter-1star').prop("checked", false);
-                    $('.filter-1star').removeClass('selected');
+                    $('.filter-35star').prop("checked", false);
+                    $('.filter-35star').removeClass('selected');
                 }
             }); 
             
