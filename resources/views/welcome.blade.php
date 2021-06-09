@@ -40,7 +40,7 @@
         </div>
         </section>
         <section>
-            <h2 class="text-center my-4">List of Paycation Hotels</h2>
+            <h2 class="subtext1 text-center" style="margin-top: 1em; margin-bottom: 0.5em;">Hotel Catalogue</h2>
             <div class="d-flex flex-column container">
             <div id="hotel-list">
 
