@@ -178,4 +178,6 @@ class HotelController extends Controller
             'hotel' => $hotel
         ]);
     }
+
+    
 }

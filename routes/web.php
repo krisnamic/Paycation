@@ -22,6 +22,7 @@ use App\Http\Controllers\HotelCRUDController;
 //     return view('welcome');
 // })->name('welcome');
 Route::get('/', [LoginController::class, 'index'])->name('welcome');
+Route::get('/aboutUs', [HomeController::class, 'aboutUs'])->name('aboutUs');
 
 
 //searching
@@ -56,3 +57,5 @@ Route::group(['middleware' => ['auth', 'checkroles:admin']], function () {
 });
 
 Route::get('/{id}', [HotelController::class, 'detailHotel'])->name('detailHotel');
+
+

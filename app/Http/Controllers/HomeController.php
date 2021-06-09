@@ -10,4 +10,9 @@ class HomeController extends Controller
     {
         return view('Hotels.index');
     }
+
+    public function aboutUs()
+    {
+        return view('user.aboutUs');
+    }
 }

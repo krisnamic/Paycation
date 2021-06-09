@@ -8,3 +8,13 @@
 <script src="{{asset('AdminLTE/dist/js/adminlte.min.js')}}"></script>
 <!-- moment js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+<script>
+    function hover(element) {
+        element.setAttribute('src', '{{asset('img/aboutUs/hen-2.png')}}');
+    }
+
+    function unhover(element) {
+        element.setAttribute('src', '{{asset('img/aboutUs/jerry.jpg')}}');
+    }
+</script>
