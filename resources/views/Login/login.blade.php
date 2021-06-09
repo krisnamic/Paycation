@@ -24,10 +24,10 @@
 
 @include('Template/head')
 
-<body class="hold-transition login-page">
+<body class="hold-transition login-page bg-img1">
   <div class="login-box">
     <div class="login-logo">
-      <img src="{{asset('img/paycation/paycation-1.svg')}}" style="position: relative; width: 65%; height: auto; margin-left: 10%;">
+      <img src="{{asset('img/paycation/paycation-1-light.svg')}}" style="position: relative; width: 65%; height: auto; margin-left: 10%;">
     </div>
     <!-- /.login-logo -->
     <div class="card">

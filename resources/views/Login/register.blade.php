@@ -23,10 +23,10 @@
 
 @include('Template/head')
 
-<body class="hold-transition register-page">
+<body class="hold-transition register-page bg-img2">
   <div class="register-box">
     <div class="login-logo">
-      <img src="{{asset('img/paycation/paycation-1.svg')}}" style="position: relative; width: 65%; height: auto; margin-left: 10%;">
+      <img src="{{asset('img/paycation/paycation-1-light.svg')}}" style="position: relative; width: 65%; height: auto; margin-left: 10%;">
     </div>
 
     <div class="card" style="margin: 0 auto; float: none;">

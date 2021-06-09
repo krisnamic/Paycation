@@ -322,3 +322,20 @@ nav {
     margin: auto !important;
     width: 30em !important;
 }
+
+.bg-img1 {
+    width: 100vw;
+    background: url('../img/bg/city.jpg') center center no-repeat;
+    background-size: cover;
+    
+}
+
+.bg-img2 {
+    width: 100vw;
+    background: url('../img/bg/beach.jpg') center center no-repeat;
+    background-size: cover;
+}
+
+.login-page .card-body, .register-page .card-body {
+    border-radius: 100% !important;
+}
