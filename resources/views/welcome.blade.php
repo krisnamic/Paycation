@@ -76,15 +76,97 @@
 
             <h5>Filter by:</h5>
             <p>Star:</p>
-            <ul style="list-style-type: none;;">
-                <li><input type="checkbox" class='filter-5star'/> 5 Star</li>
-                <li><input type="checkbox" class='filter-4star'/> 4 Star</li>
-                <li><input type="checkbox" class='filter-3star'/> 3 Star</li>
-                <li><input type="checkbox" class='filter-2star'/> 2 Star</li>
-                <li><input type="checkbox" class='filter-1star'/> 1 Star</li>
+            <ul style="list-style-type: none;">
+                <li><input type="checkbox" class='filter-5star'/>                 
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                </li>
+                <li><input type="checkbox" class='filter-45star'/>  
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star fa-stack-1x" style="color: #CECECE;"></i>
+                        <i class="fas fa-star-half checked fa-stack-1x"></i>  
+                    </span>           
+                </li>
+                <li><input type="checkbox" class='filter-4star'/>                 
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star unchecked"></i>
+                    </span> 
+                </li>
+                <li><input type="checkbox" class='filter-35star'/>                 
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star fa-stack-1x" style="color: #CECECE;"></i>
+                        <i class="fas fa-star-half checked fa-stack-1x"></i>  
+                    </span>    
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star unchecked"></i>
+                    </span> 
+                </li>
+                <li><input type="checkbox" class='filter-3star'/>                 
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star checked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star unchecked"></i>
+                    </span>
+                    <span class="fa-stack" style="width:1em;">     
+                        <i class="fas fa-star unchecked"></i>
+                    </span>
+                </li>
             </ul>
             <p>Price:</p>
-            <ul style="list-style-type: none;;">
+            <ul style="list-style-type: none;">
                 <li><input type="checkbox" class='filter-1500'/> < Rp. 1.500.000</li>
                 <li><input type="checkbox" class='filter-1750'/> Rp. 1.500.000 - Rp. 2.000.000</li>
                 <li><input type="checkbox" class='filter-2250'/> Rp. 2.000.000 - Rp. 2.500.000</li>
@@ -92,7 +174,7 @@
                 <li><input type="checkbox" class='filter-3000'/> > Rp. 3.000.000</li>
             </ul>
             <p>Location:</p>
-            <ul style="list-style-type: none;;">
+            <ul style="list-style-type: none;">
                 <li><input type="checkbox" class='filter-tangerang'/> Tangerang</li>
                 <li><input type="checkbox" class='filter-bandung'/> Bandung</li>
                 <li><input type="checkbox" class='filter-jakarta'/> Jakarta Timur</li>
@@ -135,6 +217,7 @@
                                         @endforeach
                                         </p>
                                         <p class="bintang" hidden>{{$h->bintang}}</p>
+                                        <p class="harga" hidden>{{$h->hargaKamar}}</p>
                                         <p class="card-text py-0 my-0">Price : {{$h->hargaKamar}}</p>
                                     </div>
                                 </div>
@@ -179,14 +262,10 @@
         
         <script>
             var options = {
-                valueNames: ['nama', 'lokasi', 'bintang']
+                valueNames: ['nama', 'lokasi', 'bintang', 'harga']
             };
 
             var hotelList = new List('hotel-list', options);
-
-            var star;
-            var location;
-
 
             $('.filter-5star').on('click',function(){
                 star = 5;
@@ -200,6 +279,25 @@
                     $(this).addClass('selected');
                     $('.filter-4star').prop("checked", false);
                     $('.filter-4star').removeClass('selected');
+                    $('.filter-3star').prop("checked", false);
+                    $('.filter-3star').removeClass('selected');
+                    $('.filter-2star').prop("checked", false);
+                    $('.filter-2star').removeClass('selected');
+                    $('.filter-1star').prop("checked", false);
+                    $('.filter-1star').removeClass('selected');
+                }
+            }); 
+            $('.filter-45star').on('click',function(){
+                if($(this).hasClass( 'selected' )){
+                    hotelList.filter();
+                    $(this).removeClass('selected');
+                } else {
+                    hotelList.filter(function(item) {
+                    return (item.values().bintang == 4.5);
+                    });
+                    $(this).addClass('selected');
+                    $('.filter-5star').prop("checked", false);
+                    $('.filter-5star').removeClass('selected');
                     $('.filter-3star').prop("checked", false);
                     $('.filter-3star').removeClass('selected');
                     $('.filter-2star').prop("checked", false);
@@ -227,6 +325,25 @@
                     $('.filter-1star').removeClass('selected');
                 }
             }); 
+            $('.filter-35star').on('click',function(){
+                if($(this).hasClass( 'selected' )){
+                    hotelList.filter();
+                    $(this).removeClass('selected');
+                } else {
+                    hotelList.filter(function(item) {
+                    return (item.values().bintang == 3.5);
+                    });
+                    $(this).addClass('selected');
+                    $('.filter-5star').prop("checked", false);
+                    $('.filter-5star').removeClass('selected');
+                    $('.filter-4star').prop("checked", false);
+                    $('.filter-4star').removeClass('selected');
+                    $('.filter-2star').prop("checked", false);
+                    $('.filter-2star').removeClass('selected');
+                    $('.filter-1star').prop("checked", false);
+                    $('.filter-1star').removeClass('selected');
+                }
+            }); 
             $('.filter-3star').on('click',function(){
                 if($(this).hasClass( 'selected' )){
                     hotelList.filter();
@@ -246,47 +363,106 @@
                     $('.filter-1star').removeClass('selected');
                 }
             }); 
-            $('.filter-2star').on('click',function(){
+            
+
+            $('.filter-1500').on('click',function(){
                 if($(this).hasClass( 'selected' )){
                     hotelList.filter();
                     $(this).removeClass('selected');
                 } else {
                     hotelList.filter(function(item) {
-                    return (item.values().bintang == 2);
+                    return (item.values().harga < 1500000);
                     });
                     $(this).addClass('selected');
-                    $('.filter-5star').prop("checked", false);
-                    $('.filter-5star').removeClass('selected');
-                    $('.filter-4star').prop("checked", false);
-                    $('.filter-4star').removeClass('selected');
-                    $('.filter-3star').prop("checked", false);
-                    $('.filter-3star').removeClass('selected');
-                    $('.filter-1star').prop("checked", false);
-                    $('.filter-1star').removeClass('selected');
+                    $('.filter-1750').prop("checked", false);
+                    $('.filter-1750').removeClass('selected');
+                    $('.filter-2250').prop("checked", false);
+                    $('.filter-2250').removeClass('selected');
+                    $('.filter-2750').prop("checked", false);
+                    $('.filter-2750').removeClass('selected');
+                    $('.filter-3000').prop("checked", false);
+                    $('.filter-3000').removeClass('selected');
                 }
             }); 
-            $('.filter-1star').on('click',function(){
+            $('.filter-1750').on('click',function(){
                 if($(this).hasClass( 'selected' )){
                     hotelList.filter();
                     $(this).removeClass('selected');
                 } else {
                     hotelList.filter(function(item) {
-                    return (item.values().bintang == 1);
+                    return (item.values().harga >= 1500000 && item.values().harga <= 2000000);
                     });
                     $(this).addClass('selected');
-                    $('.filter-5star').prop("checked", false);
-                    $('.filter-5star').removeClass('selected');
-                    $('.filter-4star').prop("checked", false);
-                    $('.filter-4star').removeClass('selected');
-                    $('.filter-3star').prop("checked", false);
-                    $('.filter-3star').removeClass('selected');
-                    $('.filter-2star').prop("checked", false);
-                    $('.filter-2star').removeClass('selected');
+                    $('.filter-1500').prop("checked", false);
+                    $('.filter-1500').removeClass('selected');
+                    $('.filter-2250').prop("checked", false);
+                    $('.filter-2250').removeClass('selected');
+                    $('.filter-2750').prop("checked", false);
+                    $('.filter-2750').removeClass('selected');
+                    $('.filter-3000').prop("checked", false);
+                    $('.filter-3000').removeClass('selected');
+                }
+            });  
+            $('.filter-2250').on('click',function(){
+                if($(this).hasClass( 'selected' )){
+                    hotelList.filter();
+                    $(this).removeClass('selected');
+                } else {
+                    hotelList.filter(function(item) {
+                    return (item.values().harga >= 2000000 && item.values().harga <= 2500000);
+                    });
+                    $(this).addClass('selected');
+                    $('.filter-1500').prop("checked", false);
+                    $('.filter-1500').removeClass('selected');
+                    $('.filter-1750').prop("checked", false);
+                    $('.filter-1750').removeClass('selected');
+                    $('.filter-2750').prop("checked", false);
+                    $('.filter-2750').removeClass('selected');
+                    $('.filter-3000').prop("checked", false);
+                    $('.filter-3000').removeClass('selected');
+                }
+            });  
+            $('.filter-2750').on('click',function(){
+                if($(this).hasClass( 'selected' )){
+                    hotelList.filter();
+                    $(this).removeClass('selected');
+                } else {
+                    hotelList.filter(function(item) {
+                    return (item.values().harga >= 2500000 && item.values().harga <= 3000000);
+                    });
+                    $(this).addClass('selected');
+                    $('.filter-1500').prop("checked", false);
+                    $('.filter-1500').removeClass('selected');
+                    $('.filter-1750').prop("checked", false);
+                    $('.filter-1750').removeClass('selected');
+                    $('.filter-2250').prop("checked", false);
+                    $('.filter-2250').removeClass('selected');
+                    $('.filter-3000').prop("checked", false);
+                    $('.filter-3000').removeClass('selected');
+                }
+            }); 
+            $('.filter-3000').on('click',function(){
+                if($(this).hasClass( 'selected' )){
+                    hotelList.filter();
+                    $(this).removeClass('selected');
+                } else {
+                    hotelList.filter(function(item) {
+                    return (item.values().harga > 3000000);
+                    });
+                    $(this).addClass('selected');
+                    $('.filter-1500').prop("checked", false);
+                    $('.filter-1500').removeClass('selected');
+                    $('.filter-1750').prop("checked", false);
+                    $('.filter-1750').removeClass('selected');
+                    $('.filter-2250').prop("checked", false);
+                    $('.filter-2250').removeClass('selected');
+                    $('.filter-2750').prop("checked", false);
+                    $('.filter-2750').removeClass('selected');
                 }
             }); 
         
+            
             $('.filter-tangerang').on('click',function(){
-                location="Tangerang";
                 if($(this).hasClass( 'selected' )){
                     hotelList.filter();
                     $(this).removeClass('selected');
