@@ -22,7 +22,7 @@
         <h2 class="subtext1 text-center" style="margin-top: 1em; margin-bottom: 0.5em;">Hotel Detail</h2>
         <!-- card -->
         <div class="card" style="width: 50.75rem; height: auto; margin: 2em auto; float: none;">
-            <img src="{{asset('img/Logo/'.$h->logoHotel.'-v.svg')}}" alt="" class="detailLogo" style="position: relative; width: auto; height: auto; margin: 2em 0;">
+            <img src="{{asset('img/Logo/'.$h->logoHotel.'-v.svg')}}" alt="" class="detailLogo" style="position: relative; width: auto; height: auto; margin: 2em 1em;">
             <!-- hotel images -->
             <div class="hotelImg1 d-flex flex-column justify-content-center" style=" width: 55em; height: 100%;">
                 <div class="d-flex flex-row flex-grow-1" style="margin-bottom: 0.5em;"> 
@@ -31,7 +31,7 @@
                     </div>
                     <div class="d-flex flex-column">
                         <div>
-                            <img src="{{asset('img/hotel/'.$h->gambarHotel2)}}" alt="gambarHotel" style="width: 16.5em; margin-bottom: 0.5em">
+                            <img src="{{asset('img/hotel/'.$h->gambarHotel4)}}" alt="gambarHotel" style="width: 16.5em; margin-bottom: 0.5em">
                         </div>
                         <div>
                             <img src="{{asset('img/hotel/'.$h->gambarHotel3)}}" alt="gambarHotel" style="width: 16.5em;">
@@ -40,7 +40,7 @@
                 </div>
                 <div class="d-flex flex-row">
                     <div>
-                        <img src="{{asset('img/hotel/'.$h->gambarHotel4)}}" alt="gambarHotel" style="width: 25.15em; margin-right: 0.5em;">
+                        <img src="{{asset('img/hotel/'.$h->gambarHotel2)}}" alt="gambarHotel" style="width: 25.15em; margin-right: 0.5em;">
                     </div>
                     <div>
                         <img src="{{asset('img/hotel/'.$h->gambarHotel5)}}" alt="gambarHotel" style="width: 25.15em;">
@@ -113,14 +113,16 @@
                     @if(Session::has('user_id'))
                     @if($h->stokKamar === 0)
                     <button type="submit" href="#" class="btn btn-primary" disabled>Book now</button>
+                    <a href="javascript:history.back()" class="btn btn-default" role="button">Back to Catalogue</a>
                     @else
                     <button type="submit" href="#" class="btn btn-primary">Book now</button>
+                    <a href="javascript:history.back()" class="btn btn-default" role="button">Back to Catalogue</a>
                     @endif
                 </form>
                 @elseif(Session::missing('user_id'))
                 <a href="/login" class="btn btn-primary">Book now</a>
-                @endif
                 <a href="javascript:history.back()" class="btn btn-default" role="button">Back to Catalogue</a>
+                @endif
             </div>
             <!-- end of description & order button -->
         </div>
