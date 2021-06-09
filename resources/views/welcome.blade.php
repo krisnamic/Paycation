@@ -65,13 +65,13 @@
         <section>
             <h2 class="text-center my-4">List of Paycation Hotels</h2>
             <div class="d-flex flex-column container">
-            <div id="hacker-list">
+            <div id="hotel-list">
             <input class="search" />
             Sort by: 
-            <input type="checkbox" class='sort' data-sort='name'/>Name<br/>
+            <input type="checkbox" class='sort' data-sort='nama'/>Name<br/>
             <input type="checkbox" class='sort' data-sort='bintang'/>Bintang<br/>
-            <input type="checkbox" class='filter-5'/>Bintang 5<br/>
-            <input type="checkbox" class='sort' data-sort='city'/>City<br/>
+            <input type="checkbox" class='filter-5star'/>Bintang 5<br/>
+            <input type="checkbox" class='sort' data-sort='lokasi'/>City<br/>
                 <div class="row row-cols-1" style="display: flex;">
                     <ul class="list" style="list-style-type: none; padding: 0;">
                     @foreach($hotel as $h)
@@ -90,7 +90,7 @@
                                         <img src="{{asset('img/Logo/'.$h->logoHotel.'-v.svg')}}" alt="hotel_image">
                                     </div>
                                     <div class="home-desc">
-                                        <h5 class="card-title">{{$h->namaHotel}}</h5>
+                                        <h5 class="card-title nama">{{$h->namaHotel}}</h5>
                                         <p class="card-text">Rating :
                                             @php ($lol = 5)
                                             @for($i = 0; $i < $h->bintang; $i++)
@@ -101,13 +101,13 @@
                                                 <span class="fas fa-star unchecked"></span>
                                                 @php ($lol -= 1)
                                                 @endwhile
-                                        </p>
+                                        </p><p class="bintang" hidden>{{$h->bintang}}</p>
                                         <p class="card-text py-0 my-0">Price : {{$h->hargaKamar}}</p>
                                     </div>
                                 </div>
                                 <div class="home-desc2">
                                     <p class="card-text">{{$h->deskripsiHotel}}</p>
-                                    <p class="card-text text-muted small">{{$h->lokasi}}</p>
+                                    <p class="card-text text-muted small lokasi">{{$h->lokasi}}</p>
                                 </div>
                                 
                             </div>
@@ -146,17 +146,17 @@
         
         <script>
             var options = {
-                valueNames: ['name', 'city', 'bintang']
+                valueNames: ['nama', 'lokasi', 'bintang']
             };
 
-            var hackerList = new List('hacker-list', options);
+            var hotelList = new List('hotel-list', options);
 
-            $('.filter-5').on('click',function(){
+            $('.filter-5star').on('click',function(){
             if($(this).hasClass( 'selected' )){
-                hackerList.filter();
+                hotelList.filter();
                 $(this).removeClass('selected');
             } else {
-                hackerList.filter(function(item) {
+                hotelList.filter(function(item) {
                 return (item.values().bintang == 5);
                 });
                 $(this).addClass('selected');
