@@ -89,7 +89,8 @@
                     <input type="hidden" id="id_hotel" value="{{$h->id}}" name="id_hotel">
                     <input type="hidden" id="numOfDay" value="" name="numOfDay">
                     <input type="hidden" id="grandTotalPrice" value="" name="grandTotalPrice">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <input type="hidden" id="namaHotel" value="{{$h->namaHotel}}" name="namaHotel">
+                    <button type="submit" class="btn btn-primary"> Submit</button>
                 </form>
             </div>
         </div>

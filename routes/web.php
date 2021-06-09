@@ -43,13 +43,15 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::group(['middleware' => ['auth', 'checkroles:user']], function () {
     Route::resource('user', UserController::class);
     Route::get('/bookingform/{id}', [HotelController::class, 'bookingform'])->name('bookingform');
-    Route::post('booking', [HotelController::class, 'booking'])->name('booking');
+    Route::post('/booking', [HotelController::class, 'booking'])->name('booking');
+    Route::post('/generatePDF', [HotelController::class, 'generatePDF'])->name('generatePDF');
+    Route::get('/viewBookingDetail', [HotelController::class, 'viewBookingDetail'])->name('viewBookingDetail');
 });
 
 Route::group(['middleware' => ['auth', 'checkroles:admin']], function () {
     Route::get('/hotel', [HotelCRUDController::class, 'index'])->name('hotel');
     Route::resource('hotels', HotelCRUDController::class);
-    Route::post('delete-hotel', [HotelCRUDController::class,'destroy']);
+    Route::post('delete-hotel', [HotelCRUDController::class, 'destroy']);
 });
 
 Route::get('/{id}', [HotelController::class, 'detailHotel'])->name('detailHotel');
