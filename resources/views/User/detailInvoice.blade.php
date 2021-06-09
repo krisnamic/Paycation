@@ -77,6 +77,9 @@
     @include('Template/userNavbar')
     <!-- end of navbar -->
 
+    <!-- content -->
+    <input type="hidden" value="{{$pesanan->checkIn}}" id="checkIn">
+    <input type="hidden" value="{{$pesanan->checkOut}}" id="checkOut">
     <div class="container mt-3">
         <div class="card">
             <h5 class="card-header" style="font-size:xx-large;">Invoice <i style="font-size: xx-large;">#</i> {{$pesanan->id}}</h5>
@@ -157,9 +160,9 @@ Time          : {{$pesanan->tanggalBooking}}
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{{$namaHotel}}</td>
+                                <td>{{$hotel->namaHotel}}</td>
                                 <td>{{$pesanan->jumlahKamar}}</td>
-                                <td class="numOfDay">{{$jumlahHari}}</td>
+                                <td class="numOfDay"></td>
                                 <td>{{$pesanan->hargaPesanan}}</td>
                             </tr>
                             <!-- <tr>
@@ -188,6 +191,7 @@ Time          : {{$pesanan->tanggalBooking}}
                         </tfoot>
                     </table>
                 </div>
+
                 <!-- <div class="information" style="position: absolute; bottom: 0;">
                     <table width="100%">
                         <tr>
@@ -201,9 +205,8 @@ Time          : {{$pesanan->tanggalBooking}}
 
                     </table>
                 </div> -->
-                <br>
                 <div class="tombol" style="display: flex; justify-content:space-between;">
-                    <form action="{{route('generatePDF')}}" method="POST">
+                    <form action="{{route('generatePDF2')}}" method="POST">
                         {{csrf_field()}}
                         <input type="hidden" value="{{$pesanan->namaPemesan}}" name="namaPemesan">
                         <input type="hidden" value="{{$pesanan->emailTamu}}" name="emailTamu">
@@ -214,23 +217,31 @@ Time          : {{$pesanan->tanggalBooking}}
                         <input type="hidden" value="{{$pesanan->hargaPesanan}}" name="hargaPesanan">
                         <input type="hidden" value="{{$pesanan->checkIn}}" name="checkIn">
                         <input type="hidden" value="{{$pesanan->checkOut}}" name="checkOut">
-                        <input type="hidden" value="{{$namaHotel}}" name="namaHotel">
-                        <input type="hidden" value="{{$jumlahHari}}" name="jumlahHari">
-                        <input type="hidden" value="{{$pesanan->id}}" name="id">
+                        <input type="hidden" value="{{$hotel->namaHotel}}" name="namaHotel">
+                        <input type="hidden" value="" name="jumlahHari" class="numOfDay">
+                        <br>
                         <button class="btn btn-primary" type="submit" formtarget="_blank">View In PDF</button>
                     </form>
-                    <form action="{{route('viewBookingDetail')}}" method="GET">
-                        <button class="btn btn-primary">View Booking Details</button>
-                    </form>
                 </div>
-                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
     </div>
 
     <!-- end of content -->
 
-    @include('Template/script')
+                @include('Template/script')
+                <script>
+                    var check_in_date = $('#checkIn').val();
+                    var check_out_date = $('#checkOut').val();
+                    // alert(check_in_date);
+                    // alert(check_out_date);
+                    var checkOut = moment(check_out_date, 'YYYY-MM-DD');
+                    var checkIn = moment(check_in_date, 'YYYY-MM-DD');
+                    var numOfDay = checkOut.diff(checkIn, 'days');
+                    $('.numOfDay').html(numOfDay);
+                    $('.numOfDay').val(numOfDay);
+                </script>
 </body>
 
 </html>
