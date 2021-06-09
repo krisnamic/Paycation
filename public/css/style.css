@@ -215,3 +215,15 @@ header {
     content: "⌄";
     padding-left: 3px
 }
+
+.starPage {
+    display: none;
+}
+
+.pricePage {
+    display: none;
+}
+
+.locationPage {
+    display: none;
+}

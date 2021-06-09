@@ -78,112 +78,128 @@
             </div>
 
             <h5>Filter by:</h5>
-            <p>Star:</p>
-            <ul style="list-style-type: none;">
-                <li><input type="checkbox" class='filter-5star'/>                 
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                </li>
-                <li><input type="checkbox" class='filter-45star'/>  
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star fa-stack-1x" style="color: #CECECE;"></i>
-                        <i class="fas fa-star-half checked fa-stack-1x"></i>  
-                    </span>           
-                </li>
-                <li><input type="checkbox" class='filter-4star'/>                 
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star unchecked"></i>
-                    </span> 
-                </li>
-                <li><input type="checkbox" class='filter-35star'/>                 
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star fa-stack-1x" style="color: #CECECE;"></i>
-                        <i class="fas fa-star-half checked fa-stack-1x"></i>  
-                    </span>    
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star unchecked"></i>
-                    </span> 
-                </li>
-                <li><input type="checkbox" class='filter-3star'/>                 
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star checked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star unchecked"></i>
-                    </span>
-                    <span class="fa-stack" style="width:1em;">     
-                        <i class="fas fa-star unchecked"></i>
-                    </span>
-                </li>
-            </ul>
-            <p>Price:</p>
-            <ul style="list-style-type: none;">
-                <li><input type="checkbox" class='filter-1500'/> < Rp. 1.500.000</li>
-                <li><input type="checkbox" class='filter-1750'/> Rp. 1.500.000 - Rp. 2.000.000</li>
-                <li><input type="checkbox" class='filter-2250'/> Rp. 2.000.000 - Rp. 2.500.000</li>
-                <li><input type="checkbox" class='filter-2750'/> Rp. 2.500.000 - Rp. 3.000.000</li>
-                <li><input type="checkbox" class='filter-3000'/> > Rp. 3.000.000</li>
-            </ul>
-            <p>Location:</p>
-            <ul style="list-style-type: none;">
-                <li><input type="checkbox" class='filter-tangerang'/> Tangerang</li>
-                <li><input type="checkbox" class='filter-bandung'/> Bandung</li>
-                <li><input type="checkbox" class='filter-jakarta'/> Jakarta Timur</li>
-                <li><input type="checkbox" class='filter-bali'/> Bali</li>
-            </ul>
+            <select name="filterOpt" id="filterOpt" class="custom-select filterOpt">
+                <option selected disabled hidden></option>
+                <option value="star">Star</option>
+                <option value="price">Price</option>
+                <option value="location">Location</option>
+            </select>
 
+            <div class="starPage">
+                <p>Star:</p>
+                <ul style="list-style-type: none;">
+                    <li><input type="checkbox" class='filter-5star'/>                 
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                    </li>
+                    <li><input type="checkbox" class='filter-45star'/>  
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star fa-stack-1x" style="color: #CECECE;"></i>
+                            <i class="fas fa-star-half checked fa-stack-1x"></i>  
+                        </span>           
+                    </li>
+                    <li><input type="checkbox" class='filter-4star'/>                 
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star unchecked"></i>
+                        </span> 
+                    </li>
+                    <li><input type="checkbox" class='filter-35star'/>                 
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star fa-stack-1x" style="color: #CECECE;"></i>
+                            <i class="fas fa-star-half checked fa-stack-1x"></i>  
+                        </span>    
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star unchecked"></i>
+                        </span> 
+                    </li>
+                    <li><input type="checkbox" class='filter-3star'/>                 
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star unchecked"></i>
+                        </span>
+                        <span class="fa-stack" style="width:1em;">     
+                            <i class="fas fa-star unchecked"></i>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="pricePage">
+                <p>Price:</p>
+                <ul style="list-style-type: none;">
+                    <li><input type="checkbox" class='filter-1500'/> < Rp. 1.500.000</li>
+                    <li><input type="checkbox" class='filter-1750'/> Rp. 1.500.000 - Rp. 2.000.000</li>
+                    <li><input type="checkbox" class='filter-2250'/> Rp. 2.000.000 - Rp. 2.500.000</li>
+                    <li><input type="checkbox" class='filter-2750'/> Rp. 2.500.000 - Rp. 3.000.000</li>
+                    <li><input type="checkbox" class='filter-3000'/> > Rp. 3.000.000</li>
+                </ul>
+            </div>
+            
+            <div class="locationPage">
+                <p>Location:</p>
+                <ul style="list-style-type: none;">
+                    <li><input type="checkbox" class='filter-tangerang'/> Tangerang</li>
+                    <li><input type="checkbox" class='filter-bandung'/> Bandung</li>
+                    <li><input type="checkbox" class='filter-jakarta'/> Jakarta Timur</li>
+                    <li><input type="checkbox" class='filter-bali'/> Bali</li>
+                </ul>
+            </div>
+            
+            <br/><br/>
                 <div class="row row-cols-1" style="display: flex;">
                     <ul class="list" style="list-style-type: none; padding: 0;">
                     @foreach($hotel as $h)
@@ -264,14 +280,90 @@
         @include('Template/footer')
         
         <script>
+            $('select.filterOpt').change(function(){
+                var selectedOpt = $(this).children("option:selected").val();
+
+                if ( selectedOpt == "star" ) {
+                    hotelList.filter();
+                    $('.starPage').css("display", "inline-block");
+                    $('.pricePage').css("display", "none");
+                    $('.locationPage').css("display", "none");
+                    $('.filter-1500').prop("checked", false);
+                    $('.filter-1500').removeClass('selected');
+                    $('.filter-1750').prop("checked", false);
+                    $('.filter-1750').removeClass('selected');
+                    $('.filter-2250').prop("checked", false);
+                    $('.filter-2250').removeClass('selected');
+                    $('.filter-2750').prop("checked", false);
+                    $('.filter-2750').removeClass('selected');
+                    $('.filter-3000').prop("checked", false);
+                    $('.filter-3000').removeClass('selected');
+                    $('.filter-tangerang').prop("checked", false);
+                    $('.filter-tangerang').removeClass('selected');
+                    $('.filter-bandung').prop("checked", false);
+                    $('.filter-bandung').removeClass('selected');
+                    $('.filter-jakarta').prop("checked", false);
+                    $('.filter-jakarta').removeClass('selected');
+                    $('.filter-bali').prop("checked", false);
+                    $('.filter-bali').removeClass('selected');
+                } else if ( selectedOpt == "price" ) {
+                    hotelList.filter();
+                    $('.pricePage').css("display", "inline-block");
+                    $('.starPage').css("display", "none");
+                    $('.locationPage').css("display", "none");
+                    $('.filter-5star').prop("checked", false);
+                    $('.filter-5star').removeClass('selected');
+                    $('.filter-45star').prop("checked", false);
+                    $('.filter-45star').removeClass('selected');
+                    $('.filter-4star').prop("checked", false);
+                    $('.filter-4star').removeClass('selected');
+                    $('.filter-35star').prop("checked", false);
+                    $('.filter-35star').removeClass('selected');
+                    $('.filter-3star').prop("checked", false);
+                    $('.filter-3star').removeClass('selected');
+                    $('.filter-tangerang').prop("checked", false);
+                    $('.filter-tangerang').removeClass('selected');
+                    $('.filter-bandung').prop("checked", false);
+                    $('.filter-bandung').removeClass('selected');
+                    $('.filter-jakarta').prop("checked", false);
+                    $('.filter-jakarta').removeClass('selected');
+                    $('.filter-bali').prop("checked", false);
+                    $('.filter-bali').removeClass('selected');
+                } else if ( selectedOpt == "location" ) {
+                    hotelList.filter();
+                    $('.locationPage').css("display", "inline-block");
+                    $('.starPage').css("display", "none");
+                    $('.pricePage').css("display", "none");
+                    $('.filter-5star').prop("checked", false);
+                    $('.filter-5star').removeClass('selected');
+                    $('.filter-45star').prop("checked", false);
+                    $('.filter-45star').removeClass('selected');
+                    $('.filter-4star').prop("checked", false);
+                    $('.filter-4star').removeClass('selected');
+                    $('.filter-35star').prop("checked", false);
+                    $('.filter-35star').removeClass('selected');
+                    $('.filter-3star').prop("checked", false);
+                    $('.filter-3star').removeClass('selected');
+                    $('.filter-1500').prop("checked", false);
+                    $('.filter-1500').removeClass('selected');
+                    $('.filter-1750').prop("checked", false);
+                    $('.filter-1750').removeClass('selected');
+                    $('.filter-2250').prop("checked", false);
+                    $('.filter-2250').removeClass('selected');
+                    $('.filter-2750').prop("checked", false);
+                    $('.filter-2750').removeClass('selected');
+                    $('.filter-3000').prop("checked", false);
+                    $('.filter-3000').removeClass('selected');
+                }
+            });
+
             var options = {
-                valueNames: ['nama', 'lokasi', 'bintang', 'harga']
+                valueNames: ['nama', 'bintang', 'harga', 'lokasi']
             };
 
             var hotelList = new List('hotel-list', options);
 
             $('.filter-5star').on('click',function(){
-                star = 5;
                 if($(this).hasClass( 'selected' )){
                     hotelList.filter();
                     $(this).removeClass('selected');
