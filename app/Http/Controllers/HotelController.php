@@ -112,6 +112,7 @@ class HotelController extends Controller
     public function generatePDF(Request $request)
     {
         $pesanan = [
+            'id'                => $request->id,
             'namaHotel'         =>  $request->namaHotel,
             'jumlahHari'        => $request->jumlahHari,
             'hargaPesanan'      =>  $request->hargaPesanan,
@@ -124,6 +125,27 @@ class HotelController extends Controller
             'jamBooking'        =>  $request->jamBooking,
             'tanggalBooking'    =>  $request->tanggalBooking,
         ];
+        // dd($request);
+        $pdf = PDF::loadView('user.invoice', $pesanan);
+        return $pdf->stream('invoice.pdf');
+    }
+
+    public function generatePDF2(Request $request)
+    {
+        $pesanan = [
+            'namaHotel'         =>  $request->namaHotel,
+            'jumlahHari'        =>  $request->jumlahHari,
+            'hargaPesanan'      =>  $request->hargaPesanan,
+            'namaPemesan'       =>  $request->namaPemesan,
+            'nomorTelepon'      =>  $request->nomorTelepon,
+            'emailTamu'         =>  $request->emailTamu,
+            'jumlahKamar'       =>  $request->jumlahKamar,
+            'checkIn'           =>  $request->checkIn,
+            'checkOut'          =>  $request->checkOut,
+            'jamBooking'        =>  $request->jamBooking,
+            'tanggalBooking'    =>  $request->tanggalBooking,
+        ];
+        // dd($pesanan);
         $pdf = PDF::loadView('user.invoice', $pesanan);
         return $pdf->stream('invoice.pdf');
     }
@@ -178,6 +200,4 @@ class HotelController extends Controller
             'hotel' => $hotel
         ]);
     }
-
-    
 }

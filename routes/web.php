@@ -46,6 +46,7 @@ Route::group(['middleware' => ['auth', 'checkroles:user']], function () {
     Route::get('/bookingform/{id}', [HotelController::class, 'bookingform'])->name('bookingform');
     Route::post('/booking', [HotelController::class, 'booking'])->name('booking');
     Route::post('/generatePDF', [HotelController::class, 'generatePDF'])->name('generatePDF');
+    Route::post('/generatePDF2', [HotelController::class, 'generatePDF2'])->name('generatePDF2');
     Route::get('/viewBookingDetail', [HotelController::class, 'viewBookingDetail'])->name('viewBookingDetail');
     Route::get('/invoice/{id}', [HotelController::class, 'viewDetailInvoice'])->name('detailInvoice');
 });
@@ -57,5 +58,3 @@ Route::group(['middleware' => ['auth', 'checkroles:admin']], function () {
 });
 
 Route::get('/{id}', [HotelController::class, 'detailHotel'])->name('detailHotel');
-
-
