@@ -15,7 +15,7 @@
     <!-- end of navbar -->
 
     <!-- Content -->
-    
+    @include('Template/backBtn')
     <div class="d-flex flex-column justify-content-center container">
         @foreach($hotel as $h)
         <!-- card -->
