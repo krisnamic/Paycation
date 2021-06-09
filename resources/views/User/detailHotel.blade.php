@@ -18,6 +18,8 @@
     
     <div class="d-flex flex-column justify-content-center container">
         @foreach($hotel as $h)
+
+        <h2 class="subtext1 text-center" style="margin-top: 1em; margin-bottom: 0.5em;">Hotel Detail</h2>
         <!-- card -->
         <div class="card" style="width: 50.75rem; height: auto; margin: 2em auto; float: none;">
             <img src="{{asset('img/Logo/'.$h->logoHotel.'-v.svg')}}" alt="" class="detailLogo" style="position: relative; width: auto; height: auto; margin: 2em 0;">
@@ -74,28 +76,36 @@
 
             <!-- description & order button -->
             <div class="card-body">
-                <h5 class="card-title">{{$h->namaHotel}}</h5>
-                <p class="card-text">Lokasi : {{$h->lokasi}}</p>
-                <p class="card-text">Rating :
-                    @php $rating = $h->bintang; @endphp
+                
+                <div class="d-flex flex-row justify-content-between align-items-baseline">
+                    <div>
+                        <h5 class="card-title" style="text-shadow: 1px 0 0 black;">{{$h->namaHotel}}</h5>
+                        <p class="card-text">Lokasi : {{$h->lokasi}}</p>
+                        <p class="card-text"><span style="text-shadow: 1px 0 0 black;">Rating :</span>
+                            @php $rating = $h->bintang; @endphp
 
-                    @foreach(range(1,5) as $i)
-                    <span class="fa-stack" style="width:1em">
-                        <i class="fas fa-star fa-stack-1x" style="color: #CECECE;"></i>
+                            @foreach(range(1,5) as $i)
+                            <span class="fa-stack" style="width:1em">
+                                <i class="fas fa-star fa-stack-1x" style="color: #CECECE;"></i>
 
-                        @if($rating >0)
-                        @if($rating >0.5)
-                        <i class="fas fa-star checked fa-stack-1x" style="color: gold;"></i>
-                        @else
-                        <i class="fas fa-star-half checked fa-stack-1x" style="color: gold;"></i>
-                        @endif
-                        @endif
-                        @php $rating--; @endphp
-                    </span>
-                    @endforeach
-                </p>
-                <p class="card-text">Rp. {{$h->hargaKamar}}</p>
-                <p class="card-text">Stok kamar : {{$h->stokKamar}}</p>
+                                @if($rating >0)
+                                @if($rating >0.5)
+                                <i class="fas fa-star checked fa-stack-1x" style="color: gold;"></i>
+                                @else
+                                <i class="fas fa-star-half checked fa-stack-1x" style="color: gold;"></i>
+                                @endif
+                                @endif
+                                @php $rating--; @endphp
+                            </span>
+                            @endforeach
+                        </p>
+                        <p class="card-text">Rp. {{$h->hargaKamar}}</p>
+                        <p class="card-text">Stok kamar : {{$h->stokKamar}}</p>
+                    </div>
+                    <div class="text-right">
+                        <img src="{{asset('img/Logo/'.$h->logoHotel.'-h-dark.svg')}}" alt="" style="width: 60%; height: auto;">
+                    </div>
+                </div><br>
                 <p class="card-text"> {{$h->deskripsiHotel}}</p>
                 <form action="{{url('bookingform/'.$h->id)}}" method="GET">
                     {{csrf_field()}}
