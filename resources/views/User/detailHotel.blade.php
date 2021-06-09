@@ -4,24 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Paycation | {{$hotel->first()->namaHotel}}</title>
 </head>
 
 <body>
     @include('Template/head')
 
     <!-- navbar -->
-    @include('template/navbar')
+    @include('template/userNavbar')
     <!-- end of navbar -->
 
     <!-- Content -->
-    <h1>Detail Hotel Page</h1>
-    <div class="container">
+    
+    <div class="d-flex flex-column justify-content-center container">
         @foreach($hotel as $h)
         <!-- card -->
-        <div class="card" style="width: 54rem;">
+        <div class="card" style="width: 54rem; margin: 0 auto; float: none;">
+            <h1 class="text-center">Detail Hotel</h1>
             <!-- hotel images -->
-            <div class="row card-img-top">
+            <div class="hotelImg1 d-flex flex-column" style=" width: 55em; height: 100%;">
+                <div class="d-flex flex-row flex-grow-1" style="margin-bottom: 0.5em;"> 
+                    <div>
+                        <img src="{{asset('img/hotel/'.$h->gambarHotel1)}}" alt="gambarHotel" style="width: 33.75em; margin-right: 0.5em;">
+                    </div>
+                    <div class="d-flex flex-column">
+                        <div>
+                            <img src="{{asset('img/hotel/'.$h->gambarHotel2)}}" alt="gambarHotel" style="width: 16.5em; margin-bottom: 0.5em">
+                        </div>
+                        <div>
+                            <img src="{{asset('img/hotel/'.$h->gambarHotel3)}}" alt="gambarHotel" style="width: 16.5em;">
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-row">
+                    <div>
+                        <img src="{{asset('img/hotel/'.$h->gambarHotel4)}}" alt="gambarHotel" style="width: 25.15em; margin-right: 0.5em;">
+                    </div>
+                    <div>
+                        <img src="{{asset('img/hotel/'.$h->gambarHotel5)}}" alt="gambarHotel" style="width: 25.15em;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="hotelImg2 d-flex flex-column">
+                <img src="{{asset('img/hotel/'.$h->gambarHotel1)}}" alt="gambarHotel" style="width: 70vw;">
+                <img src="{{asset('img/hotel/'.$h->gambarHotel2)}}" alt="gambarHotel" style="width: 70vw;">
+                <img src="{{asset('img/hotel/'.$h->gambarHotel3)}}" alt="gambarHotel" style="width: 70vw;">
+                <img src="{{asset('img/hotel/'.$h->gambarHotel4)}}" alt="gambarHotel" style="width: 70vw;">
+                <img src="{{asset('img/hotel/'.$h->gambarHotel5)}}" alt="gambarHotel" style="width: 70vw;">
+            </div>
+            
+
+            <!-- <div class="row card-img-top">
                 <div class="col">
                     <img src="{{asset('img/hotel/'.$h->gambarHotel1)}}" alt="gambarHotel" width="500px">
                 </div>
@@ -35,7 +69,7 @@
             <div class="row ml-2">
                 <img src="{{asset('img/hotel/'.$h->gambarHotel4)}}" alt="gambarHotel" height="155px" width="350px" class="mr-4">
                 <img src="{{asset('img/hotel/'.$h->gambarHotel5)}}" alt="gambarHotel" height="155px" width="350px">
-            </div>
+            </div> -->
             <!-- end of hotel images -->
 
             <!-- description & order button -->
@@ -83,6 +117,8 @@
         @endforeach
     </div>
     <!-- End of Content -->
+
+    @include('Template/footer')
 
     @include('Template/script')
 </body>
