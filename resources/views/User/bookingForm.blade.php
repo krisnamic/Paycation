@@ -19,15 +19,16 @@
     @php
     $now = date('Y-m-d');
     @endphp
-    <div class="container mt-5">
-        <div class="row">
+    <h2 class="subtext1 text-center" style="margin-bottom: 0.5em;">Booking Form</h2>
+    <div class="card container mt-5" style="padding: 2em; margin: 2em auto; float: none;">
+        <div class="row d-flex align-items-start">
             <div class="col-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="{{asset('img/hotel/'.$h->gambarHotel1)}}" class="card-img-top" alt="...">
+                <div class="card" style="width: 18rem; margin-top: 0;">
+                    <img src="{{asset('img/hotel/'.$h->gambarHotel1)}}" class="card-img-top" alt="..." style="border-radius: 10px 10px 0 0;">
                     <div class="card-body">
-                        <h5 class="card-title" style="text-shadow: 1px 0 0 black;">{{$h->namaHotel}}</h5>
+                        <h5 class="card-title" style="text-shadow: 1px 0 0 black; margin-top: 0.1em;">{{$h->namaHotel}}</h5>
                         <br>
-                        <p>{{$h->lokasi}}</p>
+                        <p style="margin-bottom: 1.1em;">{{$h->lokasi}}</p>
                         <p><span style="text-shadow: 1px 0 0 black;">Rating :</span>
                             @php $rating = $h->bintang; @endphp
 
@@ -50,42 +51,46 @@
                         <!-- <p id="stokKamar" hidden>{{$h->stokKamar}}</p> -->
                         <input type="hidden" id="availRooms" value="{{$h->stokKamar}}">
 
-                        <p>Price for 1 day : Rp. {{$h->hargaKamar}}</p>
+                        <p>Price per 1 day : Rp. {{$h->hargaKamar}}</p>
                         <p id="price1day" hidden>{{$h->hargaKamar}}</p>
                     </div>
                 </div>
-                <div style="margin-left: 0.5em;">
-                    <h3>Total Harga</h3>
-                    <input type="hidden" id="totalRoomPrice" value="">
-                    <p>Rp. <span id="totalprice"></span> </p>
+                <div class="card" style="margin-left: 1em; width: 18rem; height: 10em;">
+                    <div class="card-header">
+                        <h3 style="text-shadow: 1px 0 0 black;">Total Price</h3>
+                    </div>
+                    <div class="card-body">
+                        <input type="hidden" id="totalRoomPrice" value="">
+                        <p>Rp. <span id="totalprice"></span> </p>
+                    </div>
                 </div>
                 
                 <!-- <h6 id="totalprice"></h6> -->
             </div>
-            <div class="col-8">
-                <form action="{{route('booking')}}" method="POST">
+            <div class="col-8 d-flex flex-column justify-content-between">
+                <form action="{{route('booking')}}" method="POST" style="height: 100%;">
                     {{csrf_field()}}
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="exampleInputEmail1" class="form-label">Full Name</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" value="{{$user[0][0]->name}}" name="name">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="phoneNumber" class="form-label">Phone Number</label>
                         <input type="text" class="form-control" id="phoneNumber" name="phone">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="exampleInputEmail1" class="form-label">Email</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{$user[0][0]->email}}" name="email">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="exampleInputEmail1" class="form-label">Number of Rooms</label>
                         <input type="number" min="1" max="{{$h->stokKamar}}" class="form-control" id="roomNumber" name="numberOfRooms">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="exampleInputEmail1" class="form-label">Check In</label>
                         <input type="date" min="{{$now}}" class=" form-control" id="checkin" name="checkIn">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="exampleInputEmail1" class="form-label">Check Out</label>
                         <input type="date" min="{{$now}}" class=" form-control" id="checkout" name="checkOut">
                     </div>
