@@ -6,27 +6,47 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="{{route('welcome')}}">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item active mt-2 ml-2 mr-2">
+                <button class="nav-link" href="{{route('welcome')}}" style="background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  color: #069;
+  cursor: pointer;">Home <span class="sr-only">(current)</span></button>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('aboutUs')}}">About Us</a>
+            <li class="nav-item mt-2 ml-2">
+                <form action="{{route('aboutUs')}}" method="get">
+                    <button class="nav-link" href="" style="background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  color: #069;
+  cursor: pointer;">About Us</button>
+                </form>
             </li>
         </ul>
         @auth
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="{{asset('img/userProfile/'.$user[0][0]->foto)}}" alt="user_image" width="40px" height="40px" style="border-radius:50%">
                     @if(Session::has('user_id'))
+                    <img src="{{asset('img/userProfile/'.$user[0][0]->foto)}}" alt="user_image" width="40px" height="40px" style="border-radius:50%">
                     {{$user[0][0]->name}}
                     @endif
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <form action="{{route('user.index')}}" method="GET">
-                        <button type="submit" name="viewProfile">View My Profile</button>
+                        <button class="ml-3" type="submit" name="viewProfile" style="background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  color: #069;
+  cursor: pointer;">View My Profile</button>
                     </form>
-                    <a href="{{ url('/logout') }}" class="dropdown-item">Logout</a>
+                    <a href="{{ url('/logout') }}" class="dropdown-item" style="color: #069; font-family: arial, sans-serif;">Logout</a>
                 </div>
             </li>
         </ul>
