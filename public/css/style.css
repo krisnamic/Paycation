@@ -339,3 +339,28 @@ nav {
 .login-page .card-body, .register-page .card-body {
     border-radius: 100% !important;
 }
+
+@media screen and (min-width: 991px) {
+    
+    .hotelImg2 {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .hotelImg1 {
+        display: none !important;
+    }
+    
+}
+
+@media screen and (max-width: 575px) {
+    .hotelImg1 {
+        display: none !important;
+    }
+    .hotelImg2 {
+        display: inline !important;
+        flex-direction: column;
+    }
+}
+
