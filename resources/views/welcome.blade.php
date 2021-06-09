@@ -9,6 +9,11 @@
         <link href="https://fonts.googleap0is.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+        <link rel="stylesheet" href="{{asset('OwlCarousel2-2.3.4/docs/assets/owlcarousel/assets/owl.carousel.css')}}">
+        <link rel="stylesheet" href="{{asset('OwlCarousel2-2.3.4/docs/assets/owlcarousel/assets/owl.theme.default.css')}}">
+        <script src="{{asset('OwlCarousel2-2.3.4/docs/assets/vendors/jquery.min.js')}}"></script>
+        <script src="{{asset('OwlCarousel2-2.3.4/docs/assets/owlcarousel/owl.carousel.js')}}"></script>
+        <script src="{{asset('OwlCarousel2-2.3.4/test/unit/autoplay.js')}}"></script>
         @include('Template/head')
     </head>
     <body class="antialiased">
@@ -23,44 +28,16 @@
         <div class="menu">
             @include('Template/userNavbar')
         </div>
-        <section class="test">  
-            <div class="d-flex flex-column container">
-                <div class="row d-flex justify-content-between">
-                    <div class="card-location">
-                        <figure class="card__thumbnail">
-                        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 400px;">
-                        <span class="card__title">Tangerang</span>
-                        </figure>
-                    </div>
-                    <div class="card-location">
-                        <figure class="card__thumbnail">
-                        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 400px;">
-                        <span class="card__title">Tangerang</span>
-                        </figure>
-                    </div>
-                    <div class="card-location">
-                        <figure class="card__thumbnail">
-                        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 400px;">
-                        <span class="card__title">Tangerang</span>
-                        </figure>
-                    </div>
-                    <div class="card-location">
-                        <figure class="card__thumbnail">
-                        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ" style="max-width: 100%; height: 400px;">
-                        <span class="card__title">Tangerang</span>
-                        </figure>
-                    </div>
-                </div>
-            </div>
-
-            <!-- <div class="d-flex flex-column container">  
-                <div class="card-location">
-                    <figure class="card__thumbnail">
-                    <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
-                    <span class="card__title">Tangerang</span>
-                    </figure>
-                </div>
-            </div> -->
+        <section class="test container">  
+        <div id="owl-demo" class="owl-carousel owl-theme">
+            @foreach($hotel as $h)
+                <div class="item"><img src="{{asset('img/hotel/'.$h->gambarHotel1)}}" style="border-radius: 10px;"/></div>
+                <div class="item"><img src="{{asset('img/hotel/'.$h->gambarHotel2)}}" style="border-radius: 10px;"/></div>
+                <div class="item"><img src="{{asset('img/hotel/'.$h->gambarHotel3)}}" style="border-radius: 10px;"/></div>
+                <div class="item"><img src="{{asset('img/hotel/'.$h->gambarHotel4)}}" style="border-radius: 10px;"/></div>
+                <div class="item"><img src="{{asset('img/hotel/'.$h->gambarHotel5)}}" style="border-radius: 10px;"/></div>
+            @endforeach
+        </div>
         </section>
         <section>
             <h2 class="text-center my-4">List of Paycation Hotels</h2>
@@ -78,9 +55,9 @@
                     <div class="my-2">
                         <h6>Sort by:</h6> 
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class='btn btn-primary sort' data-sort='nama' data-default-order='asc' style="font-size: 14px;">Name</button>
-                            <button type="button" class='btn btn-primary sort' data-sort='bintang' data-default-order='asc' style="font-size: 14px;">Star</button>
-                            <button type="button" class='btn btn-primary sort' data-sort='lokasi' data-default-order='asc' style="font-size: 14px;">Location</button>
+                            <button type="button" class='btn btn-primary sort' data-sort='nama' data-default-order='asc' style="font-size: 17px;">Name</button>
+                            <button type="button" class='btn btn-primary sort' data-sort='bintang' data-default-order='asc' style="font-size: 17px;">Star</button>
+                            <button type="button" class='btn btn-primary sort' data-sort='lokasi' data-default-order='asc' style="font-size: 17px;">Location</button>
                         </div>
                     </div>
 
@@ -267,7 +244,7 @@
                         @endforeach
                         </ul>
                     </div>
-                   </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -278,7 +255,17 @@
         
 
         @include('Template/footer')
-        
+        <script>
+            $(document).ready(function(){
+                $('.owl-carousel').owlCarousel({
+                    items : 3,
+                    lazyLoad : true,
+                    navigation : true,
+                    autoplayTimeout:3000
+                });
+                $('.owl-carousel').trigger('play.owl.autoplay',[3000])
+            });
+        </script>
         <script>
             $('select.filterOpt').change(function(){
                 var selectedOpt = $(this).children("option:selected").val();
@@ -641,7 +628,10 @@
                     sticky.css('width', '');
                 }
             });
-        </script>
-        @include('Template/script')
+        </script>     
+        <!-- Bootstrap 4 -->
+        <script src="{{asset('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+        <!-- AdminLTE App -->
+        <script src="{{asset('AdminLTE/dist/js/adminlte.min.js')}}"></script>
     </body>
 </html>

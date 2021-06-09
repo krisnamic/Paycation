@@ -364,3 +364,12 @@ nav {
     }
 }
 
+.owl-carousel .item{
+    margin: 3px;
+}
+
+.owl-carousel .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
