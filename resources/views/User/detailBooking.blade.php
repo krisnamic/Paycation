@@ -32,11 +32,11 @@
                     <a href="/invoice/{{$pesanan2[$loop->index]->id}}" class="stretched-link">View Detail Booking</a>
                 </div>
             </div>
-            @endforeach
         </div>
+        @endforeach
         <!-- end of content -->
-
-        @include('Template/script')
+    </div>
+    @include('Template/script')
 </body>
 
 </html>

@@ -6,16 +6,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active mt-2 ml-2 mr-2">
-                <button class="nav-link" href="{{route('welcome')}}" style="background: none!important;
+            <li class="nav-item active mt-1 ml-2 mr-2">
+                <a class="nav-link" href="{{route('welcome')}}" style="background: none!important;
   border: none;
   padding: 0!important;
   /*optional*/
   font-family: arial, sans-serif;
   color: #069;
-  cursor: pointer;">Home <span class="sr-only">(current)</span></button>
+  cursor: pointer;">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item mt-2 ml-2">
+            <li class="nav-item mt-1 ml-2">
                 <form action="{{route('aboutUs')}}" method="get">
                     <button class="nav-link" href="" style="background: none!important;
   border: none;
@@ -29,10 +29,13 @@
         </ul>
         @auth
         <ul class="navbar-nav ml-auto">
+            <li class="nav-item active mt-3 ml-2 mr-2">
+                <a href="{{route('viewBookingDetail')}}"><i class="fas fa-shopping-cart"></i></a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     @if(Session::has('user_id'))
-                    <img src="{{asset('img/userProfile/'.$user[0][0]->foto)}}" alt="user_image" width="40px" height="40px" style="border-radius:50%">
+                    <img src="{{asset('img/userProfile/'.$user[0][0]->foto)}}" alt="user_image" width="40px" height="40px" style="border-radius:50%;">
                     {{$user[0][0]->name}}
                     @endif
                 </a>
