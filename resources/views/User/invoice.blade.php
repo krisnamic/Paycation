@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Invoice Booking Hotel</title>
+    <title>Paycation | Invoice</title>
 
     <style type="text/css">
         @page {
