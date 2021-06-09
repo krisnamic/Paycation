@@ -15,6 +15,6 @@
     }
 
     function unhover(element) {
-        element.setAttribute('src', '{{asset('img/aboutUs/jerry.jpg')}}');
+        element.setAttribute('src', '{{asset('img/aboutUs/michael.jpg')}}');
     }
 </script>
