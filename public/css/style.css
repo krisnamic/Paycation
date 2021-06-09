@@ -272,11 +272,13 @@ nav {
     margin-top: 1em;
 }
 
-#subtext1 {
+.subtext1 {
     margin-top: 1em;
+    margin-bottom: 1em;
     font-family: "SmithAllison", serif;
     font-size: 10em;
     line-height: 0.5;
+    color: #169eda;
 }
 
 #subtext2 {
@@ -297,13 +299,19 @@ nav {
 }
 
 .profile-img {
-    
+    border-radius: 10%;
     width: 75%;
     height: auto;
 }
 
 .aboutus-name {
     margin-top: 1em;
+    font-size: 1.5em;
+}
+
+b {
+    font-family: "Titillium Web", sans-serif;
+    font-size: 1em;
 }
 
 .aboutus-nim {
@@ -360,7 +368,10 @@ nav {
     }
     .hotelImg2 {
         display: inline !important;
-        flex-direction: column;
+        flex-direction: column !important;
+    }
+    .detailLogo {
+        width: 100vw !important;
     }
 }
 

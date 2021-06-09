@@ -18,30 +18,12 @@
             font-family: Verdana, Arial, sans-serif;
         }
 
-        a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        td {
-            text-align: center;
-        }
-
         table {
-            font-size: x-small;
+            font-size: medium;
         }
 
         tfoot tr td {
             font-weight: bold;
-            font-size: x-small;
-        }
-
-        .invoice .container {
-            margin-left: 15px;
-        }
-
-        .invoice table {
-            margin: 15px;
         }
 
         .invoice h3 {
@@ -50,11 +32,7 @@
 
         .information {
             background-color: #60A7A6;
-            color: #FFF;
-        }
-
-        .information .container {
-            margin-left: 15px;
+            color: #fff;
         }
 
         .information .logo {
@@ -64,92 +42,124 @@
         .information table {
             padding: 10px;
         }
+
+        svg {
+            width: 200px;
+        }
+
+        .invoice table {
+            border: 1px solid black;
+            text-align: center;
+            margin: 15px;
+        }
+
+        .invoice th {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        .invoice td {
+            padding: 10px;
+            border: 1px solid black;
+        }
+
+        .invoice tfooot {
+            text-align: center;
+        }
+
+        .information td img {
+            width: 250px;
+        }
     </style>
 
 </head>
 
 <body>
 
-    <div class="information">
-        <div class="container">
-            <h3>paycation</h3>
-            <img src="{{ public_path('img/hotel/aston-1.png') }}">
-            https://company.com
-            <br>
-            <p>Date : {{$jamBooking}}</p>
-            <p>Time : {{$tanggalBooking}}</p>
-            <p>Status : Paid</p>
-        </div>
-    </div>
+    <div class="container mt-3">
+        <div class="card">
+            <!-- <h5 class="card-header" style="font-size:xx-large;">Invoice <i style="font-size: xx-large;">#</i></h5> -->
+            <div class="card-body">
+                <div class="information">
+                    <table width="100%">
+                        <tr>
+                            <td align="left" style="width: 40%;">
+                                <!-- <img src="" alt=""> -->
+                                <img src="{{ public_path('img/paycation/paycation-1-light.png') }}" class="mr-3 mt-4 ml-3 mb-3" alt="...">
 
+                                <pre style="color: white; font-size:medium;">
+Nama Pemesan  : {{$namaPemesan}}
+Email Tamu    : {{$emailTamu}}
+Nomor Telepon : {{$nomorTelepon}}
+<br />
+Date          : {{$jamBooking}}
+Time          : {{$tanggalBooking}}
+</pre>
+                            </td>
+                            <!-- <td align="center">
+                                <img src="/path/to/logo.png" alt="Logo" width="64" class="logo" />
 
-    <br />
+                            </td> -->
+                            <td align="right" style="width: 40%;">
 
-    <div class="invoice">
-        <div class="container">
-            <p>Nama Pemesan : {{$namaPemesan}}</p>
-            <p>Email : {{$emailTamu}}</p>
-            <p>Nomor Telepon :{{$nomorTelepon}}</p>
-            <p>Check In : {{$checkIn}}</p>
-            <p>Check Out : {{$checkOut}}</p>
-            <br /><br />
-        </div>
-        <h3>Invoice specification </h3>
-        <table width=" 100%">
-            <thead>
-                <tr>
-                    <th>Description</th>
-                    <th>Amount of Rooms</th>
-                    <th>Duration</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <!-- <td></td> -->
-                    <td>{{$namaHotel}}</td>
-                    <td>{{$jumlahKamar}}</td>
-                    <td>{{$jumlahHari}}</td>
-                    <td>Rp. {{$hargaPesanan}},-</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
+                                <!-- <h3></h3> -->
 
-            <tfoot>
-                <tr>
-                    <td></td>
-                    <td c></td>
-                    <td>Total</td>
-                    <td class="gray">Rp. {{$hargaPesanan}},-</td>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
+                                <pre style="color: white; font-size:medium;" style="margin-top: 20px;">
+                    <br /><br /><br /><br /><br />
+                    Check In  : {{$checkIn}}
+                    Check Out : {{$checkOut}}
+                    <br>
+                    Status        : Paid
+                </pre>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <br />
 
-    <div class="information" style="position: absolute; bottom: 0;">
-        <table width="100%">
-            <tr>
-                <td align="left" style="width: 50%;">
-                    &copy; {{ date('Y') }} {{ config('app.url') }} - All rights reserved.
-                </td>
-                <td align="right" style="width: 50%;">
-                    Company Slogan
-                </td>
-            </tr>
+                <div class="invoice">
+                    <h3>Invoice specification</h3>
+                    <table width="95%">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Amount of Rooms</th>
+                                <th>Duration</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{$namaHotel}}</td>
+                                <td>{{$jumlahKamar}}</td>
+                                <td class="numOfDay">{{$jumlahHari}}</td>
+                                <td>{{$hargaPesanan}}</td>
+                            </tr>
+                        </tbody>
 
-        </table>
-    </div>
+                        <tfoot>
+                            <tr>
+                                <td colspan="1"></td>
+                                <td colspan="1"></td>
+                                <td>Total</td>
+                                <td class="gray">{{$hargaPesanan}}</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="information" style="position: absolute; bottom: 0;">
+                    <table width="100%">
+                        <tr>
+                            <td align="left" style="width: 50%;">
+                                &copy; 2021 - paycation - All rights reserved.
+                            </td>
+                            <td align="right" style="width: 50%;">
+                                Company Slogan
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
 
 </body>
 

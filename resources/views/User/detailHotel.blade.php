@@ -18,18 +18,20 @@
     @include('Template/backBtn')
     <div class="d-flex flex-column justify-content-center container">
         @foreach($hotel as $h)
+
+        <h2 class="subtext1 text-center" style="margin-top: 1em; margin-bottom: 0.5em;">Hotel Detail</h2>
         <!-- card -->
-        <div class="card" style="width: 54rem; margin: 0 auto; float: none;">
-            <h1 class="text-center">Detail Hotel</h1>
+        <div class="card" style="width: 50.75rem; height: auto; margin: 2em auto; float: none;">
+            <img src="{{asset('img/Logo/'.$h->logoHotel.'-v.svg')}}" alt="" class="detailLogo" style="position: relative; width: auto; height: auto; margin: 2em 1em;">
             <!-- hotel images -->
-            <div class="hotelImg1 d-flex flex-column" style=" width: 55em; height: 100%;">
+            <div class="hotelImg1 d-flex flex-column justify-content-center" style=" width: 55em; height: 100%;">
                 <div class="d-flex flex-row flex-grow-1" style="margin-bottom: 0.5em;"> 
                     <div>
                         <img src="{{asset('img/hotel/'.$h->gambarHotel1)}}" alt="gambarHotel" style="width: 33.75em; margin-right: 0.5em;">
                     </div>
                     <div class="d-flex flex-column">
                         <div>
-                            <img src="{{asset('img/hotel/'.$h->gambarHotel2)}}" alt="gambarHotel" style="width: 16.5em; margin-bottom: 0.5em">
+                            <img src="{{asset('img/hotel/'.$h->gambarHotel4)}}" alt="gambarHotel" style="width: 16.5em; margin-bottom: 0.5em">
                         </div>
                         <div>
                             <img src="{{asset('img/hotel/'.$h->gambarHotel3)}}" alt="gambarHotel" style="width: 16.5em;">
@@ -38,7 +40,7 @@
                 </div>
                 <div class="d-flex flex-row">
                     <div>
-                        <img src="{{asset('img/hotel/'.$h->gambarHotel4)}}" alt="gambarHotel" style="width: 25.15em; margin-right: 0.5em;">
+                        <img src="{{asset('img/hotel/'.$h->gambarHotel2)}}" alt="gambarHotel" style="width: 25.15em; margin-right: 0.5em;">
                     </div>
                     <div>
                         <img src="{{asset('img/hotel/'.$h->gambarHotel5)}}" alt="gambarHotel" style="width: 25.15em;">
@@ -46,7 +48,7 @@
                 </div>
             </div>
 
-            <div class="hotelImg2 d-flex flex-column">
+            <div class="hotelImg2 d-flex flex-column justify-content-center" style=" width: 55em; height: 100%;">
                 <img src="{{asset('img/hotel/'.$h->gambarHotel1)}}" alt="gambarHotel" style="width: 70vw;">
                 <img src="{{asset('img/hotel/'.$h->gambarHotel2)}}" alt="gambarHotel" style="width: 70vw;">
                 <img src="{{asset('img/hotel/'.$h->gambarHotel3)}}" alt="gambarHotel" style="width: 70vw;">
@@ -74,28 +76,36 @@
 
             <!-- description & order button -->
             <div class="card-body">
-                <h5 class="card-title">{{$h->namaHotel}}</h5>
-                <p class="card-text">Lokasi : {{$h->lokasi}}</p>
-                <p class="card-text">Rating :
-                    @php $rating = $h->bintang; @endphp
+                
+                <div class="d-flex flex-row justify-content-between align-items-baseline">
+                    <div>
+                        <h5 class="card-title" style="text-shadow: 1px 0 0 black;">{{$h->namaHotel}}</h5>
+                        <p class="card-text">Lokasi : {{$h->lokasi}}</p>
+                        <p class="card-text"><span style="text-shadow: 1px 0 0 black;">Rating :</span>
+                            @php $rating = $h->bintang; @endphp
 
-                    @foreach(range(1,5) as $i)
-                    <span class="fa-stack" style="width:1em">
-                        <i class="fas fa-star fa-stack-1x" style="color: #CECECE;"></i>
+                            @foreach(range(1,5) as $i)
+                            <span class="fa-stack" style="width:1em">
+                                <i class="fas fa-star fa-stack-1x" style="color: #CECECE;"></i>
 
-                        @if($rating >0)
-                        @if($rating >0.5)
-                        <i class="fas fa-star checked fa-stack-1x" style="color: gold;"></i>
-                        @else
-                        <i class="fas fa-star-half checked fa-stack-1x" style="color: gold;"></i>
-                        @endif
-                        @endif
-                        @php $rating--; @endphp
-                    </span>
-                    @endforeach
-                </p>
-                <p class="card-text">Rp. {{$h->hargaKamar}}</p>
-                <p class="card-text">Stok kamar : {{$h->stokKamar}}</p>
+                                @if($rating >0)
+                                @if($rating >0.5)
+                                <i class="fas fa-star checked fa-stack-1x" style="color: gold;"></i>
+                                @else
+                                <i class="fas fa-star-half checked fa-stack-1x" style="color: gold;"></i>
+                                @endif
+                                @endif
+                                @php $rating--; @endphp
+                            </span>
+                            @endforeach
+                        </p>
+                        <p class="card-text">Rp. {{$h->hargaKamar}}</p>
+                        <p class="card-text">Stok kamar : {{$h->stokKamar}}</p>
+                    </div>
+                    <div class="text-right">
+                        <img src="{{asset('img/Logo/'.$h->logoHotel.'-h-dark.svg')}}" alt="" style="width: 60%; height: auto;">
+                    </div>
+                </div><br>
                 <p class="card-text"> {{$h->deskripsiHotel}}</p>
                 <form action="{{url('bookingform/'.$h->id)}}" method="GET">
                     {{csrf_field()}}
@@ -103,12 +113,15 @@
                     @if(Session::has('user_id'))
                     @if($h->stokKamar === 0)
                     <button type="submit" href="#" class="btn btn-primary" disabled>Book now</button>
+                    <a href="javascript:history.back()" class="btn btn-default" role="button">Back to Catalogue</a>
                     @else
                     <button type="submit" href="#" class="btn btn-primary">Book now</button>
+                    <a href="javascript:history.back()" class="btn btn-default" role="button">Back to Catalogue</a>
                     @endif
                 </form>
                 @elseif(Session::missing('user_id'))
                 <a href="/login" class="btn btn-primary">Book now</a>
+                <a href="javascript:history.back()" class="btn btn-default" role="button">Back to Catalogue</a>
                 @endif
             </div>
             <!-- end of description & order button -->
