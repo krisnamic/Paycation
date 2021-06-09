@@ -66,12 +66,39 @@
             <h2 class="text-center my-4">List of Paycation Hotels</h2>
             <div class="d-flex flex-column container">
             <div id="hotel-list">
+
             <input class="search" />
-            Sort by: 
-            <input type="checkbox" class='sort' data-sort='nama'/>Name<br/>
-            <input type="checkbox" class='sort' data-sort='bintang'/>Bintang<br/>
-            <input type="checkbox" class='filter-5star'/>Bintang 5<br/>
-            <input type="checkbox" class='sort' data-sort='lokasi'/>City<br/>
+
+            <h5>Sort by:</h5> 
+            <button type="checkbox" class='sort' data-sort='nama' data-default-order='asc'>Name</button><br/>
+            <button type="checkbox" class='sort' data-sort='bintang' data-default-order='asc'>Star</button><br/>
+            <button type="checkbox" class='sort' data-sort='lokasi' data-default-order='asc'>Location</button><br/>
+
+            <h5>Filter by:</h5>
+            <p>Star:</p>
+            <ul style="list-style-type: none;;">
+                <li><input type="checkbox" class='filter-5star'/> 5 Star</li>
+                <li><input type="checkbox" class='filter-4star'/> 4 Star</li>
+                <li><input type="checkbox" class='filter-3star'/> 3 Star</li>
+                <li><input type="checkbox" class='filter-2star'/> 2 Star</li>
+                <li><input type="checkbox" class='filter-1star'/> 1 Star</li>
+            </ul>
+            <p>Price:</p>
+            <ul style="list-style-type: none;;">
+                <li><input type="checkbox" class='filter-1500'/> < Rp. 1.500.000</li>
+                <li><input type="checkbox" class='filter-1750'/> Rp. 1.500.000 - Rp. 2.000.000</li>
+                <li><input type="checkbox" class='filter-2250'/> Rp. 2.000.000 - Rp. 2.500.000</li>
+                <li><input type="checkbox" class='filter-2750'/> Rp. 2.500.000 - Rp. 3.000.000</li>
+                <li><input type="checkbox" class='filter-3000'/> > Rp. 3.000.000</li>
+            </ul>
+            <p>Location:</p>
+            <ul style="list-style-type: none;;">
+                <li><input type="checkbox" class='filter-tangerang'/> Tangerang</li>
+                <li><input type="checkbox" class='filter-bandung'/> Bandung</li>
+                <li><input type="checkbox" class='filter-jakarta'/> Jakarta Timur</li>
+                <li><input type="checkbox" class='filter-bali'/> Bali</li>
+            </ul>
+
                 <div class="row row-cols-1" style="display: flex;">
                     <ul class="list" style="list-style-type: none; padding: 0;">
                     @foreach($hotel as $h)
@@ -152,16 +179,169 @@
             var hotelList = new List('hotel-list', options);
 
             $('.filter-5star').on('click',function(){
-            if($(this).hasClass( 'selected' )){
-                hotelList.filter();
-                $(this).removeClass('selected');
-            } else {
-                hotelList.filter(function(item) {
-                return (item.values().bintang == 5);
-                });
-                $(this).addClass('selected');
-            }
-            });
+                if($(this).hasClass( 'selected' )){
+                    hotelList.filter();
+                    $(this).removeClass('selected');
+                } else {
+                    hotelList.filter(function(item) {
+                    return (item.values().bintang == 5);
+                    });
+                    $(this).addClass('selected');
+                    $('.filter-4star').prop("checked", false);
+                    $('.filter-4star').removeClass('selected');
+                    $('.filter-3star').prop("checked", false);
+                    $('.filter-3star').removeClass('selected');
+                    $('.filter-2star').prop("checked", false);
+                    $('.filter-2star').removeClass('selected');
+                    $('.filter-1star').prop("checked", false);
+                    $('.filter-1star').removeClass('selected');
+                }
+            }); 
+            $('.filter-4star').on('click',function(){
+                if($(this).hasClass( 'selected' )){
+                    hotelList.filter();
+                    $(this).removeClass('selected');
+                } else {
+                    hotelList.filter(function(item) {
+                    return (item.values().bintang == 4);
+                    });
+                    $(this).addClass('selected');
+                    $('.filter-5star').prop("checked", false);
+                    $('.filter-5star').removeClass('selected');
+                    $('.filter-3star').prop("checked", false);
+                    $('.filter-3star').removeClass('selected');
+                    $('.filter-2star').prop("checked", false);
+                    $('.filter-2star').removeClass('selected');
+                    $('.filter-1star').prop("checked", false);
+                    $('.filter-1star').removeClass('selected');
+                }
+            }); 
+            $('.filter-3star').on('click',function(){
+                if($(this).hasClass( 'selected' )){
+                    hotelList.filter();
+                    $(this).removeClass('selected');
+                } else {
+                    hotelList.filter(function(item) {
+                    return (item.values().bintang == 3);
+                    });
+                    $(this).addClass('selected');
+                    $('.filter-5star').prop("checked", false);
+                    $('.filter-5star').removeClass('selected');
+                    $('.filter-4star').prop("checked", false);
+                    $('.filter-4star').removeClass('selected');
+                    $('.filter-2star').prop("checked", false);
+                    $('.filter-2star').removeClass('selected');
+                    $('.filter-1star').prop("checked", false);
+                    $('.filter-1star').removeClass('selected');
+                }
+            }); 
+            $('.filter-2star').on('click',function(){
+                if($(this).hasClass( 'selected' )){
+                    hotelList.filter();
+                    $(this).removeClass('selected');
+                } else {
+                    hotelList.filter(function(item) {
+                    return (item.values().bintang == 2);
+                    });
+                    $(this).addClass('selected');
+                    $('.filter-5star').prop("checked", false);
+                    $('.filter-5star').removeClass('selected');
+                    $('.filter-4star').prop("checked", false);
+                    $('.filter-4star').removeClass('selected');
+                    $('.filter-3star').prop("checked", false);
+                    $('.filter-3star').removeClass('selected');
+                    $('.filter-1star').prop("checked", false);
+                    $('.filter-1star').removeClass('selected');
+                }
+            }); 
+            $('.filter-1star').on('click',function(){
+                if($(this).hasClass( 'selected' )){
+                    hotelList.filter();
+                    $(this).removeClass('selected');
+                } else {
+                    hotelList.filter(function(item) {
+                    return (item.values().bintang == 1);
+                    });
+                    $(this).addClass('selected');
+                    $('.filter-5star').prop("checked", false);
+                    $('.filter-5star').removeClass('selected');
+                    $('.filter-4star').prop("checked", false);
+                    $('.filter-4star').removeClass('selected');
+                    $('.filter-3star').prop("checked", false);
+                    $('.filter-3star').removeClass('selected');
+                    $('.filter-2star').prop("checked", false);
+                    $('.filter-2star').removeClass('selected');
+                }
+            }); 
+        
+            $('.filter-tangerang').on('click',function(){
+                if($(this).hasClass( 'selected' )){
+                    hotelList.filter();
+                    $(this).removeClass('selected');
+                } else {
+                    hotelList.filter(function(item) {
+                    return (item.values().lokasi == "Tangerang");
+                    });
+                    $(this).addClass('selected');
+                    $('.filter-bandung').prop("checked", false);
+                    $('.filter-bandung').removeClass('selected');
+                    $('.filter-jakarta').prop("checked", false);
+                    $('.filter-jakarta').removeClass('selected');
+                    $('.filter-bali').prop("checked", false);
+                    $('.filter-bali').removeClass('selected');
+                }
+            }); 
+            $('.filter-bandung').on('click',function(){
+                if($(this).hasClass( 'selected' )){
+                    hotelList.filter();
+                    $(this).removeClass('selected');
+                } else {
+                    hotelList.filter(function(item) {
+                    return (item.values().lokasi == "Bandung");
+                    });
+                    $(this).addClass('selected');
+                    $('.filter-tangerang').prop("checked", false);
+                    $('.filter-tangerang').removeClass('selected');
+                    $('.filter-jakarta').prop("checked", false);
+                    $('.filter-jakarta').removeClass('selected');
+                    $('.filter-bali').prop("checked", false);
+                    $('.filter-bali').removeClass('selected');
+                }
+            }); 
+            $('.filter-jakarta').on('click',function(){
+                if($(this).hasClass( 'selected' )){
+                    hotelList.filter();
+                    $(this).removeClass('selected');
+                } else {
+                    hotelList.filter(function(item) {
+                    return (item.values().lokasi == "Jakarta Timur");
+                    });
+                    $(this).addClass('selected');
+                    $('.filter-tangerang').prop("checked", false);
+                    $('.filter-tangerang').removeClass('selected');
+                    $('.filter-bandung').prop("checked", false);
+                    $('.filter-bandung').removeClass('selected');
+                    $('.filter-bali').prop("checked", false);
+                    $('.filter-bali').removeClass('selected');
+                }
+            }); 
+            $('.filter-bali').on('click',function(){
+                if($(this).hasClass( 'selected' )){
+                    hotelList.filter();
+                    $(this).removeClass('selected');
+                } else {
+                    hotelList.filter(function(item) {
+                    return (item.values().lokasi == "Bali");
+                    });
+                    $(this).addClass('selected');
+                    $('.filter-tangerang').prop("checked", false);
+                    $('.filter-tangerang').removeClass('selected');
+                    $('.filter-bandung').prop("checked", false);
+                    $('.filter-bandung').removeClass('selected');
+                    $('.filter-jakarta').prop("checked", false);
+                    $('.filter-jakarta').removeClass('selected');
+                }
+            }); 
         </script>
         <script>
             $(window).scroll(function() {

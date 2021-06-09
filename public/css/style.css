@@ -200,3 +200,18 @@ header {
 .gambar-hotel:hover {
     transform: scale(1.1);
 }
+
+.sort.asc, .sort.desc {
+    color: white;
+    background-color: blue;
+    }
+
+.sort.asc::after {
+    content: "⌃";
+    padding-left: 3px;
+}
+
+.sort.desc::after {
+    content: "⌄";
+    padding-left: 3px
+}
