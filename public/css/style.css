@@ -254,6 +254,17 @@ nav {
     padding-left: 3px
 }
 
+.starPage {
+    display: none;
+}
+
+.pricePage {
+    display: none;
+}
+
+.locationPage {
+    display: none;
+}
 /* About Us */
 
 #main-h1 {
