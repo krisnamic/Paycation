@@ -19,6 +19,10 @@ class CreateHotelTable extends Migration
             $table->string('deskripsiHotel', 1000);
             $table->integer('hargaKamar');
             $table->string('gambarHotel1');
+            $table->string('gambarHotel2')->nullable();
+            $table->string('gambarHotel3')->nullable();
+            $table->string('gambarHotel4')->nullable();
+            $table->string('gambarHotel5')->nullable();
             $table->string('gambarHotel2');
             $table->string('gambarHotel3');
             $table->string('gambarHotel4');

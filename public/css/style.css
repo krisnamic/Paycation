@@ -205,12 +205,12 @@ nav {
     justify-content: left;
 }
 
-.home-logo-desc, .home-logo, .home-desc, .home-desc2 {
+.home-logo-desc, .home-desc, .home-desc2 {
     margin: 1em;
 }
 
 .home-logo {
-    width: 50%;
+    width: 100%;
 }
 
 .shadoww {
@@ -235,13 +235,13 @@ nav {
     display: flex;
 }
 
-.gambar-hotel:hover {
+/* .gambar-hotel:hover {
     transform: scale(1.1);
-}
+} */
 
 .sort.asc, .sort.desc {
     color: white;
-    background-color: blue;
+    background-color: #066bd6;
     }
 
 .sort.asc::after {
@@ -293,7 +293,7 @@ nav {
 
 .card {
     margin: 1em;
-    border-radius: 2%;
+    border-radius: 10px;
 }
 
 .profile-img {
@@ -339,3 +339,28 @@ nav {
 .login-page .card-body, .register-page .card-body {
     border-radius: 100% !important;
 }
+
+@media screen and (min-width: 991px) {
+    
+    .hotelImg2 {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .hotelImg1 {
+        display: none !important;
+    }
+    
+}
+
+@media screen and (max-width: 575px) {
+    .hotelImg1 {
+        display: none !important;
+    }
+    .hotelImg2 {
+        display: inline !important;
+        flex-direction: column;
+    }
+}
+
