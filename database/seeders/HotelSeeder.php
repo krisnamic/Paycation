@@ -89,7 +89,7 @@ class HotelSeeder extends Seeder
             array(
                 'namaHotel' => 'éL Hotel Royale Bandung',
                 'deskripsiHotel' => 'eL Hotel Royale Bandung, located in the heart of Bandung and surrounded by business and entertainment centers, only 100 meters from Jalan Braga which is famous for its heritage shops, culinary and entertainment centers.',
-                'hargaKamar' => 1750000,
+                'hargaKamar' => 2750000,
                 'gambarHotel1' => 'elHotel-1.png',
                 'gambarHotel2' => 'elHotel-2.png',
                 'gambarHotel3' => 'elHotel-3.png',
@@ -174,7 +174,7 @@ class HotelSeeder extends Seeder
             array(
                 'namaHotel' => 'Aston Denpasar Hotel & Convention Center',
                 'deskripsiHotel' => 'Lodging Suitable For Business And Leisure. Enjoy a beautiful hotel in the center of Denpasar. This hotel is a combination with unbeatable service and attention to detail in it to ensure the comfort during your stay. Offers 258 rooms with attractive facilities and has one of the largest function rooms in Bali. Enjoy a delicious meal at the Jempiring Restaurant near the lob',
-                'hargaKamar' => 1500000,
+                'hargaKamar' => 2850000,
                 'gambarHotel1' => 'aston-1.png',
                 'gambarHotel2' => 'aston-2.png',
                 'gambarHotel3' => 'aston-3.png',
