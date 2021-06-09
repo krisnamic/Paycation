@@ -51,13 +51,13 @@
                         <!-- <p id="stokKamar" hidden>{{$h->stokKamar}}</p> -->
                         <input type="hidden" id="availRooms" value="{{$h->stokKamar}}">
 
-                        <p>Price for 1 day : Rp. {{$h->hargaKamar}}</p>
+                        <p>Price per 1 day : Rp. {{$h->hargaKamar}}</p>
                         <p id="price1day" hidden>{{$h->hargaKamar}}</p>
                     </div>
                 </div>
                 <div class="card" style="margin-left: 1em; width: 18rem; height: 10em;">
                     <div class="card-header">
-                        <h3 style="text-shadow: 1px 0 0 black;">Total Harga</h3>
+                        <h3 style="text-shadow: 1px 0 0 black;">Total Price</h3>
                     </div>
                     <div class="card-body">
                         <input type="hidden" id="totalRoomPrice" value="">
