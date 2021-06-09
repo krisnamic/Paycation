@@ -2,12 +2,13 @@
 <html lang="en">
 
 @include('Template/head')
+<title>Paycation | About Us</title>
 
 <body>
     @include('Template/userNavbar')
 
     <div class="text-center">
-        <h1 class="subtext1">Paycation | About Us</h1>
+        <h1 class="subtext1">About Us</h1>
     </div>
 
     <!-- Main Div -->
