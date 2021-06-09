@@ -118,17 +118,23 @@
                                     </div>
                                     <div class="home-desc">
                                         <h5 class="card-title nama">{{$h->namaHotel}}</h5>
-                                        <p class="card-text">Rating :
-                                            @php ($lol = 5)
-                                            @for($i = 0; $i < $h->bintang; $i++)
-                                                <span class="fas fa-star checked"></span>
-                                                @php ($lol -= 1)
-                                                @endfor
-                                                @while($lol > 0)
-                                                <span class="fas fa-star unchecked"></span>
-                                                @php ($lol -= 1)
-                                                @endwhile
-                                        </p><p class="bintang" hidden>{{$h->bintang}}</p>
+                                        <p>Rating :
+                                        @php $rating = $h->bintang; @endphp
+                                        @foreach(range(1,5) as $i)
+                                        <span class="fa-stack" style="width:1em">
+                                            <i class="fas fa-star fa-stack-1x" style="color: #CECECE;"></i>
+                                            @if($rating >0)
+                                            @if($rating >0.5)
+                                            <i class="fas fa-star checked fa-stack-1x"></i>
+                                            @else
+                                            <i class="fas fa-star-half checked fa-stack-1x"></i>
+                                            @endif
+                                            @endif
+                                            @php $rating--; @endphp
+                                        </span>
+                                        @endforeach
+                                        </p>
+                                        <p class="bintang" hidden>{{$h->bintang}}</p>
                                         <p class="card-text py-0 my-0">Price : {{$h->hargaKamar}}</p>
                                     </div>
                                 </div>
@@ -178,7 +184,12 @@
 
             var hotelList = new List('hotel-list', options);
 
+            var star;
+            var location;
+
+
             $('.filter-5star').on('click',function(){
+                star = 5;
                 if($(this).hasClass( 'selected' )){
                     hotelList.filter();
                     $(this).removeClass('selected');
@@ -275,6 +286,7 @@
             }); 
         
             $('.filter-tangerang').on('click',function(){
+                location="Tangerang";
                 if($(this).hasClass( 'selected' )){
                     hotelList.filter();
                     $(this).removeClass('selected');
