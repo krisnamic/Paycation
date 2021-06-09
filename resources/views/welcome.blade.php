@@ -623,7 +623,7 @@
                 
                 if (scroll >= window.innerHeight) { 
                     sticky.addClass('fixed'); 
-                    text.css('margin-top', '14.5rem');
+                    text.css('margin-top', '8.075rem');
                     sticky.css('width', '100%');
                 } else { 
                     sticky.removeClass('fixed');
