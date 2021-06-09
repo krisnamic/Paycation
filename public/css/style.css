@@ -384,3 +384,8 @@ b {
     width: 100%;
     height: auto;
 }
+
+section .svg {
+    width: 1.5em;
+    vertical-align: middle
+  }
