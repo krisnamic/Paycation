@@ -28,7 +28,10 @@
         <div class="menu">
             @include('Template/userNavbar')
         </div>
-        <section class="test container">  
+        
+        <section class="test container">
+        <h2 class="subtext1 text-center" style="margin-bottom: 0.5em;">Book a Hotel!</h2>
+        <p class="text-center">Paycation is a website that gives you a curated list of high-quality hotels for your pleasure.</p>
         <div id="owl-demo" class="owl-carousel owl-theme">
             @foreach($hotel as $h)
                 <div class="item"><img src="{{asset('img/hotel/'.$h->gambarHotel1)}}" style="border-radius: 10px;"/></div>
@@ -620,7 +623,7 @@
                 
                 if (scroll >= window.innerHeight) { 
                     sticky.addClass('fixed'); 
-                    text.css('margin-top', '6.6rem');
+                    text.css('margin-top', '8.075rem');
                     sticky.css('width', '100%');
                 } else { 
                     sticky.removeClass('fixed');

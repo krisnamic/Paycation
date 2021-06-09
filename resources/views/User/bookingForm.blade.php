@@ -25,10 +25,10 @@
                 <div class="card" style="width: 18rem;">
                     <img src="{{asset('img/hotel/'.$h->gambarHotel1)}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">{{$h->namaHotel}}</h5>
+                        <h5 class="card-title" style="text-shadow: 1px 0 0 black;">{{$h->namaHotel}}</h5>
                         <br>
                         <p>{{$h->lokasi}}</p>
-                        <p>Rating :
+                        <p><span style="text-shadow: 1px 0 0 black;">Rating :</span>
                             @php $rating = $h->bintang; @endphp
 
                             @foreach(range(1,5) as $i)
@@ -50,14 +50,17 @@
                         <!-- <p id="stokKamar" hidden>{{$h->stokKamar}}</p> -->
                         <input type="hidden" id="availRooms" value="{{$h->stokKamar}}">
 
-                        <p>Price for 1 day : {{$h->hargaKamar}}</p>
+                        <p>Price for 1 day : Rp. {{$h->hargaKamar}}</p>
                         <p id="price1day" hidden>{{$h->hargaKamar}}</p>
                     </div>
                 </div>
-                <h3>Total Harga</h3>
-                <input type="hidden" id="totalRoomPrice" value="">
-                <p>Rp. </p>
-                <h6 id="totalprice"></h6>
+                <div style="margin-left: 0.5em;">
+                    <h3>Total Harga</h3>
+                    <input type="hidden" id="totalRoomPrice" value="">
+                    <p>Rp. <span id="totalprice"></span> </p>
+                </div>
+                
+                <!-- <h6 id="totalprice"></h6> -->
             </div>
             <div class="col-8">
                 <form action="{{route('booking')}}" method="POST">
@@ -97,6 +100,8 @@
     </div>
     @endforeach
     <!-- end of content -->
+
+    @include('Template/footer')
 
     @include('Template/script')
     <script>
