@@ -27,7 +27,7 @@
 
             <!-- Desc -->
             <div>
-                <i class="aboutus-nim">000000XXXXX</i> <br><br>
+                <i class="aboutus-nim">00000033747</i> <br><br>
                 Full-Stack Developer <br><br>
                 <a href="https://github.com/steven278" target="_blank"><i class="fab fa-github"></i> steven278</a> <br>
                 <a href="https://www.instagram.com/steven_lie9/" target="_blank"><i class="fab fa-instagram"></i> steven_lie9</a> <br>
@@ -102,11 +102,15 @@
 
     @include('Template/script')
     <script>
-        function AnimateRotate(elt, d, duration, ondone){
-            $({deg: 0}).animate({deg: d}, {
+        function AnimateRotate(elt, d, duration, ondone) {
+            $({
+                deg: 0
+            }).animate({
+                deg: d
+            }, {
                 easing: 'linear',
                 duration: duration,
-                step: function(now, fx){
+                step: function(now, fx) {
                     $(elt).css({
                         transform: "rotate(" + now + "deg)"
                     });
@@ -130,9 +134,9 @@
             this.data('rotating', false);
         }
 
-        $("#rotate").hover(function(){
+        $("#rotate").hover(function() {
             $(this).loopingRotation(1000);
-        }, function(){
+        }, function() {
             $(this).stopRotation();
         });
     </script>
