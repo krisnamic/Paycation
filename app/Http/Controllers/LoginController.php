@@ -70,7 +70,7 @@ class LoginController extends Controller
             $request->session()->regenerate(); //membuat session yang baru
             if ($role == 'admin') {
                 Session::put('admin_is_loggedin', 'loggedin');
-                return redirect()->intended('/admin');
+                return redirect()->intended('/hotels');
             } else {
                 Session::put('user_id', $user_id);
                 return redirect('/');
