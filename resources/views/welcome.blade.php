@@ -22,7 +22,7 @@
     <div class="parallax">
         <div id="group2" class="parallax__group">
             <div class="parallax__layer parallax__layer--base">
-                <img src="{{ asset('img/paycation/paycation-2.svg')}}" class="title">
+                <img src="{{ asset('img/paycation/paycation-2-light.svg')}}" class="title">
             </div>
             <div class="parallax__layer parallax__layer--back"></div>
         </div>
