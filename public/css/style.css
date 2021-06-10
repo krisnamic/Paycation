@@ -42,7 +42,7 @@ nav {
     padding: 20px 40px;
     background: white;
     color: #2A2E33;
-    z-index: 4 !important;
+    z-index: 999 !important;
     border-bottom: 1px solid #cecece;
     
     -webkit-transition: all 0.5s ease;
