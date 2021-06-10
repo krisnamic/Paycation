@@ -28,6 +28,18 @@
             </li>
         </ul>
         @auth
+        @if(Session::has('admin_is_loggedin'))
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Admin
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a href="{{ url('/logout') }}" class="dropdown-item" style="color: #069; font-family: arial, sans-serif;">Logout</a>
+                </div>
+            </li>
+        </ul>
+        @else
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active mt-3 ml-2 mr-2">
                 <a href="{{route('viewBookingDetail')}}"><i class="fas fa-address-book" style="font-size: 20px;"></i> Booking History</a>
@@ -53,6 +65,7 @@
                 </div>
             </li>
         </ul>
+        @endif
         @else
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
