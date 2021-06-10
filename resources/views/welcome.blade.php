@@ -27,7 +27,7 @@
                     <div></div>
                     <div></div>
                 </div>
-                <p style="font-size: 3em; color: white;">Loading</p>
+                <p style="font-size: 3em; color: white;">Loading, please wait!</p>
             </div>
     </div>
     <div class="parallax">
