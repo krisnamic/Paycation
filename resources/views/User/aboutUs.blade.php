@@ -48,7 +48,7 @@
 
             <!-- Desc -->
             <div>
-                <i class="aboutus-nim">000000XXXXX</i> <br><br>
+                <i class="aboutus-nim">00000033745</i> <br><br>
                 Full-Stack Developer <br><br>
                 <a href="https://github.com/jryarianto" target="_blank"><i class="fab fa-github"></i> jryarianto</a> <br>
                 <a href="https://www.instagram.com/jryarianto_/" target="_blank"><i class="fab fa-instagram"></i> jryarianto_</a> <br>
@@ -69,7 +69,7 @@
 
             <!-- Desc -->
             <div>
-                <i class="aboutus-nim">000000XXXXX</i> <br><br>
+                <i class="aboutus-nim">00000033738</i> <br><br>
                 Full-Stack Developer <br><br>
                 <a href="https://github.com/krisnamic" target="_blank"><i class="fab fa-github"></i> krisnamic</a> <br>
                 <a href="https://www.instagram.com/krisna_mic/" target="_blank"><i class="fab fa-instagram"></i> krisna_mic</a> <br>
@@ -90,7 +90,7 @@
 
             <!-- Desc -->
             <div>
-                <i class="aboutus-nim">000000XXXXX</i> <br><br>
+                <i class="aboutus-nim">00000034071</i> <br><br>
                 Full-Stack Developer <br><br>
                 <a href="https://github.com/myqpalzm" target="_blank"><i class="fab fa-github"></i> myqpalzm</a> <br>
                 <a href="https://www.instagram.com/myqpalzm147/" target="_blank"><i class="fab fa-instagram"></i> myqpalzm147</a> <br>
