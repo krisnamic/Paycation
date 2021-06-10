@@ -19,6 +19,17 @@
 </head>
 
 <body class="antialiased">
+    <div id="load" style="background-color: #169eda;">
+            <div class="d-flex flex-column justify-content-center align-items-center" style="margin-top: 40vh;">
+                <div class="lds-ring">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <p style="font-size: 3em; color: white;">Loading</p>
+            </div>
+    </div>
     <div class="parallax">
         <div id="group2" class="parallax__group">
             <div class="parallax__layer parallax__layer--base">
@@ -641,6 +652,15 @@
     <script src="{{asset('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{asset('AdminLTE/dist/js/adminlte.min.js')}}"></script>
+    <script>
+        document.onreadystatechange = function () {
+        var state = document.readyState
+        if (state == 'complete') {
+                document.getElementById('interactive');
+                document.getElementById('load').style.visibility="hidden";
+        }
+        }
+    </script>
 </body>
 
 </html>
