@@ -5,6 +5,20 @@
     <meta charset="UTF-8">
     <title>Edit Hotel Form - Laravel 8 Datatable CRUD Tutorial</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        #footer-transition {
+            background-color: #343A40;
+        }
+        #beach {
+            z-index: 998;
+            position: relative;
+        }
+
+        #transition {
+            z-index: 999;
+            position: absolute;
+        }
+    </style>
 </head>
 
 <body>
