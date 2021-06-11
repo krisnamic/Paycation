@@ -1,7 +1,27 @@
 @import "compass/css3";
 
+@font-face {
+    font-family: "Titillium Web";
+    src: url(../font/TitilliumWeb-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'SmithAllison';
+    src: url('../font/SmithAllison.eot'); /* IE9 Compat Modes */
+    src: url('../font/SmithAllison.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../font/SmithAllison.woff') format('woff'), /* Modern Browsers */
+         url('../font/SmithAllison.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../font/SmithAllison.svg#SmithAllison') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+
 * {
     margin: 0;
+    font-family: "Titillium Web", sans-serif;
+    font-size: 16px;
 }
 
 header {
@@ -16,6 +36,24 @@ header {
     -ms-transition: position 10s;
     -o-transition: position 10s;
     transition: all 0.5s ease;
+}
+
+nav {
+    padding: 20px 40px;
+    background: white;
+    color: #2A2E33;
+    z-index: 999 !important;
+    border-bottom: 1px solid #cecece;
+    
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: position 10s;
+    -ms-transition: position 10s;
+    -o-transition: position 10s;
+    transition: all 0.5s ease;
+}
+
+.menu {
+    z-index: 4;
 }
 
 .fixed {
@@ -86,7 +124,7 @@ header {
 }
 
 #group2 .parallax__layer--back {
-    background-image: url('../img/bg.jpg');
+    background-image: url('../img/bg/city.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -161,6 +199,27 @@ header {
     background-color: #343A40;
 }
 
+/* */
+
+.home-logo-desc {
+    justify-content: left;
+}
+
+.home-logo-desc, .home-desc, .home-desc2 {
+    margin: 1em;
+}
+
+.home-logo {
+    width: 100%;
+}
+
+.shadoww {
+    -webkit-filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+    filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+    /* Similar syntax to box-shadow */
+}
+
+/* Footer Transition - Beach */
 #beach {
     z-index: 998;
     position: relative;
@@ -173,4 +232,206 @@ header {
 
 .gambar-hotel {
     border-radius: 10px;
+    display: flex;
+}
+
+/* .gambar-hotel:hover {
+    transform: scale(1.1);
+} */
+
+.sort.asc, .sort.desc {
+    color: white;
+    background-color: #066bd6;
+    }
+
+.sort.asc::after {
+    content: "⌃";
+    padding-left: 3px;
+}
+
+.sort.desc::after {
+    content: "⌄";
+    padding-left: 3px
+}
+
+.starPage {
+    display: none;
+}
+
+.pricePage {
+    display: none;
+}
+
+.locationPage {
+    display: none;
+}
+/* About Us */
+
+#main-h1 {
+    font-family: "SmithAllison", serif;
+    margin-top: 1em;
+}
+
+.subtext1 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-family: "SmithAllison", serif;
+    font-size: 7em;
+    line-height: 0.5;
+    color: #169eda;
+}
+
+#subtext2 {
+    line-height: 0;
+}
+
+.aboutus-main {
+    margin: 2em;
+}
+
+.aboutus-main .card {
+    padding: 2em 0;
+}
+
+.card {
+    margin: 1em;
+    border-radius: 10px;
+}
+
+.profile-img {
+    border-radius: 10%;
+    width: 75%;
+    height: auto;
+}
+
+.aboutus-name {
+    margin-top: 1em;
+    font-size: 1.5em;
+}
+
+b {
+    font-family: "Titillium Web", sans-serif;
+    font-size: 1em;
+}
+
+.aboutus-nim {
+    font-size: 0.8em;
+}
+
+.aboutus-desc li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* End About Us */
+
+.card .register-card-body {
+    margin: auto !important;
+    width: 30em !important;
+}
+
+.bg-img1 {
+    width: 100vw;
+    background: url('../img/bg/city.jpg') center center no-repeat;
+    background-size: cover;
+    
+}
+
+.bg-img2 {
+    width: 100vw;
+    background: url('../img/bg/beach.jpg') center center no-repeat;
+    background-size: cover;
+}
+
+.login-page .card-body, .register-page .card-body {
+    border-radius: 100% !important;
+}
+
+@media screen and (min-width: 991px) {
+    
+    .hotelImg2 {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .hotelImg1 {
+        display: none !important;
+    }
+    
+}
+
+@media screen and (max-width: 575px) {
+    .hotelImg1 {
+        display: none !important;
+    }
+    .hotelImg2 {
+        display: inline !important;
+        flex-direction: column !important;
+    }
+    .detailLogo {
+        width: 100vw !important;
+    }
+}
+
+.owl-carousel .item{
+    margin: 3px;
+}
+
+.owl-carousel .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+section .svg {
+    width: 1.5em;
+    vertical-align: middle
+  }
+
+/* Loading */
+
+  .lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  #load{
+    width:100vw;
+    height:100vh;
+    position:fixed;
+    z-index:9999;
+    background:url("../img/pendukung/loading.svg") no-repeat center center black;
 }

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Log in</title>
+  <title>Paycation | Login</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -22,15 +22,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
-<body class="hold-transition login-page">
+@include('Template/head')
+
+<body class="hold-transition login-page bg-img1">
   <div class="login-box">
     <div class="login-logo">
-      <a href="../../index2.html"><b>Admin</b>LTE</a>
+      <img src="{{asset('img/paycation/paycation-1-light.svg')}}" style="position: relative; width: 65%; height: auto; margin-left: 10%;">
     </div>
     <!-- /.login-logo -->
     <div class="card">
       <div class="card-body login-card-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+        <h4 class="login-box-msg">Login</h4>
 
         <form action="{{route('postlogin')}}" method="post">
           {{csrf_field()}}
@@ -62,12 +64,7 @@
           <p class="errorMsg" style="font-size:12px; color:red;">{{ Session::get('error') }}</p>
           @endif
           <div class="row">
-            <div class="col-8">
-              <div class="icheck-primary">
-
-        
-              </div>
-            </div>
+            
 
              <!-- captcha -->
               <div class="input-group mb-3" style="margin-top: 10px !important;">
@@ -95,15 +92,20 @@
               @if(Session::has('error'))
               <p class="errorMsg" class="font-size:12px; color:red;">{{ Session::get('error') }}</p>
               @endif
-              <div class="col-4">
-                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+              <div class="d-flex justify-content-between" style="margin-top: 1em;">
+
+                <div class="d-flex flex-column mb-0">
+                  <a href="{{route('register')}}" class="text-left" style="vertical-align: middle; line-height: 1.2;">< Create a new account</a>
+                  <a href="/" class="text-left" style="vertical-align: middle;">< Back to main page</a>
+                </div>
+
+                <div class="ml-auto">
+                  <button type="submit" id="login-btn" class="btn btn-primary btn-block">Sign In</button>
+                </div>
+
               </div>
           </div>
         </form>
-
-        <p class="mb-0">
-          <a href="{{route('register')}}" class="text-center">Register a new membership</a>
-        </p>
       </div>
       <!-- /.login-card-body -->
     </div>

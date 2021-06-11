@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HotelController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HotelCRUDController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,13 @@ use App\Http\Controllers\UserController;
 //     return view('welcome');
 // })->name('welcome');
 Route::get('/', [LoginController::class, 'index'])->name('welcome');
+Route::get('/aboutUs', [HomeController::class, 'aboutUs'])->name('aboutUs');
+
+
+//searching
+Route::get('/redirect', [HotelController::class, 'redirect'])->name('back');
+Route::get('/searching', [HotelController::class, 'search'])->name('searching');
+
 Route::get('/refresh-captcha', [LoginController::class, 'refreshCaptcha'])->name('refreshcaptcha');
 
 
@@ -33,10 +42,19 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 // Route::get('/about',[])
 
 Route::group(['middleware' => ['auth', 'checkroles:user']], function () {
-    // Route::get('/myProfile', [UserController::class, 'index'])->name('myProfile');
     Route::resource('user', UserController::class);
+    Route::get('/bookingform/{id}', [HotelController::class, 'bookingform'])->name('bookingform');
+    Route::post('/booking', [HotelController::class, 'booking'])->name('booking');
+    Route::post('/generatePDF', [HotelController::class, 'generatePDF'])->name('generatePDF');
+    Route::post('/generatePDF2', [HotelController::class, 'generatePDF2'])->name('generatePDF2');
+    Route::get('/viewBookingDetail', [HotelController::class, 'viewBookingDetail'])->name('viewBookingDetail');
+    Route::get('/invoice/{id}', [HotelController::class, 'viewDetailInvoice'])->name('detailInvoice');
 });
 
 Route::group(['middleware' => ['auth', 'checkroles:admin']], function () {
-    Route::get('/admin', [HomeController::class, 'index'])->name('index');
+    Route::get('/hotel', [HotelCRUDController::class, 'index'])->name('hotel');
+    Route::resource('hotels', HotelCRUDController::class);
+    Route::post('delete-hotel', [HotelCRUDController::class, 'destroy']);
 });
+
+Route::get('/{id}', [HotelController::class, 'detailHotel'])->name('detailHotel');

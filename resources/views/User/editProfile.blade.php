@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Paycation | Profile Edit</title>
 </head>
 
 <body>
     @include('Template/head')
 
     <!-- navbar -->
-    @include('Template/userNavbar')
+    @include('template/userNavbar')
     <!-- end of navbar -->
     <div class="container">
-        <h1>User Edit Profile Page</h1>
-        <div class="card mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 620px;">
+        <h1>Edit Profile Page</h1>
+        <div class="card mb-3 shadow p-3 mb-5 bg-white rounded" style="max-width: 720px;">
             <div class="row g-0">
                 <div class="col-md-4">
                     <img src="{{asset('img/userProfile/'.$user[0][0]->foto)}}" alt="user_image" width="200px">
@@ -53,7 +53,7 @@
                                 <input type="date" class="form-control" id="exampleInputEmail1" value="{{$user[0][0]->tanggalLahir}}" name="tanggalLahir">
                             </div>
                             <div class="input-group">
-                                <label for="exampleInputEmail1" class="form-label">New Password</label>
+                                <label for="exampleInputEmail1" class="form-label">New Password </label>
                                 <input type="password" class="form-control" id="myPassword" name="newPassword">
                                 <!-- eye -->
                                 <span class="input-group-btn" id="eyeSlash">
